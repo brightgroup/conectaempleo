@@ -1499,7 +1499,6 @@
 .company-manage-job .job-post-info li{
     font-weight: 400;
 }
-/*  Login 2 */
 .login-style2{
 	position: relative;
 	min-height: 100vh;
@@ -2294,6 +2293,7 @@
     box-shadow: 0 0 10px 0 rgba(0,24,128,0.1) !important;
 }
 
+
 .dezPlaceAni .form-group .select-btn{
 	padding: 0;
 	height: 50px;
@@ -2309,3 +2309,4 @@
 	background-color: transparent;
 	color: #2e55fa;
 }
+

@@ -1292,7 +1292,7 @@ dl dd {
     background-color: transparent;
 }
 .bg-primary {
-    background-color: ;
+    background-color: #0097FE;
 }
 .bg-white {
     background-color: #FFF;
@@ -6200,7 +6200,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 .widget-testimonial .testimonial-position{
 	text-transform:uppercase;
 	font-family: "Montserrat",sans-serif;
-	color:#888q;
+	color:#888;
 	font-size:12px;
 	font-style: inherit;
 }
@@ -7294,7 +7294,7 @@ a,
 .site-button-link.yellow:hover,
 .site-button-link.yellow:active,
 .site-button-link.yellow:focus {
-    color: ##d4af19;
+    color: #d4af19;
 }
 /* purple */
 
@@ -9440,7 +9440,7 @@ ul[class*="list-"]{
 .testimonial-10 .testimonial-position{
 	text-transform:uppercase;
 	font-family: "Montserrat",sans-serif;
-	color:#888q;
+	color:#888;
 	font-size:12px;
 	font-style: inherit;
 }
@@ -10015,12 +10015,6 @@ ul[class*="list-"]{
 .overlay-white-middle:after,
 .overlay-white-dark:after {
     background: #FFF;
-}
-.overlay-primary-light:after,
-.overlay-primary-middle:after,
-.overlay-primary-dark:after,
-.overlay-primary:after {
-    background: ;
 }
 .overlay-black-light:after {
     opacity: 0.3;
