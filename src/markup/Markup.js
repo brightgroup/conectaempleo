@@ -37,10 +37,6 @@ import Categoryskilljobs from "./Pages/Categoryskilljobs";
 
 import Portfoliogrid2 from "./Pages/Portfoliogrid2";
 
-//import Loginpage1 from './Pages/Loginpage1';
-//import Loginpage2 from './Pages/Loginpage2';
-//import Loginpage3 from './Pages/Loginpage3';
-
 import Register1 from "./Pages/Register1";
 import Register2 from "./Pages/Register2";
 import Error404 from "./Pages/Error404";
@@ -54,6 +50,7 @@ import Blogdetailgridsidebar from "./Pages/Blogdetailgridsidebar";
 import Blogleftimg from "./Pages/Blogleftimg";
 import Blogdetail from "./Pages/Blogdetail";
 import ScrollToTop from "./Element/ScrollToTop";
+import Login from "./Pages/login/Login";
 
 const Markup = () => {
   return (
@@ -129,9 +126,7 @@ const Markup = () => {
 
           <Route path="/portfolio-grid-2" exact component={Portfoliogrid2} />
 
-          {/* <Route path='/login' exact component={Loginpage2 } />
-					<Route path='/login-2' exact component={Loginpage1} />
-					<Route path='/login-3' exact component={Loginpage3} /> */}
+          <Route path="/login" exact component={Login} />
 
           <Route path="/register" exact component={Register1} />
           <Route path="/register-2" exact component={Register2} />
