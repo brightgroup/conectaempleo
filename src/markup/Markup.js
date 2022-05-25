@@ -51,6 +51,7 @@ import Blogleftimg from "./Pages/Blogleftimg";
 import Blogdetail from "./Pages/Blogdetail";
 import ScrollToTop from "./Element/ScrollToTop";
 import Login from "./Pages/login/Login";
+import ProfileSetting from "./Pages/profile-setting/ProfileSetting";
 
 const Markup = () => {
   return (
@@ -76,6 +77,7 @@ const Markup = () => {
           <Route path="/company-profile" exact component={Companyprofile} />
           <Route path="/company-resume" exact component={Companyresume} />
           <Route path="/company-post-jobs" exact component={Componypostjobs} />
+          <Route path="/post-jobs" exact component={ProfileSetting} />
           <Route path="/company-manage-job" exact component={Companymanage} />
           <Route
             path="/company-transactions"
