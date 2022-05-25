@@ -99,10 +99,11 @@ export const setUser = (user) => ({
 });
 
 export const logIn =
-  ({ email: user, password }) =>
+  ({ email: user, password, rol }) =>
   async (dispatch) => {
     try {
-      const { data } = await client("auth/login", { user, password }, "POST");
+      const url = rol === "employer" ? "company/auth/me" : "auth/me";
+      const { data } = await client(url, { user, password }, "POST");
 
       if (data) {
         localStorage.setItem("token", data);
@@ -122,3 +123,5 @@ export const decryptToken = (token) => async (dispatch) => {
     throw new Error(error);
   }
 };
+
+//code

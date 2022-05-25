@@ -1,13 +1,15 @@
-import Wrapper from ".";
 import React from "react";
+import { Link } from "react-router-dom";
+import Wrapper from ".";
 
 export const ButtonLinkIcon = ({ toggleModal = "" }) => {
   return (
     <Wrapper>
-      <i className="far fa-user-circle text-green" />
-      <span className="text-white font-semibold" onClick={toggleModal}>
-        Iniciar sesión
-      </span>
+      <Link
+        to={""}
+        className="fa fa-facebook  fb-btn mr-1"
+        target="bank"
+      ></Link>
     </Wrapper>
   );
 };

@@ -15,15 +15,6 @@ import './plugins/slick/slick-theme.min.css';
 import Login from './markup/Pages/Loginpage2';
 import SignUp from './markup/Pages/Register2';
 
-//const SignUp = lazy(() => import('./markup/Pages/Register2'));
-//const ForgotPassword = lazy(() => import('./markup/pages/ForgotPassword'));
-/*  const Login = lazy(() => {
-    return new Promise(resolve => {
-    setTimeout(() => resolve(import('./markup/Pages/Loginpage2')), 500);
-  });
-});  */
-
-
 function App (props) {
     const dispatch = useDispatch();
     useEffect(() => {

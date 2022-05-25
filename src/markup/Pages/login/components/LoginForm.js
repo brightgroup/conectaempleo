@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { WrapperForm } from ".";
 
 export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
   return (
-    <form
+    <WrapperForm
       className="d-flex flex-column align-items-center"
       onSubmit={handleSubmit}
     >
-      <h3 className="pt-4 mt-5">Informacion personal</h3>
+      <h3 className="pt-4 mt-4">
+        Información {data.rol === "candidate" ? "Candidato" : "Empleador"}
+      </h3>
       <input
         className="form-control rounded mt-2"
         placeholder="hello@example.com"
@@ -55,12 +58,12 @@ export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
           <li>
             <Link
               to={""}
-              className="fa fa-google-plus  gplus-btn"
+              className="fa fa-google-plus gplus-btn"
               target="bank"
             ></Link>
           </li>
         </ul>
       </div>
-    </form>
+    </WrapperForm>
   );
 };
