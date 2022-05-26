@@ -51,7 +51,7 @@ import Blogleftimg from "./Pages/Blogleftimg";
 import Blogdetail from "./Pages/Blogdetail";
 import ScrollToTop from "./Element/ScrollToTop";
 import Login from "./Pages/login/Login";
-import ProfileSetting from "./Pages/profile-setting/ProfileSetting";
+import ProfileSetting from "./Pages/profile-setting";
 
 const Markup = () => {
   return (

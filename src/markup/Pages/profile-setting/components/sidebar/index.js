@@ -45,6 +45,7 @@ export const WrapperSidebar = styled.div`
   .sidebar-item {
     padding: 8px 16px;
     width: 100%;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba(0, 151, 254, 0.1);

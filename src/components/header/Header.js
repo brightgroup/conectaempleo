@@ -7,8 +7,6 @@ import logo2 from "../../images/logo.png";
 export const Header = () => {
   const { auth } = useSelector((state) => state);
 
-  console.log(auth);
-
   return (
     <Wrapper>
       <div className="logo-header mostion">

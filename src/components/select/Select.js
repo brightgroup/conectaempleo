@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { lowerCase } from "lodash";
 import { Wrapper, WITHOUT_RESULTS } from ".";
 
 export const SearchInput = ({
@@ -8,6 +7,7 @@ export const SearchInput = ({
   name = "",
   label = "",
   setData = "",
+  disabled = false,
 }) => {
   const [list, setList] = useState(false);
   const [searchValue, setSearchValue] = useState(message);
@@ -18,22 +18,28 @@ export const SearchInput = ({
   const handleChangeOption = (option) => {
     const value = option;
 
-    setSearchValue(value);
-    setList(!list);
-    setData((data) => ({ ...data, [name]: value }));
+    if (!disabled) {
+      setSearchValue(value);
+      setList(!list);
+      setData((data) => ({ ...data, [name]: value }));
+    }
   };
 
   const toggleOptions = () => {
-    setList(!list);
+    if (!disabled) {
+      setList(!list);
+    }
   };
 
   const handleChangeSearch = ({ target }) => {
-    setList(true);
-    setSearchValue(target.value);
-    const options = optionList?.filter((option) =>
-      option.toLowerCase().includes(target.value.toLowerCase())
-    );
-    setOptions(options?.length ? options : WITHOUT_RESULTS);
+    if (!disabled) {
+      setList(true);
+      setSearchValue(target.value);
+      const options = optionList?.filter((option) =>
+        option?.toLowerCase().includes(target.value.toLowerCase())
+      );
+      setOptions(options?.length ? options : WITHOUT_RESULTS);
+    }
   };
 
   const onClickInput = () => {
@@ -41,21 +47,23 @@ export const SearchInput = ({
     setSearchValue("");
   };
 
+  console.log(optionList);
+
   return (
-    <Wrapper>
+    <Wrapper disabled={disabled}>
       <label className="text-dark">{label}</label>
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={() => setList(!list)}>
           <span>
-            <i className="fa-solid fa-down icon--styles" />
+            <i className="fa-solid fa-angle-down icon--styles" />
           </span>
-          <i class="fa-solid fa-left-long"></i>
         </div>
         <input
           type="text"
           onClick={onClickInput}
           value={searchValue}
           onChange={handleChangeSearch}
+          disabled={disabled}
           className={`select__search-input ${
             searchValue === message ? "input-without-value" : ""
           }`}
@@ -66,9 +74,9 @@ export const SearchInput = ({
               <div
                 className="option flex items-center gap-1"
                 key={index}
-                onClick={() => handleChangeOption(option)}
+                onClick={() => handleChangeOption(option.value || option)}
               >
-                {option}
+                {option.value || option}
               </div>
             ))}
           </div>
