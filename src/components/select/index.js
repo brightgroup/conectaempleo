@@ -28,6 +28,8 @@ export const Wrapper = styled.div`
     position: relative;
     background-color: white;
     box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
+    background-color: ${({ disabled }) =>
+      disabled ? "rgb(214, 205, 205)" : "transparent"};
 
     &__option {
       cursor: pointer;
@@ -41,7 +43,8 @@ export const Wrapper = styled.div`
       left: 10px;
       width: 95%;
       border: none;
-      background-color: transparent;
+      background-color: ${({ disabled }) =>
+        disabled ? "rgb(214, 205, 205)" : "transparent"};
       outline: none;
     }
 
@@ -53,6 +56,7 @@ export const Wrapper = styled.div`
   .options {
     position: absolute;
     background-color: white;
+    top: 23px;
     width: 100%;
     max-height: 10em;
     padding: 15px 0;

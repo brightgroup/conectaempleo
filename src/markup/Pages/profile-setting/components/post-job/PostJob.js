@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputLabel } from "src/components/input";
 import { SearchInput } from "src/components/select";
+import { getDepartments } from "../../../../../store/actions/UtilsAction";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   FUNCTIONAL_AREA,
   SALARY_PERIOD,
@@ -28,10 +31,27 @@ const initialState = {
 };
 
 export const PostJob = () => {
-  const [jobDescription, setJobDescription] = useState(initialState);
+  const { departments } = useSelector((state) => state.utils);
+  const dispatch = useDispatch();
+
+  const [job, setJob] = useState(initialState);
+  const [cities, setCities] = useState([]);
 
   const handleChangeData = ({ target }) =>
-    setJobDescription({ ...jobDescription, [target.name]: target.value });
+    setJob({ ...job, [target.name]: target.value });
+
+  useEffect(() => getCities(), [job.department]);
+
+  useEffect(() => {
+    dispatch(getDepartments());
+  }, []);
+
+  const getCities = () => {
+    const currentDepartment = departments?.find(
+      (department) => department.value === job.department
+    );
+    setCities(currentDepartment?.cities || []);
+  };
 
   return (
     <WrapperPostJob>
@@ -43,14 +63,14 @@ export const PostJob = () => {
           placeholder="Nombre"
           name="name"
           onChange={handleChangeData}
-          value={jobDescription.name}
+          value={job.name}
         />
         <InputLabel
           label="Descripción"
           placeholder="Competencias"
           name="description"
           onChange={handleChangeData}
-          value={jobDescription.description}
+          value={job.description}
         />
       </div>
       <div className="container--grid">
@@ -59,14 +79,14 @@ export const PostJob = () => {
           placeholder="skills"
           name="skills"
           onChange={handleChangeData}
-          value={jobDescription.skills}
+          value={job.skills}
         />
         <InputLabel
           label="Beneficios"
           placeholder="Bonificación"
           name="benefist"
           onChange={handleChangeData}
-          value={jobDescription.benefist}
+          value={job.benefist}
         />
       </div>
       <div className="container--grid mt-2">
@@ -74,31 +94,32 @@ export const PostJob = () => {
           options={SALARY_PERIOD}
           message="seleccione Periodo salarial"
           label="Periodo salarial"
-          setData={setJobDescription}
+          setData={setJob}
           name="salaryPeriod"
         />
         <SearchInput
           options={COIN}
           message="Seleccionar"
           label="Moneda"
-          setData={setJobDescription}
+          setData={setJob}
           name="coin"
         />
       </div>
       <div className="container--grid mt-2">
         <SearchInput
-          options={SALARY_PERIOD}
+          options={departments}
           message="Seleccione..."
           label="Departamento"
-          setData={setJobDescription}
+          setData={setJob}
           name="department"
         />
         <SearchInput
-          options={SALARY_PERIOD}
+          options={cities}
           message="Seleccione..."
           label="Ciudad"
-          setData={setJobDescription}
+          setData={setJob}
           name="city"
+          disabled={job.department ? false : true}
         />
       </div>
       <div className="container--grid mt-2">
@@ -108,7 +129,7 @@ export const PostJob = () => {
           type="number"
           name="remunerationMin"
           onChange={handleChangeData}
-          value={jobDescription.remunerationMin}
+          value={job.remunerationMin}
         />
         <InputLabel
           label="Remuneración maxima"
@@ -116,7 +137,7 @@ export const PostJob = () => {
           type="number"
           name="remunerationMax"
           onChange={handleChangeData}
-          value={jobDescription.remunerationMax}
+          value={job.remunerationMax}
         />
       </div>
       <div className="container--grid mt-2">
@@ -124,14 +145,14 @@ export const PostJob = () => {
           options={FUNCTIONAL_AREA}
           message="seleccione area funcional"
           label="Formacion"
-          setData={setJobDescription}
+          setData={setJob}
           name="training"
         />
         <SearchInput
           options={CONTRACT_TYPE}
           message="Seleccionar"
           label="Tipo de contrato"
-          setData={setJobDescription}
+          setData={setJob}
           name="typeContract"
         />
       </div>
@@ -142,13 +163,13 @@ export const PostJob = () => {
           type="number"
           name="vacancies"
           onChange={handleChangeData}
-          value={jobDescription.vacancies}
+          value={job.vacancies}
         />
         <SearchInput
           options={EXPERIENCE_WORK}
           message="Seleccionar"
           label="Experiencia laboral"
-          setData={setJobDescription}
+          setData={setJob}
           name="experience"
         />
       </div>
