@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
     height: 10px;
     right: 10px;
     top: 14px;
-    border: 1px solid gray;
   }
 
   .disabled-select {
@@ -29,7 +28,8 @@ export const Wrapper = styled.div`
     background-color: white;
     box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
     background-color: ${({ disabled }) =>
-      disabled ? "rgb(214, 205, 205)" : "transparent"};
+      disabled ? "#e6e6e6" : "transparent"};
+    cursor: pointer;
 
     &__option {
       cursor: pointer;
@@ -44,8 +44,9 @@ export const Wrapper = styled.div`
       width: 95%;
       border: none;
       background-color: ${({ disabled }) =>
-        disabled ? "rgb(214, 205, 205)" : "transparent"};
+        disabled ? "#e6e6e6" : "transparent"};
       outline: none;
+      cursor: pointer;
     }
 
     .input-without-value {

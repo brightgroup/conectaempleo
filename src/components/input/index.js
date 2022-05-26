@@ -9,6 +9,7 @@ export const WrapperInputLabel = styled.div`
     border: none;
     outline: none;
     padding: 8px 15px;
+    cursor:pointer;
     box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
   }
 `;

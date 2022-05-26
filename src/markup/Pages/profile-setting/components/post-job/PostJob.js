@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { InputLabel } from "src/components/input";
 import { SearchInput } from "src/components/select";
 import { getDepartments } from "../../../../../store/actions/UtilsAction";
-import { useDispatch, useSelector } from "react-redux";
 
 import {
   FUNCTIONAL_AREA,

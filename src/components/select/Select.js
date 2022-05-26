@@ -36,7 +36,7 @@ export const SearchInput = ({
       setList(true);
       setSearchValue(target.value);
       const options = optionList?.filter((option) =>
-        option.toLowerCase().includes(target.value.toLowerCase())
+        option?.toLowerCase().includes(target.value.toLowerCase())
       );
       setOptions(options?.length ? options : WITHOUT_RESULTS);
     }
@@ -47,13 +47,15 @@ export const SearchInput = ({
     setSearchValue("");
   };
 
+  console.log(optionList);
+
   return (
     <Wrapper disabled={disabled}>
       <label className="text-dark">{label}</label>
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={() => setList(!list)}>
           <span>
-            <i className="fa-solid fa-down icon--styles" />
+            <i className="fa-solid fa-angle-down icon--styles" />
           </span>
         </div>
         <input
