@@ -1,7 +1,7 @@
 import axios from "axios";
 import { formatDepartments } from "utils/options";
 import { client } from "utils/axios";
-import { urls } from "src/api/ulrs";
+import { urls } from "api/ulrs";
 import {
   SET_DEPARTMENTS,
   SET_ERROR,
