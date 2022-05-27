@@ -7,7 +7,7 @@ import Jobcategories from "./../Element/Jobcategories";
 import Featureblog from "./../Element/Featureblog";
 import Jobsection from "./../Element/Jobsection";
 import Owltestimonial from "./../Element/Owlblog1";
-import { Header } from "src/components/header";
+import { Header } from "components/header";
 
 //Images
 var bnr2 = require("./../../images/background/bg4.jpg");

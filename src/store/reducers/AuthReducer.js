@@ -6,7 +6,7 @@ import {
   SIGNUP_CONFIRMED_ACTION,
   SIGNUP_FAILED_ACTION,
 } from "../actions/AuthActions";
-import { SET_USER } from "../actions/authTypes";
+import { SET_USER } from "../actions/AuthTypes";
 
 const initialState = {
   auth: {

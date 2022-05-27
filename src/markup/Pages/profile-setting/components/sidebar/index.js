@@ -1,42 +1,75 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const sidebarItems = [
   {
-    text: "Perfil compañia",
-    icon: "fa fa-user-o",
-    section: "company-profile",
+    text: 'Perfil compañia',
+    icon: 'fa fa-user-o',
+    section: 'companyProfile',
   },
   {
-    text: "Publicar tabajo",
-    icon: "fa fa-file-text-o",
-    section: "post_job",
+    text: 'Publicar tabajo',
+    icon: 'fa fa-file-text-o',
+    section: 'postJob',
   },
   {
-    text: "Tansacciones",
-    icon: "fa fa-random",
-    section: "transactions",
+    text: 'Tansacciones',
+    icon: 'fa fa-random',
+    section: 'transactions',
   },
   {
-    text: "Gestionar trabajos",
-    icon: "fa fa-briefcase",
-    section: "manage-job",
+    text: 'Gestionar trabajos',
+    icon: 'fa fa-briefcase',
+    section: 'manage-job',
   },
   {
-    text: "Resumen",
-    icon: "fa fa-id-card-o",
-    section: "resume",
+    text: 'Resumen',
+    icon: 'fa fa-id-card-o',
+    section: 'resume',
   },
   {
-    text: "Cambiar contraseña",
-    icon: "fa fa-key",
-    section: "change-pasword",
+    text: 'Cambiar contraseña',
+    icon: 'fa fa-key',
+    section: 'change-pasword',
   },
   {
-    text: "Cerrar sesion",
-    icon: "fa fa-sign-out",
-    section: "log-out ",
+    text: 'Cerrar sesion',
+    icon: 'fa fa-sign-out',
+    section: 'log-out ',
   },
-];
+]
+
+export const sidebarItems2 = [
+  {
+    text: 'Perfil compañia',
+    icon: 'fa fa-user-o',
+    section: 'companyProfile',
+  },
+  {
+    text: 'Tansacciones',
+    icon: 'fa fa-random',
+    section: 'transactions',
+  },
+  {
+    text: 'Gestionar trabajos',
+    icon: 'fa fa-briefcase',
+    section: 'manage-job',
+  },
+  {
+    text: 'Resumen',
+    icon: 'fa fa-id-card-o',
+    section: 'resume',
+  },
+  {
+    text: 'Cambiar contraseña',
+    icon: 'fa fa-key',
+    section: 'change-pasword',
+  },
+  {
+    text: 'Cerrar sesion',
+    icon: 'fa fa-sign-out',
+    section: 'log-out ',
+  },
+]
 
 export const WrapperSidebar = styled.div`
   flex-basis: 18rem;
@@ -63,4 +96,4 @@ export const WrapperSidebar = styled.div`
     margin: 0 auto;
     box-shadow: 3px 3px 3px gray;
   }
-`;
+`

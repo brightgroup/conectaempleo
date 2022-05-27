@@ -1,57 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { InputLabel } from "src/components/input";
-import { SearchInput } from "src/components/select";
-import { getDepartments } from "../../../../../store/actions/UtilsAction";
-
-import {
-  FUNCTIONAL_AREA,
-  SALARY_PERIOD,
-  CONTRACT_TYPE,
-  WrapperPostJob,
-  EXPERIENCE_WORK,
-  COIN,
-} from ".";
-
-const initialState = {
-  name: "",
-  description: "",
-  skills: "",
-  benefist: "",
-  salaryPeriod: "",
-  coin: "",
-  experience: "",
-  department: "",
-  city: "",
-  remunerationMin: "",
-  remunerationMax: "",
-  training: "",
-  typeContract: "",
-  vacancies: "",
-};
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { InputLabel } from 'components/input'
+import { SearchInput } from 'components/select'
+import { getDepartments } from 'store/actions/UtilsAction'
+import { FUNCTIONAL_AREA, SALARY_PERIOD, CONTRACT_TYPE, WrapperPostJob, EXPERIENCE_WORK, COIN, initialState } from '.'
 
 export const PostJob = () => {
-  const { departments } = useSelector((state) => state.utils);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const [job, setJob] = useState(initialState);
-  const [cities, setCities] = useState([]);
+  const {
+    utils: { departments },
+  } = useSelector(state => state)
 
-  const handleChangeData = ({ target }) =>
-    setJob({ ...job, [target.name]: target.value });
+  const [job, setJob] = useState(initialState)
+  const [cities, setCities] = useState([])
 
-  useEffect(() => getCities(), [job.department]);
+  const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 
   useEffect(() => {
-    dispatch(getDepartments());
-  }, []);
+    getCities()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [job.department])
+
+  useEffect(() => dispatch(getDepartments()), [dispatch])
 
   const getCities = () => {
-    const currentDepartment = departments?.find(
-      (department) => department.value === job.department
-    );
-    setCities(currentDepartment?.cities || []);
-  };
+    const currentDepartment = departments?.find(department => department.value === job.department)
+    setCities(currentDepartment?.cities || [])
+  }
 
   return (
     <WrapperPostJob>
@@ -97,13 +73,7 @@ export const PostJob = () => {
           setData={setJob}
           name="salaryPeriod"
         />
-        <SearchInput
-          options={COIN}
-          message="Seleccionar"
-          label="Moneda"
-          setData={setJob}
-          name="coin"
-        />
+        <SearchInput options={COIN} message="Seleccionar" label="Moneda" setData={setJob} name="coin" />
       </div>
       <div className="container--grid mt-2">
         <SearchInput
@@ -174,5 +144,5 @@ export const PostJob = () => {
         />
       </div>
     </WrapperPostJob>
-  );
-};
+  )
+}
