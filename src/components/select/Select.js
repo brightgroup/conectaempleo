@@ -47,8 +47,6 @@ export const SearchInput = ({
     setSearchValue("");
   };
 
-  console.log(optionList);
-
   return (
     <Wrapper disabled={disabled}>
       <label className="text-dark">{label}</label>
