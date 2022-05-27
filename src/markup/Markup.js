@@ -73,11 +73,10 @@ const Markup = () => {
             exact
             component={Changepasswordpage}
           />
-
           <Route path="/company-profile" exact component={Companyprofile} />
           <Route path="/company-resume" exact component={Companyresume} />
           <Route path="/company-post-jobs" exact component={Componypostjobs} />
-          <Route path="/post-jobs" exact component={ProfileSetting} />
+          <Route path="/post-job" exact component={ProfileSetting} />
           <Route path="/company-manage-job" exact component={Companymanage} />
           <Route
             path="/company-transactions"

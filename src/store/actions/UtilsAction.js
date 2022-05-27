@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SET_DEPARTMENTS, SET_ERROR } from "./UtilTypes";
-import { formatDepartments } from "../../utils/options";
-import { urls } from "src/api/ulrs";
+import { formatDepartments } from "utils/options";
+import { urls } from "api/ulrs";
 
 const setDepartments = (data) => ({
   type: SET_DEPARTMENTS,
