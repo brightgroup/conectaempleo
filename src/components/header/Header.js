@@ -46,7 +46,7 @@ export const Header = () => {
           </li>
           {user?.rol === EMPLOYER && (
             <li>
-              <NavLink to="/post-job" className="li_item text-dark" activeClassName="active">
+              <NavLink to="/ajustes-usuario" className="li_item text-dark" activeClassName="active">
                 Publicar empleo
               </NavLink>
             </li>
