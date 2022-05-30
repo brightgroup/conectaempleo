@@ -134,4 +134,9 @@ export const decryptToken =
     }
   }
 
-//code
+export const logOut = () => async dispatch => {
+  try {
+    localStorage.clear()
+    dispatch(setUser({}))
+  } catch (error) {}
+}

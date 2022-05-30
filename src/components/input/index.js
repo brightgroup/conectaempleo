@@ -1,15 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export * from "./Input";
+export * from './Input'
 
-export const WrapperInputLabel = styled.div`
+export const InputWrapper = styled.div`
   width: 100%;
-  
-  .input--style {
+
+  .input {
     border: none;
     outline: none;
-    padding: 8px 15px;
-    cursor:pointer;
-    box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
+    padding: 0 15px;
+    height: 50px;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%) !important;
+    border-radius: 0.25rem;
   }
-`;
+`

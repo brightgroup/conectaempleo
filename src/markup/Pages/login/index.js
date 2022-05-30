@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
+export { default } from './Login'
 
 export const initialState = {
-  email: "",
-  password: "",
-  rol: "",
-};
+  email: '',
+  password: '',
+  rol: '',
+}
 
 export const Wrapper = styled.div`
   display: flex;
@@ -38,4 +39,4 @@ export const Wrapper = styled.div`
   .container--image {
     flex-grow: 1;
   }
-`;
+`

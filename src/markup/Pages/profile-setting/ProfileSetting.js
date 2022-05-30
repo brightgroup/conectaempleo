@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Header } from 'components/header'
-import { PostJob, Sidebar, Default } from './components'
+import { SidebarMenu } from 'components/sidebar-menu'
+import { PostJob, Default } from './components'
 import { WrapperProfileSettings } from '.'
 
 const ProfileSetting = () => {
@@ -14,12 +14,9 @@ const ProfileSetting = () => {
   }
 
   return (
-    <WrapperProfileSettings>
-      <Header />
-      <div className="d-flex flex-column flex-md-row">
-        <Sidebar setSection={setSection} section={section} rol={user?.rol} />
-        <div className="profile-settings__content">{component[section]}</div>
-      </div>
+    <WrapperProfileSettings className="d-flex flex-column flex-md-row">
+      <SidebarMenu setSection={setSection} section={section} rol={user?.rol} />
+      <div className="profile-settings__content">{component[section]}</div>
     </WrapperProfileSettings>
   )
 }

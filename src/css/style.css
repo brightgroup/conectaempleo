@@ -11172,7 +11172,13 @@ footer.footer-white .footer-bottom a {
 
 .page-wraper {
     background: #F8F8F8;
+    height: 100vh;
 }
+
+.pages-container{
+   flex: 1;
+}
+
 .page-content {
     margin-top: 0;
     padding-bottom: 50px;

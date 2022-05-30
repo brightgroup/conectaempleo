@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export { default } from "./ProfileSetting.js";
+export { default } from './ProfileSetting.js'
 
 export const WrapperProfileSettings = styled.div`
   height: 100%;
@@ -13,4 +13,4 @@ export const WrapperProfileSettings = styled.div`
     background-color: white;
     box-shadow: 3px 3px 5px #e5e2e1, -3px -3px 5px #e5e2e1;
   }
-`;
+`
