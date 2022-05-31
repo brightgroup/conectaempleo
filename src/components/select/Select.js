@@ -1,51 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { Wrapper, WITHOUT_RESULTS } from ".";
+import React, { useEffect, useState } from 'react'
+import { Wrapper, WITHOUT_RESULTS } from '.'
 
-export const SearchInput = ({
+export const SearchSelect = ({
   options: optionList = [],
-  message = "",
-  name = "",
-  label = "",
-  setData = "",
+  message = '',
+  name = '',
+  label = '',
+  setData = '',
   disabled = false,
 }) => {
-  const [list, setList] = useState(false);
-  const [searchValue, setSearchValue] = useState(message);
-  const [options, setOptions] = useState([]);
+  const [list, setList] = useState(false)
+  const [searchValue, setSearchValue] = useState(message)
+  const [options, setOptions] = useState([])
 
-  useEffect(() => setOptions(optionList), [optionList]);
+  useEffect(() => setOptions(optionList), [optionList])
 
-  const handleChangeOption = (option) => {
-    const value = option;
+  const handleChangeOption = option => {
+    const value = option
 
     if (!disabled) {
-      setSearchValue(value);
-      setList(!list);
-      setData((data) => ({ ...data, [name]: value }));
+      setSearchValue(value)
+      setList(!list)
+      setData(data => ({ ...data, [name]: value }))
     }
-  };
+  }
 
   const toggleOptions = () => {
     if (!disabled) {
-      setList(!list);
+      setList(!list)
     }
-  };
+  }
 
   const handleChangeSearch = ({ target }) => {
     if (!disabled) {
-      setList(true);
-      setSearchValue(target.value);
-      const options = optionList?.filter((option) =>
-        option?.toLowerCase().includes(target.value.toLowerCase())
-      );
-      setOptions(options?.length ? options : WITHOUT_RESULTS);
+      setList(true)
+      setSearchValue(target.value)
+      const options = optionList?.filter(option => option?.toLowerCase().includes(target.value.toLowerCase()))
+      setOptions(options?.length ? options : WITHOUT_RESULTS)
     }
-  };
+  }
 
   const onClickInput = () => {
-    setList(!list);
-    setSearchValue("");
-  };
+    setList(!list)
+    setSearchValue('')
+  }
 
   return (
     <Wrapper disabled={disabled}>
@@ -62,9 +60,7 @@ export const SearchInput = ({
           value={searchValue}
           onChange={handleChangeSearch}
           disabled={disabled}
-          className={`select__search-input ${
-            searchValue === message ? "input-without-value" : ""
-          }`}
+          className={`select__search-input ${searchValue === message ? 'input-without-value' : ''}`}
         />
         {!!(options?.length && list) && (
           <div className="options select-search" id={name}>
@@ -81,5 +77,5 @@ export const SearchInput = ({
         )}
       </div>
     </Wrapper>
-  );
-};
+  )
+}

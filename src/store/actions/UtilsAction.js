@@ -1,7 +1,7 @@
-import axios from "axios";
-import { formatDepartments } from "utils/options";
-import { client } from "utils/axios";
-import { urls } from "api/ulrs";
+import axios from 'axios'
+import { formatDepartments } from 'utils/options'
+import { client } from 'utils/axios'
+import { urls } from 'api/ulrs'
 import {
   SET_DEPARTMENTS,
   SET_ERROR,
@@ -15,163 +15,163 @@ import {
   SET_JOB_EXPERIENCES,
   SET_DEGREE_LEVEL,
   SET_SALARY_PERIODS,
-} from "./UtilTypes";
+} from './UtilTypes'
 
-const setDepartments = (data) => ({
+const setDepartments = data => ({
   type: SET_DEPARTMENTS,
   payload: data,
-});
+})
 
-const setSkills = (data) => ({
+const setSkills = data => ({
   type: SET_SKILLS,
   payload: data,
-});
+})
 
-const setCountries = (data) => ({
+const setCountries = data => ({
   type: SET_COUNTRIES,
   payload: data,
-});
+})
 
-const setCurrencies = (data) => ({
+const setCurrencies = data => ({
   type: SET_CURRENCIES,
   payload: data,
-});
+})
 
-const setCareerLevels = (data) => ({
+const setCareerLevels = data => ({
   type: SET_CAREER_LEVELS,
   payload: data,
-});
+})
 
-const setJobType = (data) => ({
+const setJobType = data => ({
   type: SET_JOB_TYPE,
   payload: data,
-});
+})
 
-const setJobShifts = (data) => ({
+const setJobShifts = data => ({
   type: SET_JOB_SHIFTS,
   payload: data,
-});
+})
 
-const setGenders = (data) => ({
+const setGenders = data => ({
   type: SET_GENDERS,
   payload: data,
-});
+})
 
-const setJobExperiences = (data) => ({
+const setJobExperiences = data => ({
   type: SET_JOB_EXPERIENCES,
   payload: data,
-});
+})
 
-const setDegreeLevel = (data) => ({
+const setDegreeLevel = data => ({
   type: SET_DEGREE_LEVEL,
   payload: data,
-});
+})
 
-const setSalaryPeriods = (data) => ({
+const setSalaryPeriods = data => ({
   type: SET_SALARY_PERIODS,
   payload: data,
-});
+})
 
-const setError = (error) => ({
+const setError = error => ({
   type: SET_ERROR,
   payload: error,
-});
+})
 
-export const getDepartments = () => async (dispatch) => {
+export const getDepartments = () => async dispatch => {
   try {
-    const { data } = await axios(urls.getDepartments);
-    dispatch(setDepartments(formatDepartments(data)));
+    const { data } = await axios(urls.getDepartments)
+    dispatch(setDepartments(formatDepartments(data)))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getSkills = () => async (dispatch) => {
+export const getSkills = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getSkills);
-    dispatch(setSkills(data));
+    const { data } = await client(urls.utils.getSkills)
+    dispatch(setSkills(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getCountries = () => async (dispatch) => {
+export const getCountries = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getCountries);
-    dispatch(setCountries(data));
+    const { data } = await client(urls.utils.getCountries)
+    dispatch(setCountries(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getCurrencies = () => async (dispatch) => {
+export const getCurrencies = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getCurrencies);
-    dispatch(setCurrencies(data));
+    const { data } = await client(urls.utils.getCurrencies)
+    dispatch(setCurrencies(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getCareerLevels = () => async (dispatch) => {
+export const getCareerLevels = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getCareerLevels);
-    dispatch(setCareerLevels(data));
+    const { data } = await client(urls.utils.getCareerLevels)
+    dispatch(setCareerLevels(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getJobType = () => async (dispatch) => {
+export const getJobType = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getJobType);
-    dispatch(setJobType(data));
+    const { data } = await client(urls.utils.getJobType)
+    dispatch(setJobType(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getJobShifts = () => async (dispatch) => {
+export const getJobShifts = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getJobShifts);
-    dispatch(setJobShifts(data));
+    const { data } = await client(urls.utils.getJobShifts)
+    dispatch(setJobShifts(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getGenders = () => async (dispatch) => {
+export const getGenders = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getGenders);
-    dispatch(setGenders(data));
+    const { data } = await client(urls.utils.getGenders)
+    dispatch(setGenders(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getJobExperiences = () => async (dispatch) => {
+export const getJobExperiences = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getJobExperiences);
-    dispatch(setJobExperiences(data));
+    const { data } = await client(urls.utils.getJobExperiences)
+    dispatch(setJobExperiences(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getDegreeLevel = () => async (dispatch) => {
+export const getDegreeLevel = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getDegreeLevel);
-    dispatch(setDegreeLevel(data));
+    const { data } = await client(urls.utils.getDegreeLevel)
+    dispatch(setDegreeLevel(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}
 
-export const getSalaryPeriods = () => async (dispatch) => {
+export const getSalaryPeriods = () => async dispatch => {
   try {
-    const { data } = await client(urls.utils.getSalaryPeriods);
-    dispatch(setSalaryPeriods(data));
+    const { data } = await client(urls.utils.getSalaryPeriods)
+    dispatch(setSalaryPeriods(data))
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setError(error))
   }
-};
+}

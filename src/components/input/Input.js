@@ -1,25 +1,11 @@
-import React from "react";
-import { WrapperInputLabel } from ".";
+import React from 'react'
+import { InputWrapper } from '.'
 
-export const InputLabel = ({
-  label = "",
-  type = "text",
-  required = "",
-  placeholder = "",
-  ...props
-}) => {
+export const Input = ({ label = '', type = 'text', required = '', placeholder = '', ...props }) => {
   return (
-    <WrapperInputLabel>
-      <div className="d-flex flex-column">
-        <label className="text-dark">{label}</label>
-        <input
-          className="input--style"
-          type={type}
-          required={required}
-          placeholder={placeholder}
-          {...props}
-        />
-      </div>
-    </WrapperInputLabel>
-  );
-};
+    <InputWrapper className="d-flex flex-column">
+      <label className="text-dark">{label}</label>
+      <input className="input" type={type} required={required} placeholder={placeholder} {...props} />
+    </InputWrapper>
+  )
+}

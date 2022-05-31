@@ -20,33 +20,33 @@ export const Header = () => {
       <nav className="d-flex align-items-end">
         <ul className="ul__list d-flex ">
           <li className="">
-            <NavLink to={'/'} className="li_item text-dark" activeClassName="active">
+            <NavLink to={'/'} className="li_item text-dark">
               Inicio
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark" activeClassName="active">
+            <NavLink to={'/'} className="li_item text-dark">
               Publicaciones
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark" activeClassName="active">
+            <NavLink to={'/'} className="li_item text-dark">
               Trabajos
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark" activeClassName="active">
+            <NavLink to={'/'} className="li_item text-dark">
               Empresas
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark" activeClassName="active">
+            <NavLink to={'/'} className="li_item text-dark">
               Empresas
             </NavLink>
           </li>
           {user?.rol === EMPLOYER && (
             <li>
-              <NavLink to="/ajustes-usuario" className="li_item text-dark" activeClassName="active">
+              <NavLink to="/publicar-empleo" className="li_item text-dark">
                 Publicar empleo
               </NavLink>
             </li>
@@ -56,12 +56,12 @@ export const Header = () => {
       <div className="d-flex align-items-center">
         <nav className="d-flex ">
           {user?.first_name}
-          <Link to={'/login'} className="button" activeClassName="active">
+          <Link to={'/login'} className="button">
             <i className="fa fa-user px-2"></i>
             Iniciar sesion
           </Link>
 
-          <Link to={'/register'} className="button" activeClassName="active">
+          <Link to={'/register'} className="button">
             Registrarte
           </Link>
         </nav>

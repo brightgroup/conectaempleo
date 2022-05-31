@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { InputLabel } from 'components/input'
-import { SearchInput } from 'components/select'
+import { Input } from 'components/input'
+import { SearchSelect } from 'components/select'
 import { getDepartments } from 'store/actions/UtilsAction'
 import { FUNCTIONAL_AREA, SALARY_PERIOD, CONTRACT_TYPE, WrapperPostJob, EXPERIENCE_WORK, COIN, initialState } from '.'
 
@@ -34,14 +34,8 @@ export const PostJob = () => {
       <h3>Publica un trabajo</h3>
       <hr />
       <div className="container--grid">
-        <InputLabel
-          label="Nombre del cargo"
-          placeholder="Nombre"
-          name="name"
-          onChange={handleChangeData}
-          value={job.name}
-        />
-        <InputLabel
+        <Input label="Nombre del cargo" placeholder="Nombre" name="name" onChange={handleChangeData} value={job.name} />
+        <Input
           label="Descripción"
           placeholder="Competencias"
           name="description"
@@ -50,14 +44,14 @@ export const PostJob = () => {
         />
       </div>
       <div className="container--grid">
-        <InputLabel
+        <Input
           label="Habilidades requeridas"
           placeholder="skills"
           name="skills"
           onChange={handleChangeData}
           value={job.skills}
         />
-        <InputLabel
+        <Input
           label="Beneficios"
           placeholder="Bonificación"
           name="benefist"
@@ -66,24 +60,24 @@ export const PostJob = () => {
         />
       </div>
       <div className="container--grid mt-2">
-        <SearchInput
+        <SearchSelect
           options={SALARY_PERIOD}
           message="seleccione Periodo salarial"
           label="Periodo salarial"
           setData={setJob}
           name="salaryPeriod"
         />
-        <SearchInput options={COIN} message="Seleccionar" label="Moneda" setData={setJob} name="coin" />
+        <SearchSelect options={COIN} message="Seleccionar" label="Moneda" setData={setJob} name="coin" />
       </div>
       <div className="container--grid mt-2">
-        <SearchInput
+        <SearchSelect
           options={departments}
           message="Seleccione..."
           label="Departamento"
           setData={setJob}
           name="department"
         />
-        <SearchInput
+        <SearchSelect
           options={cities}
           message="Seleccione..."
           label="Ciudad"
@@ -93,7 +87,7 @@ export const PostJob = () => {
         />
       </div>
       <div className="container--grid mt-2">
-        <InputLabel
+        <Input
           label="Remuneración minima"
           placeholder="1`000.000"
           type="number"
@@ -101,7 +95,7 @@ export const PostJob = () => {
           onChange={handleChangeData}
           value={job.remunerationMin}
         />
-        <InputLabel
+        <Input
           label="Remuneración maxima"
           placeholder="5`000.000"
           type="number"
@@ -111,14 +105,14 @@ export const PostJob = () => {
         />
       </div>
       <div className="container--grid mt-2">
-        <SearchInput
+        <SearchSelect
           options={FUNCTIONAL_AREA}
           message="seleccione area funcional"
           label="Formacion"
           setData={setJob}
           name="training"
         />
-        <SearchInput
+        <SearchSelect
           options={CONTRACT_TYPE}
           message="Seleccionar"
           label="Tipo de contrato"
@@ -127,7 +121,7 @@ export const PostJob = () => {
         />
       </div>
       <div className="container--grid mt-2">
-        <InputLabel
+        <Input
           label="vananter disponibles"
           placeholder="number"
           type="number"
@@ -135,7 +129,7 @@ export const PostJob = () => {
           onChange={handleChangeData}
           value={job.vacancies}
         />
-        <SearchInput
+        <SearchSelect
           options={EXPERIENCE_WORK}
           message="Seleccionar"
           label="Experiencia laboral"
