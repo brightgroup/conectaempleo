@@ -10,7 +10,7 @@ export const initialState = {
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 90vh;
+  height: 100%;
 
   .container--login {
     flex-basis: 400px;

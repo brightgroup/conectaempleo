@@ -2,15 +2,41 @@ import styled from 'styled-components'
 
 export * from './Input'
 
-export const InputWrapper = styled.div`
+export const WrapperInputLabel = styled.div`
   width: 100%;
 
-  .input {
+  .input--style {
+    border-radius: 5px;
     border: none;
     outline: none;
-    padding: 0 15px;
+    padding: 8px 15px;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     height: 50px;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%) !important;
-    border-radius: 0.25rem;
+  }
+`
+
+export const WrapperInputTextarea = styled.div`
+  .input--style {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 8px 15px;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
+    width: 100%;
+    margin: 0;
+  }
+`
+
+export const WrapperInputDate = styled.div`
+  width: 100%;
+
+  .input--style {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 8px 15px;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
+    width: 100%;
+    height: 50px;
   }
 `
