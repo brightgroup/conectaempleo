@@ -22,14 +22,14 @@ import {
 } from '.'
 
 const PostJob = () => {
-  const dipatch = useDispatch()
-  const state = useSelector(state => state.utils)
+  const dispatch = useDispatch()
+  const { jobUtils } = useSelector(state => state.utils)
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
 
   useEffect(() => {
-    dipatch(getJobUtils())
-  }, [])
+    dispatch(getJobUtils())
+  }, [dispatch])
 
   const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 
@@ -44,7 +44,7 @@ const PostJob = () => {
     required: validate,
     wrapperClassName: 'mt-3',
   }
-
+  console.log(jobUtils)
   return (
     <Wrapper className="d-flex justify-content-center h-full px-4 ">
       <SidebarMenu />

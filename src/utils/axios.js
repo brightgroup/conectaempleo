@@ -1,39 +1,40 @@
-import axios from "axios";
-const baseUrl = process.env.REACT_APP_API_URL;
+import axios from 'axios'
+const baseUrl = process.env.REACT_APP_API_URL
 
-export const client = async (endpoint, data, method = "GET") => {
-  const url = `${baseUrl}/${endpoint}`;
+export const client = async (endpoint, data, method = 'GET') => {
+  const url = `${baseUrl}/${endpoint}`
 
-  if (method === "GET") {
-    return axios(url);
+  if (method === 'GET') {
+    const { data } = await axios(url)
+    return data
   } else {
     return axios(url, {
       method,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: JSON.stringify(data),
-    });
+    })?.data
   }
-};
+}
 
-export const clientWithToken = async (endpoint, data = {}, method = "GET") => {
-  const url = `${baseUrl}/${endpoint}`;
-  const token = localStorage["token"] || "";
+export const clientWithToken = async (endpoint, data = {}, method = 'GET') => {
+  const url = `${baseUrl}/${endpoint}`
+  const token = localStorage['token'] || ''
 
-  if (method === "GET") {
+  if (method === 'GET') {
     return axios(url, {
       headers: {
         authorization: token,
       },
-    });
+    })
   } else {
     return axios(url, {
       method,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: JSON.stringify(data),
-    });
+    })
   }
-};
+}

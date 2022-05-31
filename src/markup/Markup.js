@@ -50,7 +50,6 @@ import ScrollToTop from './Element/ScrollToTop'
 
 //New paths
 import { Header } from 'components/header'
-import ProfileSetting from './Pages/profile-setting'
 import Login from './Pages/login'
 import ChangePassword from './Pages/change-password'
 import Transactions from './Pages/transactions'
@@ -119,7 +118,6 @@ const Markup = () => {
             <Route path="/blog-details" exact component={Blogdetail} />
 
             <Route path="/login" exact component={Login} />
-            <Route path="/ajustes-usuario" exact component={ProfileSetting} />
             <Route path="/publicar-empleo" exact component={PostJob} />
             <Route path="/cambiar-contraseña" exact component={ChangePassword} />
             <Route path="/perfil" exact component={CompanyProfile} />
