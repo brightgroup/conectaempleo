@@ -16,6 +16,7 @@ import {
   SET_DEGREE_LEVEL,
   SET_SALARY_PERIODS,
   POST_JOB,
+  SET_JOB_UTILS,
 } from './UtilTypes'
 
 const setDepartments = data => ({
@@ -78,6 +79,11 @@ const setpostJob = data => ({
   payload: data,
 })
 
+const setJobUtils = data => ({
+  type: SET_JOB_UTILS,
+  payload: data,
+})
+
 const setError = error => ({
   type: SET_ERROR,
   payload: error,
@@ -86,7 +92,6 @@ const setError = error => ({
 export const getDepartments = () => async dispatch => {
   try {
     const { data } = await axios(urls.getDepartments)
-    console.log('la data', data)
     dispatch(setDepartments(formatDepartments(data)))
   } catch (error) {
     dispatch(setError(error))
@@ -183,71 +188,43 @@ export const getSalaryPeriods = () => async dispatch => {
   }
 }
 
-export const postJob =
-  ({
-    title = '',
-    description = '',
-    benefits = '',
-    skills = '',
-    country_id = '',
-    state_id = '',
-    city_id = '',
-    salary_from = '',
-    salary_to = '',
-    salary_currency = '',
-    salary_period_id = '',
-    hide_salary = '0',
-    functional_area_id = '',
-    job_type_id = '',
-    num_of_positions = '',
-    expiry_date = '',
-    degree_level_id = '',
-    job_experience_id = '',
-    is_freelance = '0',
-    is_featured = true,
-    is_active = true,
-    company_id = '125',
-  }) =>
-  async dispatch => {
-    try {
-      const {
-        utils: { postStoreJob },
-      } = urls
-
-      const data = await client(
-        postStoreJob,
-        {
-          title,
-          description,
-          benefits,
-          skills,
-          country_id,
-          state_id,
-          city_id,
-          salary_from,
-          salary_to,
-          salary_currency,
-          salary_period_id,
-          hide_salary,
-          functional_area_id,
-          job_type_id,
-          num_of_positions,
-          expiry_date,
-          degree_level_id,
-          job_experience_id,
-          is_freelance,
-          is_featured,
-          is_active,
-          company_id,
-        },
-        'POST'
-      )
-      dispatch(setpostJob(data))
-      if (data) {
-        return true
-      }
-      return false
-    } catch (error) {
-      console.error(error)
-    }
+export const getSalaryPeriodss = () => async dispatch => {
+  try {
+    const { data } = await client(urls.utils.getSalaryPeriods)
+    dispatch(setSalaryPeriods(data))
+  } catch (error) {
+    dispatch(setError(error))
   }
+}
+
+export const getJobUtils = () => async dispatch => {
+  try {
+    const { data } = await client(urls.utils.getSalaryPeriods)
+    dispatch(setSalaryPeriods(data))
+    // const s = await Promise.all([axios(urls.getDepartments), client(urls.utils.getSkills)]).then(res =>
+    //   console.log('la response', res)
+    // )
+    await Promise.all([axios(urls.getDepartments), client(urls.utils.getSkills)]).then(res =>
+      dispatch(setJobUtils(res))
+    )
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
+export const postJob = job => async dispatch => {
+  try {
+    const {
+      utils: { postStoreJob },
+    } = urls
+
+    const data = await client(postStoreJob, job, 'POST')
+    dispatch(setpostJob(data))
+    if (data) {
+      return true
+    }
+    return false
+  } catch (error) {
+    console.error(error)
+  }
+}

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
+import { getJobUtils } from 'store/actions/UtilActions'
 import {
   FUNCTIONAL_AREA,
   SALARY_PERIOD,
@@ -20,8 +22,14 @@ import {
 } from '.'
 
 const PostJob = () => {
+  const dipatch = useDispatch()
+  const state = useSelector(state => state.utils)
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
+
+  useEffect(() => {
+    dipatch(getJobUtils())
+  }, [])
 
   const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 

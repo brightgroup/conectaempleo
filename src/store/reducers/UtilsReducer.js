@@ -12,6 +12,7 @@ import {
   SET_DEGREE_LEVEL,
   SET_SALARY_PERIODS,
   POST_JOB,
+  SET_JOB_UTILS,
 } from '../actions/UtilTypes'
 
 const initialState = {
@@ -25,6 +26,7 @@ const initialState = {
   jobExperiences: [],
   degreeLevel: [],
   salaryPeriods: [],
+  jobUtils: [],
   error: '',
 }
 
@@ -89,6 +91,15 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         postJob: action.payload,
+      }
+    case SET_JOB_UTILS:
+      const [{ data: departments }, { data: skills }] = action.payload
+      return {
+        ...state,
+        jobUtils: {
+          departments,
+          skills: skills.data,
+        },
       }
     case SET_ERROR:
       return {
