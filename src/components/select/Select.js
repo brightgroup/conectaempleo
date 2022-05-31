@@ -13,11 +13,11 @@ export const SelectSearch = ({
   messageError = 'Este campo es obligatorio',
   disabled = false,
   wrapperClassName = '',
-  ...props
 }) => {
   const [list, setList] = useState(false)
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
+  const [value, setvalue] = useState('')
 
   useEffect(() => setOptions(optionList), [optionList])
 
@@ -28,6 +28,7 @@ export const SelectSearch = ({
       setSearchValue(value)
       setList(!list)
       setData(data => ({ ...data, [name]: id }))
+      setvalue(value)
     }
   }
 
@@ -52,7 +53,7 @@ export const SelectSearch = ({
   }
 
   return (
-    <Wrapper disabled={disabled} className={{ wrapperClassName }}>
+    <Wrapper disabled={disabled} className={wrapperClassName}>
       <label className="text-dark">{label}</label>
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={() => setList(!list)}>
@@ -78,7 +79,7 @@ export const SelectSearch = ({
           </div>
         )}
       </div>
-      {required && isEmpty(props.value) && <MessageError error={messageError} />}
+      {required && isEmpty(value) && <MessageError error={messageError} />}
     </Wrapper>
   )
 }

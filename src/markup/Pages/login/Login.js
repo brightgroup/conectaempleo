@@ -25,10 +25,8 @@ function Login() {
   }
 
   const handleSubmit = async e => {
+    setError({ password: '', email: '' })
     e.preventDefault()
-    if (isEmpty(email) || isEmpty(password)) {
-      return setError({ ...error, input: 'todos los campos son obligatorios' })
-    }
     if (errorEmail(email)) {
       return setError({ ...error, email: 'El e-mail no es valido' })
     }
@@ -58,7 +56,7 @@ function Login() {
             className={`rounded ml-2 button--rol ${rol === 'employer' ? 'active' : ''}`}
             onClick={() => changeRol('employer')}
           >
-            Empleador{' '}
+            Empleador
           </button>
         </div>
         {rol && (

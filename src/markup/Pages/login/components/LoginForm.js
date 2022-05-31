@@ -1,33 +1,42 @@
 import { Input } from 'components/input'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { errorEmail, isEmpty } from 'utils/validation'
+
 import { WrapperForm } from '.'
 
 export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
+  const [validate, setValidate] = useState(false)
+
+  const inputProps = {
+    required: validate,
+    wrapperClassName: 'mt-3',
+  }
+
+  const validation = () => {
+    setValidate(true)
+  }
+
   return (
     <WrapperForm className="d-flex flex-column align-items-center" onSubmit={handleSubmit}>
       <h3 className="pt-4 mt-4">Información {data.rol === 'candidate' ? 'Candidato' : 'Empleador'}</h3>
       <Input
         placeholder="hello@example.com"
         name="email"
-        messageError="El correo no es valido"
+        messageError="El campo es obligatorio"
         onChange={handleChangeInput}
         value={data.email}
-        required={true}
-        validation={errorEmail}
+        wrapperClassName="m"
+        {...inputProps}
       />
-      {error && <p>{error.email}</p>}
       <Input
         type="password"
         placeholder="******"
         name="password"
         onChange={handleChangeInput}
         value={data.password}
-        required={true}
-        validation={isEmpty}
+        {...inputProps}
       />
-      <button type="submit" className="form__button--styles my-4 ">
+      <button type="submit" onClick={validation} className="form__button--styles my-4 ">
         INICIAR SESIÓN
       </button>
       <div className="dz-social clearfix mt-3 d-flex justify-content-between w-100">

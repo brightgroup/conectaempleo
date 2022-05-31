@@ -6,9 +6,9 @@ export const Check = ({ label = '', name = '', handleChangeData = '', value = 0,
     <WrapperCheckbox className={wrapperClass}>
       <label className="text-dark">{label}</label>
       <div>
-        <label>
+        <label className="mr-4">
           <input
-            className="button-radio px-2 mx-2"
+            className="button-radio mx-1"
             type="radio"
             name={name}
             value="1"
