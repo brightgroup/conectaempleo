@@ -15,6 +15,7 @@ import {
   SET_JOB_EXPERIENCES,
   SET_DEGREE_LEVEL,
   SET_SALARY_PERIODS,
+  POST_JOB,
 } from './UtilTypes'
 
 const setDepartments = data => ({
@@ -69,6 +70,11 @@ const setDegreeLevel = data => ({
 
 const setSalaryPeriods = data => ({
   type: SET_SALARY_PERIODS,
+  payload: data,
+})
+
+const setpostJob = data => ({
+  type: POST_JOB,
   payload: data,
 })
 
@@ -175,3 +181,72 @@ export const getSalaryPeriods = () => async dispatch => {
     dispatch(setError(error))
   }
 }
+
+export const postJob =
+  ({
+    title = '',
+    description = '',
+    benefits = '',
+    skills = '',
+    country_id = '',
+    state_id = '',
+    city_id = '',
+    salary_from = '',
+    salary_to = '',
+    salary_currency = '',
+    salary_period_id = '',
+    hide_salary = '0',
+    functional_area_id = '',
+    job_type_id = '',
+    num_of_positions = '',
+    expiry_date = '',
+    degree_level_id = '',
+    job_experience_id = '',
+    is_freelance = '0',
+    is_featured = true,
+    is_active = true,
+    company_id = '125',
+  }) =>
+  async dispatch => {
+    try {
+      const {
+        utils: { postStoreJob },
+      } = urls
+
+      const data = await client(
+        postStoreJob,
+        {
+          title,
+          description,
+          benefits,
+          skills,
+          country_id,
+          state_id,
+          city_id,
+          salary_from,
+          salary_to,
+          salary_currency,
+          salary_period_id,
+          hide_salary,
+          functional_area_id,
+          job_type_id,
+          num_of_positions,
+          expiry_date,
+          degree_level_id,
+          job_experience_id,
+          is_freelance,
+          is_featured,
+          is_active,
+          company_id,
+        },
+        'POST'
+      )
+      dispatch(setpostJob(data))
+      if (data) {
+        return true
+      }
+      return false
+    } catch (error) {
+      console.error(error)
+    }
+  }

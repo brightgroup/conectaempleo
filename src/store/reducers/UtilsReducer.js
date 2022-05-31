@@ -11,7 +11,8 @@ import {
   SET_CURRENCIES,
   SET_DEGREE_LEVEL,
   SET_SALARY_PERIODS,
-} from "../actions/UtilTypes";
+  POST_JOB,
+} from '../actions/UtilTypes'
 
 const initialState = {
   departments: [],
@@ -24,8 +25,8 @@ const initialState = {
   jobExperiences: [],
   degreeLevel: [],
   salaryPeriods: [],
-  error: "",
-};
+  error: '',
+}
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,63 +34,68 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         departments: action.payload,
-      };
+      }
     case SET_SKILLS:
       return {
         ...state,
         skills: action.payload,
-      };
+      }
     case SET_COUNTRIES:
       return {
         ...state,
         countries: action.payload,
-      };
+      }
     case SET_CURRENCIES:
       return {
         ...state,
         currencies: action.payload,
-      };
+      }
     case SET_CAREER_LEVELS:
       return {
         ...state,
         current: action.payload,
-      };
+      }
     case SET_JOB_TYPE:
       return {
         ...state,
         jobType: action.payload,
-      };
+      }
     case SET_JOB_SHIFTS:
       return {
         ...state,
         jobShifts: action.payload,
-      };
+      }
     case SET_GENDERS:
       return {
         ...state,
         genders: action.payload,
-      };
+      }
     case SET_JOB_EXPERIENCES:
       return {
         ...state,
         jobExperiences: action.payload,
-      };
+      }
     case SET_DEGREE_LEVEL:
       return {
         ...state,
         degreeLevel: action.payload,
-      };
+      }
     case SET_SALARY_PERIODS:
       return {
         ...state,
         salaryPeriods: action.payload,
-      };
+      }
+    case POST_JOB:
+      return {
+        ...state,
+        postJob: action.payload,
+      }
     case SET_ERROR:
       return {
         ...state,
         error: action.payload,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

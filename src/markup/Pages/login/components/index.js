@@ -1,6 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components'
 
-export * from "./LoginForm";
+export * from './LoginForm'
 
 const animateStart = keyframes`
     0%{
@@ -12,9 +12,24 @@ const animateStart = keyframes`
     100%{
         opacity:1;
     }
-`;
+`
 
 export const WrapperForm = styled.form`
   width: 80%;
   animation: ${animateStart} 1s ease;
-`;
+
+  .form__button--styles {
+    padding: 6px 22px;
+    background-color: #0097fe;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      box-shadow: 2px 2px 2px gray;
+    }
+  }
+`

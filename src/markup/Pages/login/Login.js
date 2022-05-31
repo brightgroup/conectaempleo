@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { isEmail, isEmpty } from 'utils/validation'
+import { errorEmail, isEmpty } from 'utils/validation'
 import { initialState, Wrapper } from '.'
 import { logIn } from 'store/actions/AuthActions'
 import { LoginForm } from './components'
@@ -29,7 +29,7 @@ function Login() {
     if (isEmpty(email) || isEmpty(password)) {
       return setError({ ...error, input: 'todos los campos son obligatorios' })
     }
-    if (!isEmail(email)) {
+    if (errorEmail(email)) {
       return setError({ ...error, email: 'El e-mail no es valido' })
     }
     const loggedUser = await dispatch(logIn(user))

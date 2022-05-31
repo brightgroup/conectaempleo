@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Wrapper, WITHOUT_RESULTS } from '.'
 
-export const SearchSelect = ({
+export const SearchInput = ({
   options: optionList = [],
   message = '',
   name = '',
@@ -12,16 +12,16 @@ export const SearchSelect = ({
   const [list, setList] = useState(false)
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
-
+  
   useEffect(() => setOptions(optionList), [optionList])
 
   const handleChangeOption = option => {
-    const value = option
-
+    const value = option.value
+    const id = option.id
     if (!disabled) {
       setSearchValue(value)
       setList(!list)
-      setData(data => ({ ...data, [name]: value }))
+      setData(data => ({ ...data, [name]: id }))
     }
   }
 
@@ -35,7 +35,7 @@ export const SearchSelect = ({
     if (!disabled) {
       setList(true)
       setSearchValue(target.value)
-      const options = optionList?.filter(option => option?.toLowerCase().includes(target.value.toLowerCase()))
+      const options = optionList?.filter(option => option?.value.toLowerCase().includes(target.value.toLowerCase()))
       setOptions(options?.length ? options : WITHOUT_RESULTS)
     }
   }
@@ -44,7 +44,7 @@ export const SearchSelect = ({
     setList(!list)
     setSearchValue('')
   }
-
+  
   return (
     <Wrapper disabled={disabled}>
       <label className="text-dark">{label}</label>
@@ -65,11 +65,7 @@ export const SearchSelect = ({
         {!!(options?.length && list) && (
           <div className="options select-search" id={name}>
             {options?.map((option, index) => (
-              <div
-                className="option flex items-center gap-1"
-                key={index}
-                onClick={() => handleChangeOption(option.value || option)}
-              >
+              <div className="option flex items-center gap-1" key={index} onClick={() => handleChangeOption(option)}>
                 {option.value || option}
               </div>
             ))}
