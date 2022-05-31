@@ -1,68 +1,40 @@
+import React from 'react'
 import { MessageError } from 'components/message-error'
-import React, { useState } from 'react'
+import { isEmpty } from 'utils/validation'
 import { WrapperInputDate, WrapperInputLabel, WrapperInputTextarea } from '.'
 
-export const InputLabel = ({
+export const Input = ({
   label = '',
   type = 'text',
   required = '',
   placeholder = '',
   messageError = 'Este campo es obligatorio',
-  validation = '',
+  wrapperClassName = '',
   ...props
 }) => {
-  const { value } = props
-  const [error, setError] = useState(false)
-
-  const validations = () => {
-    setError(false)
-    const resp = validation(value)
-    if (resp) {
-      setError(true)
-    }
-  }
-
   return (
-    <WrapperInputLabel>
+    <WrapperInputLabel className={wrapperClassName}>
       <div className="d-flex flex-column">
         <label className="text-dark">{label}</label>
-        <input
-          className="input--style"
-          type={type}
-          required={required}
-          onBlur={validations}
-          onKeyUp={validations}
-          placeholder={placeholder}
-          {...props}
-        />
-        {required && error && <MessageError error={messageError} />}
+        <input className="input--style" type={type} placeholder={placeholder} {...props} />
+        {required && isEmpty(props.value) && <MessageError error={messageError} />}
       </div>
     </WrapperInputLabel>
   )
 }
 
-export const InputTextarea = ({
+export const TextArea = ({
   label = '',
-  validation = '',
   messageError = 'Este campo es obligatorio',
   required = '',
+  wrapperClassName = '',
   ...props
 }) => {
-  const { value } = props
-  const [error, setError] = useState(false)
-
-  const validations = () => {
-    setError(false)
-    const resp = validation(value)
-    if (resp) {
-      setError(true)
-    }
-  }
   return (
-    <WrapperInputTextarea>
-      <label className="text-dark mt-1">{label}</label>
-      <textarea {...props} className="input--style" onBlur={validations} onKeyUp={validations} />
-      {required && error && <MessageError error={messageError} />}
+    <WrapperInputTextarea className={wrapperClassName}>
+      <label className="text-dark ">{label}</label>
+      <textarea {...props} className="input--style w-100" />
+      {required && isEmpty(props.value) && <MessageError error={messageError} />}
     </WrapperInputTextarea>
   )
 }
@@ -73,35 +45,16 @@ export const InputDate = ({
   required = '',
   placeholder = 'Selecciona una fecha',
   messageError = 'Este campo es obligatorio',
-  validation = '',
   name = '',
+  wrapperClassName = '',
   ...props
 }) => {
-  const { value } = props
-  const [error, setError] = useState(false)
-
-  const validations = () => {
-    setError(false)
-    const resp = validation(value)
-    if (resp) {
-      setError(true)
-    }
-  }
   return (
-    <WrapperInputDate>
+    <WrapperInputDate className={wrapperClassName}>
       <div className="d-flex flex-column">
         <label className="text-dark">{label}</label>
-        <input
-          className="input--style"
-          type={type}
-          name={name}
-          required={required}
-          onBlur={validations}
-          onKeyUp={validations}
-          placeholder={placeholder}
-          {...props}
-        />
-        {required && error && <MessageError error={messageError} />}
+        <input className="input--style" type={type} name={name} placeholder={placeholder} {...props} />
+        {required && isEmpty(props.value) && <MessageError error={messageError} />}
       </div>
     </WrapperInputDate>
   )

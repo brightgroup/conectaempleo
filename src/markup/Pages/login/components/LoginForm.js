@@ -1,4 +1,4 @@
-import { InputLabel } from 'components/input'
+import { Input } from 'components/input'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { errorEmail, isEmpty } from 'utils/validation'
@@ -8,7 +8,7 @@ export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
   return (
     <WrapperForm className="d-flex flex-column align-items-center" onSubmit={handleSubmit}>
       <h3 className="pt-4 mt-4">Información {data.rol === 'candidate' ? 'Candidato' : 'Empleador'}</h3>
-      <InputLabel
+      <Input
         placeholder="hello@example.com"
         name="email"
         messageError="El correo no es valido"
@@ -18,7 +18,7 @@ export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
         validation={errorEmail}
       />
       {error && <p>{error.email}</p>}
-      <InputLabel
+      <Input
         type="password"
         placeholder="******"
         name="password"

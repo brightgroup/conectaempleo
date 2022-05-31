@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
-import { InputDate, InputLabel, InputTextarea } from 'components/input'
+import { Input, InputDate, TextArea } from 'components/input'
 
+import { SelectSearch } from 'components/select'
+import { SidebarMenu } from 'components/sidebar-menu'
+import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
 import { isEmpty } from 'utils/validation'
 import {
@@ -18,23 +21,23 @@ import {
   Wrapper,
   Content,
 } from '.'
-import { SearchInput } from 'components/select'
-import { SidebarMenu } from 'components/sidebar-menu'
-import { PageTitle } from 'components/page-title'
-import { postJob } from 'store/actions/UtilsAction'
-import { useDispatch } from 'react-redux'
 
 export const PostJob2 = () => {
-  const dispatch = useDispatch()
-
   const [job, setJob] = useState(initialState)
+  const [validate, setValidate] = useState(false)
 
   const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 
-  const handlesubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault()
+    setValidate(true)
     setJob(initialState)
     // await dispatch(postJob(job))
+  }
+
+  const inputProps = {
+    required: validate,
+    wrapperClassName: 'mt-3',
   }
 
   return (
@@ -42,90 +45,103 @@ export const PostJob2 = () => {
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle />
-        <form onSubmit={handlesubmit}>
-          <InputLabel
+        <form onSubmit={handleSubmit}>
+          <Input
             label="Nombre del cargo"
             placeholder="Nombre"
             name="title"
             onChange={handleChangeData}
             value={job.title}
-            required={true}
-            validation={isEmpty}
+            {...inputProps}
           />
-          <InputTextarea
+          <TextArea
             name="description"
             label="Descripción"
             placeholder="Persona..."
-            required={true}
-            validation={isEmpty}
             value={job.description}
             onChange={handleChangeData}
+            {...inputProps}
           />
-          <InputTextarea
+          <TextArea
             name="benefits"
             label="Beneficios"
             placeholder="Apoyo..."
-            required={true}
-            validation={isEmpty}
             value={job.benefits}
             onChange={handleChangeData}
+            {...inputProps}
           />
-          <SearchInput
+          <SelectSearch
             options={JOB_SKILL}
             message="seleccione habilidad"
             label="Habilidades"
             setData={setJob}
             name="skills"
+            {...inputProps}
           />
           <div className="container--grid mt-2">
-            <SearchInput options={COUNTRIES} message="Seleccione..." label="Pais" setData={setJob} name="country_id" />
-            <SearchInput
+            <SelectSearch
+              options={COUNTRIES}
+              message="Seleccione..."
+              label="Pais"
+              setData={setJob}
+              name="country_id"
+              {...inputProps}
+            />
+            <SelectSearch
               options={DEPARTMENTS}
               message="Seleccione..."
               label="Departamento"
               setData={setJob}
               name="state_id"
+              {...inputProps}
             />
           </div>
           <div className="container--grid">
-            <SearchInput options={CITIES} message="Seleccione..." label="Ciudad" setData={setJob} name="city_id" />
-            <SearchInput
+            <SelectSearch
+              options={CITIES}
+              message="Seleccione..."
+              label="Ciudad"
+              setData={setJob}
+              name="city_id"
+              {...inputProps}
+            />
+            <SelectSearch
               options={SALARY_PERIOD}
               message="Seleccione..."
               label="Periodo salarial"
               setData={setJob}
               name="salary_period_id"
+              {...inputProps}
             />
           </div>
           <div className="container--grid mt-2">
-            <InputLabel
-              label="Remuneración minima"
+            <Input
+              label="Remuneración mínima"
               placeholder="1`000.000"
               type="number"
               name="salary_from"
               onChange={handleChangeData}
               value={job.salary_from}
-              required={true}
-              validation={isEmpty}
+              {...inputProps}
             />
-            <InputLabel
+            <Input
               label="Remuneración maxima"
               placeholder="5`000.000"
               type="number"
               name="salary_to"
               onChange={handleChangeData}
               value={job.salary_to}
-              required={true}
-              validation={isEmpty}
+              {...inputProps}
             />
           </div>
           <div className="container--grid mt-2">
-            <SearchInput
+            <SelectSearch
               options={CURRENCIES}
               message="Seleccione..."
               label="Moneda"
               setData={setJob}
               name="salary_currency"
+              {...inputProps}
             />
             <Check
               label="Ocultar salario"
@@ -135,59 +151,68 @@ export const PostJob2 = () => {
             />
           </div>
           <div className="container--grid mt-2">
-            <SearchInput
+            <SelectSearch
               options={FUNCTIONAL_AREA}
               message="seleccione "
               label="Area funcional"
               setData={setJob}
               name="functional_area_id"
+              {...inputProps}
             />
-            <SearchInput
+            <SelectSearch
               options={JOBTYPE}
               message="seleccione "
               label="Tipo de contrato"
               setData={setJob}
               name="job_type_id"
+              {...inputProps}
             />
           </div>
           <div className="container--grid mt-2">
-            <InputLabel
-              label="vananter disponibles"
-              placeholder="number"
+            <Input
+              label="Vacantes"
+              placeholder="Numero de vacantes"
               type="number"
               name="num_of_positions"
               onChange={handleChangeData}
               value={job.num_of_positions}
               validation={isEmpty}
-              required={true}
+              {...inputProps}
             />
             <InputDate
               message="seleccione area funcional"
               label="F. vencimiento oferta laboral"
               name="expiry_date"
-              required={true}
-              validation={isEmpty}
               value={job.expiry_date}
               onChange={handleChangeData}
+              {...inputProps}
             />
           </div>
           <div className="container--grid mt-2">
-            <SearchInput
+            <SelectSearch
               options={FUNCTIONAL_AREA}
               message="Seleccionar"
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"
+              {...inputProps}
             />
-            <SearchInput
+            <SelectSearch
               options={JOB_EXPERIENCES}
               message="Seleccionar"
               setData={setJob}
               name="job_experience_id"
               label="Experiencia laboral requerida"
+              {...inputProps}
             />
           </div>
-          <Check label="Remoto" name="is_freelance" handleChangeData={handleChangeData} value={job.is_freelance} />
+          <Check
+            label="Remoto"
+            name="is_freelance"
+            handleChangeData={handleChangeData}
+            value={job.is_freelance}
+            wrapperClass="mt-3"
+          />
           <div className="d-flex justify-content-center">
             <button className="form__buton--style">Enviar</button>
           </div>

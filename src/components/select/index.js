@@ -4,9 +4,10 @@ export * from './Select'
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 80px;
+  height: auto;
   border-radius: 10px;
   color: #9da5b1;
+  margin-top: 4px;
 
   .icon--styles {
     position: absolute;
@@ -23,10 +24,11 @@ export const Wrapper = styled.div`
 
   .select {
     width: 100%;
-    height: 40px;
+    height: 50px;
     position: relative;
     background-color: white;
-    box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
     cursor: pointer;
 
@@ -38,19 +40,22 @@ export const Wrapper = styled.div`
 
     &__search-input {
       position: absolute;
-      top: 7px;
-      left: 10px;
+      top: 4px;
+      left: 0px;
       width: 95%;
       border: none;
       background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
       outline: none;
       cursor: pointer;
+
+      padding: 8px 15px;
     }
 
     .input-without-value {
       color: #9da5b1;
     }
   }
+
   .options {
     position: absolute;
     background-color: white;

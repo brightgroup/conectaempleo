@@ -4,7 +4,6 @@ export * from './MessageError'
 
 export const WrapperMessageError = styled.div`
   display: flex;
-  padding: 0.5em;
 
   .style--i {
     color: red;

@@ -1,14 +1,14 @@
 import React from 'react'
 import { WrapperCheckbox } from '.'
 
-export const Check = ({ label = '', name = '', handleChangeData = '', value = '', ...props }) => {
+export const Check = ({ label = '', name = '', handleChangeData = '', value = 0, wrapperClass = '', ...props }) => {
   return (
-    <WrapperCheckbox>
+    <WrapperCheckbox className={wrapperClass}>
       <label className="text-dark">{label}</label>
       <div>
-        <label className="mx-4">
+        <label>
           <input
-            className="button-radio px-2 mx-1"
+            className="button-radio px-2 mx-2"
             type="radio"
             name={name}
             value="1"
@@ -19,7 +19,7 @@ export const Check = ({ label = '', name = '', handleChangeData = '', value = ''
         </label>
         <label>
           <input
-            className=" mx-1"
+            className="mx-1"
             type="radio"
             name={name}
             value="0"

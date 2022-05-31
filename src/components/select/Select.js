@@ -1,18 +1,24 @@
+import { MessageError } from 'components/message-error'
 import React, { useEffect, useState } from 'react'
+import { isEmpty } from 'utils/validation'
 import { Wrapper, WITHOUT_RESULTS } from '.'
 
-export const SearchInput = ({
+export const SelectSearch = ({
   options: optionList = [],
   message = '',
   name = '',
   label = '',
   setData = '',
+  required = '',
+  messageError = 'Este campo es obligatorio',
   disabled = false,
+  wrapperClassName = '',
+  ...props
 }) => {
   const [list, setList] = useState(false)
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
-  
+
   useEffect(() => setOptions(optionList), [optionList])
 
   const handleChangeOption = option => {
@@ -44,9 +50,9 @@ export const SearchInput = ({
     setList(!list)
     setSearchValue('')
   }
-  
+
   return (
-    <Wrapper disabled={disabled}>
+    <Wrapper disabled={disabled} className={{ wrapperClassName }}>
       <label className="text-dark">{label}</label>
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={() => setList(!list)}>
@@ -72,6 +78,7 @@ export const SearchInput = ({
           </div>
         )}
       </div>
+      {required && isEmpty(props.value) && <MessageError error={messageError} />}
     </Wrapper>
   )
 }
