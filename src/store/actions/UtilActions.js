@@ -21,10 +21,10 @@ const setError = error => ({
 
 export const getJobUtils = () => async dispatch => {
   try {
-    const { getSkills, getCountries, getCurrencies, getGenders, getJobType, getJobShifts, ...restUrls } = urls.utils
+    const { getdepartment, getSkills, getCountries, getCurrencies, getGenders, getJobType, getJobShifts, getCities, getFunctionalArea, ...restUrls } = urls.utils
     const { getJobExperiences, getDegreeLevel, getCareerLevels, getSalaryPeriods } = restUrls
     await Promise.all([
-      axios(urls.getDepartments),
+      client(getdepartment),
       client(getSkills),
       client(getCountries),
       client(getCurrencies),
@@ -35,6 +35,8 @@ export const getJobUtils = () => async dispatch => {
       client(getJobExperiences),
       client(getDegreeLevel),
       client(getSalaryPeriods),
+      client(getCities),
+      client(getFunctionalArea),
     ]).then(res => dispatch(setJobUtils(res)))
   } catch (error) {
     dispatch(setError(error))
