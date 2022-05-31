@@ -50,12 +50,12 @@ import ScrollToTop from './Element/ScrollToTop'
 
 //New paths
 import { Header } from 'components/header'
-import PostJob from './Pages/post-job'
 import ProfileSetting from './Pages/profile-setting'
 import Login from './Pages/login'
 import ChangePassword from './Pages/change-password'
 import Transactions from './Pages/transactions'
 import CompanyProfile from './Pages/company-profile'
+import PostJob from './Pages/post-job'
 import Resume from './Pages/resume'
 
 const Markup = () => {

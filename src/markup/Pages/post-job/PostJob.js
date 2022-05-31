@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-
 import { Input, InputDate, TextArea } from 'components/input'
-
 import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
-import { isEmpty } from 'utils/validation'
 import {
   FUNCTIONAL_AREA,
   SALARY_PERIOD,
@@ -22,7 +19,7 @@ import {
   Content,
 } from '.'
 
-export const PostJob2 = () => {
+const PostJob = () => {
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
 
@@ -167,7 +164,6 @@ export const PostJob2 = () => {
               name="num_of_positions"
               onChange={handleChangeData}
               value={job.num_of_positions}
-              validation={isEmpty}
               {...inputProps}
             />
             <InputDate
@@ -211,4 +207,4 @@ export const PostJob2 = () => {
   )
 }
 
-export default PostJob2
+export default PostJob

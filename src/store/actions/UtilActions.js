@@ -86,6 +86,7 @@ const setError = error => ({
 export const getDepartments = () => async dispatch => {
   try {
     const { data } = await axios(urls.getDepartments)
+    console.log('la data', data)
     dispatch(setDepartments(formatDepartments(data)))
   } catch (error) {
     dispatch(setError(error))
