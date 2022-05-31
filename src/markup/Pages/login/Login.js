@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { errorEmail, isEmpty } from 'utils/validation'
+import { errorEmail } from 'utils/validation'
 import { initialState, Wrapper } from '.'
 import { logIn } from 'store/actions/AuthActions'
 import { LoginForm } from './components'
@@ -13,7 +13,7 @@ function Login() {
   const dispatch = useDispatch()
   const [user, setUser] = useState(initialState)
   const [error, setError] = useState({ password: '', email: '' })
-  const { email, password, rol } = user
+  const { email, rol } = user
 
   const handleChangeInput = e => {
     const { name, value } = e.target

@@ -5,7 +5,7 @@ import { Wrapper, WITHOUT_RESULTS } from '.'
 
 export const SelectSearch = ({
   options: optionList = [],
-  message = '',
+  message = 'Seleccione...',
   name = '',
   label = '',
   setData = '',

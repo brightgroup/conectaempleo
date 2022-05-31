@@ -135,14 +135,7 @@ export const PostJob2 = () => {
             />
           </div>
           <div className="container--grid mt-2">
-            <SelectSearch
-              options={CURRENCIES}
-              message="Seleccione..."
-              label="Moneda"
-              setData={setJob}
-              name="salary_currency"
-              {...inputProps}
-            />
+            <SelectSearch options={CURRENCIES} label="Moneda" setData={setJob} name="salary_currency" {...inputProps} />
             <Check
               label="Ocultar salario"
               name="hide_salary"
@@ -153,15 +146,13 @@ export const PostJob2 = () => {
           <div className="container--grid mt-2">
             <SelectSearch
               options={FUNCTIONAL_AREA}
-              message="seleccione "
-              label="Area funcional"
+              label="Área funcional"
               setData={setJob}
               name="functional_area_id"
               {...inputProps}
             />
             <SelectSearch
               options={JOBTYPE}
-              message="seleccione "
               label="Tipo de contrato"
               setData={setJob}
               name="job_type_id"
@@ -191,7 +182,6 @@ export const PostJob2 = () => {
           <div className="container--grid mt-2">
             <SelectSearch
               options={FUNCTIONAL_AREA}
-              message="Seleccionar"
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"
@@ -199,7 +189,6 @@ export const PostJob2 = () => {
             />
             <SelectSearch
               options={JOB_EXPERIENCES}
-              message="Seleccionar"
               setData={setJob}
               name="job_experience_id"
               label="Experiencia laboral requerida"
