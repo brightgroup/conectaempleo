@@ -31,7 +31,6 @@ function Login() {
       return setError({ ...error, email: 'El e-mail no es valido' })
     }
     const loggedUser = await dispatch(logIn(user))
-    console.log('ac', loggedUser)
 
     if (loggedUser?.id) {
       history.push('/home')
