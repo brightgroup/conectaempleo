@@ -8,13 +8,14 @@ export const client = async (endpoint, data, method = 'GET') => {
     const { data } = await axios(url)
     return data
   } else {
-    return axios(url, {
+    const res = axios(url, {
       method,
       headers: {
         'Content-Type': 'application/json',
       },
       data: JSON.stringify(data),
-    })?.data
+    })
+    return res?.data || res
   }
 }
 
