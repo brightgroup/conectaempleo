@@ -1,9 +1,10 @@
 import { client } from 'utils/axios'
-import { SET_USER, SET_ERROR } from './AuthTypes'
 import { urls } from 'api/ulrs'
 import { formatError, login, runLogoutTimer, saveTokenInLocalStorage, signUp } from 'services/AuthService'
 import { EMPLOYER } from 'constants/rol'
 
+export const SET_USER = 'SET_USER'
+export const SET_ERROR = 'SET_ERROR'
 export const SIGNUP_CONFIRMED_ACTION = '[signup action] confirmed signup'
 export const SIGNUP_FAILED_ACTION = '[signup action] failed signup'
 export const LOGIN_CONFIRMED_ACTION = '[login action] confirmed login'
