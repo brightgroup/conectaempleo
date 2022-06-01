@@ -11,7 +11,6 @@ export const getUtilsData = data => {
     { data: jobExperiences = [] },
     { data: gradeLevels = [] },
     { data: salaryPeriods = [] },
-    { data: cities = [] },
     { data: functionalArea = [] },
   ] = data
   return {
@@ -26,7 +25,6 @@ export const getUtilsData = data => {
     jobExperiences,
     gradeLevels,
     salaryPeriods,
-    cities,
     functionalArea,
   }
 }

@@ -15,8 +15,8 @@ export const SidebarMenu = ({ rol = '' }) => {
   return (
     <WrapperSidebar className="d-flex flex-column align-items-start">
       <div className="container__image bg-black-50 text-center my-3">image</div>
-      {items.map(item => (
-        <Link to={item.path} className="sidebar-item d-flex align-items-center">
+      {items.map((item, index) => (
+        <Link key={index} to={item.path} className="sidebar-item d-flex align-items-center">
           <div
             key={item.text}
             className="d-flex align-items-center"

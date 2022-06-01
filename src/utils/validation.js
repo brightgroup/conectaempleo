@@ -1,7 +1,4 @@
-export const isEmpty = value => {
-  if (!value) return true
-  return false
-}
+export const isEmpty = value => !String(value)
 
 export const errorEmail = email => {
   // eslint-disable-next-line

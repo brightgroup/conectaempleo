@@ -9,14 +9,6 @@ export const Wrapper = styled.div`
   color: #9da5b1;
   margin-top: 4px;
 
-  .icon--styles {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    right: 10px;
-    top: 14px;
-  }
-
   .disabled-select {
     background-color: rgb(214, 205, 205) !important;
     border: 1px solid transparent;
@@ -51,6 +43,13 @@ export const Wrapper = styled.div`
       padding: 8px 15px;
     }
 
+    &__arrow {
+      position: absolute;
+      transition: 0.4s all;
+      right: 10px;
+      top: 16px;
+    }
+
     .input-without-value {
       color: #9da5b1;
     }
@@ -77,6 +76,10 @@ export const Wrapper = styled.div`
 
   .option:hover {
     background-color: whitesmoke;
+  }
+
+  .flip-arrow {
+    transform: rotate(180deg);
   }
 `
 

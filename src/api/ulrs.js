@@ -7,7 +7,7 @@ export const urls = {
     getEmployer: 'company/auth/me',
   },
   utils: {
-    getdepartment:'get-states/47',
+    getdepartment: 'get-states/47',
     getSkills: 'get-jobSkills',
     getCountries: 'get-countries',
     getCareerLevels: 'get-careerLevels',
@@ -18,7 +18,10 @@ export const urls = {
     getJobExperiences: 'get-jobExperiences',
     getDegreeLevel: 'get-degreeLevels',
     getSalaryPeriods: 'get-salaryPeriods',
-    getCities:'get-cities/776',
-    getFunctionalArea:'get-functional-areas',
+    getCities: departmentId => `get-cities/${departmentId}`,
+    getFunctionalArea: 'get-functional-areas',
+  },
+  job: {
+    postJob: 'store-job',
   },
 }

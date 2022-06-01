@@ -45,7 +45,6 @@ export function loginAction(email, password, history) {
         history.push('/home')
       })
       .catch(error => {
-        //console.log(error);
         const errorMessage = formatError(error.response.data)
         dispatch(loginFailedAction(errorMessage))
       })

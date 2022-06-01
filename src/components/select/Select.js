@@ -1,5 +1,5 @@
+import React, { useEffect, useState, useMemo } from 'react'
 import { MessageError } from 'components/message-error'
-import React, { useEffect, useState } from 'react'
 import { isEmpty } from 'utils/validation'
 import { Wrapper, WITHOUT_RESULTS } from '.'
 
@@ -12,43 +12,43 @@ export const SelectSearch = ({
   required = '',
   messageError = 'Este campo es obligatorio',
   disabled = false,
+  activatedSelect = '',
+  setActivatedSelect = () => {},
   wrapperClassName = '',
 }) => {
-  const [list, setList] = useState(false)
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
-  const [value, setvalue] = useState('')
+  const [value, setValue] = useState('')
+
+  const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
   useEffect(() => setOptions(optionList), [optionList])
 
   const handleChangeOption = option => {
-    const value = option.name
-    const id = option.id
-    if (!disabled) {
+    const [value, id] = [option.name, option.id]
+    if (!disabled && value) {
       setSearchValue(value)
-      setList(!list)
-      setData(data => ({ ...data, [name]: id }))
-      setvalue(value)
+      setData(data => ({ ...data, [name]: id || value }))
+      setValue(value)
     }
   }
 
   const toggleOptions = () => {
-    if (!disabled) {
-      setList(!list)
-    }
+    if (!disabled) setActivatedSelect(isActivated ? '' : name)
   }
 
   const handleChangeSearch = ({ target }) => {
+    const value = target.value
     if (!disabled) {
-      setList(true)
-      setSearchValue(target.value)
-      const options = optionList?.filter(option => option?.value.toLowerCase().includes(target.value.toLowerCase()))
-      setOptions(options?.length ? options : WITHOUT_RESULTS)
+      setActivatedSelect(name)
+      setSearchValue(value)
+      const options = optionList?.filter(option => option?.name?.toLowerCase()?.includes(value?.toLowerCase()))
+      setOptions(!value ? options : options?.length ? options : WITHOUT_RESULTS)
     }
   }
 
   const onClickInput = () => {
-    setList(!list)
+    setActivatedSelect(name)
     setSearchValue('')
   }
 
@@ -56,9 +56,9 @@ export const SelectSearch = ({
     <Wrapper disabled={disabled} className={wrapperClassName}>
       <label className="text-dark">{label}</label>
       <div className="select" onClick={toggleOptions}>
-        <div className="select__option" onClick={() => setList(!list)}>
+        <div className="select__option" onClick={toggleOptions}>
           <span>
-            <i className="fa-solid fa-angle-down icon--styles" />
+            <i className={`fa-solid fa-angle-down ${isActivated ? 'flip-arrow' : ''} icon--styles select__arrow`} />
           </span>
         </div>
         <input
@@ -68,8 +68,9 @@ export const SelectSearch = ({
           onChange={handleChangeSearch}
           disabled={disabled}
           className={`select__search-input ${searchValue === message ? 'input-without-value' : ''}`}
+          placeholder={message}
         />
-        {!!(options?.length && list) && (
+        {!!(options?.length && isActivated) && (
           <div className="options select-search" id={name}>
             {options?.map((option, index) => (
               <div className="option flex items-center gap-1" key={index} onClick={() => handleChangeOption(option)}>
