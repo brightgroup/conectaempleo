@@ -5,82 +5,79 @@ import {
   LOGOUT_ACTION,
   SIGNUP_CONFIRMED_ACTION,
   SIGNUP_FAILED_ACTION,
-} from "../actions/AuthActions";
-import { SET_USER } from "../actions/AuthTypes";
+} from '../actions/AuthActions'
+import { SET_USER } from 'store/actions/AuthTypes'
 
 const initialState = {
   auth: {
-    email: "",
-    idToken: "",
-    localId: "",
-    expiresIn: "",
-    refreshToken: "",
+    email: '',
+    idToken: '',
+    localId: '',
+    expiresIn: '',
+    refreshToken: '',
   },
-  errorMessage: "",
-  successMessage: "",
+  errorMessage: '',
+  successMessage: '',
   showLoading: false,
   user: {},
-};
+}
 
 export function AuthReducer(state = initialState, action) {
   if (action.type === SIGNUP_CONFIRMED_ACTION) {
     return {
       ...state,
       auth: action.payload,
-      errorMessage: "",
-      successMessage: "Signup Successfully Completed",
+      errorMessage: '',
+      successMessage: 'Signup Successfully Completed',
       showLoading: false,
-    };
+    }
   }
   if (action.type === LOGIN_CONFIRMED_ACTION) {
     return {
       ...state,
       auth: action.payload,
-      errorMessage: "",
-      successMessage: "Login Successfully Completed",
+      errorMessage: '',
+      successMessage: 'Login Successfully Completed',
       showLoading: false,
-    };
+    }
   }
 
   if (action.type === LOGOUT_ACTION) {
     return {
       ...state,
-      errorMessage: "",
-      successMessage: "",
+      errorMessage: '',
+      successMessage: '',
       auth: {
-        email: "",
-        idToken: "",
-        localId: "",
-        expiresIn: "",
-        refreshToken: "",
+        email: '',
+        idToken: '',
+        localId: '',
+        expiresIn: '',
+        refreshToken: '',
       },
-    };
+    }
   }
 
-  if (
-    action.type === SIGNUP_FAILED_ACTION ||
-    action.type === LOGIN_FAILED_ACTION
-  ) {
+  if (action.type === SIGNUP_FAILED_ACTION || action.type === LOGIN_FAILED_ACTION) {
     return {
       ...state,
       errorMessage: action.payload,
-      successMessage: "",
+      successMessage: '',
       showLoading: false,
-    };
+    }
   }
 
   if (action.type === LOADING_TOGGLE_ACTION) {
     return {
       ...state,
       showLoading: action.payload,
-    };
+    }
   }
 
   if (action.type === SET_USER) {
     return {
       ...state,
       user: action.payload,
-    };
+    }
   }
-  return state;
+  return state
 }
