@@ -22,7 +22,7 @@ export const SelectSearch = ({
   useEffect(() => setOptions(optionList), [optionList])
 
   const handleChangeOption = option => {
-    const value = option.value
+    const value = option.name
     const id = option.id
     if (!disabled) {
       setSearchValue(value)
@@ -73,7 +73,7 @@ export const SelectSearch = ({
           <div className="options select-search" id={name}>
             {options?.map((option, index) => (
               <div className="option flex items-center gap-1" key={index} onClick={() => handleChangeOption(option)}>
-                {option.value || option}
+                {option.name || option.value}
               </div>
             ))}
           </div>

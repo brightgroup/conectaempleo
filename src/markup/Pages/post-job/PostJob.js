@@ -6,22 +6,7 @@ import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
 import { getJobUtils } from 'store/actions/UtilActions'
-import {
-  FUNCTIONAL_AREA,
-  SALARY_PERIOD,
-  initialState,
-  JOB_SKILL,
-  COUNTRIES,
-  DEPARTMENTS,
-  CITIES,
-  CURRENCIES,
-  JOBTYPE,
-  JOB_EXPERIENCES,
-  Wrapper,
-  Content,
-} from '.'
-
-
+import { initialState, Wrapper, Content } from '.'
 
 const PostJob = () => {
   const dispatch = useDispatch()
@@ -46,7 +31,7 @@ const PostJob = () => {
     required: validate,
     wrapperClassName: 'mt-3',
   }
-  console.log(jobUtils)
+
   return (
     <Wrapper className="d-flex justify-content-center h-full px-4 ">
       <SidebarMenu />
@@ -78,7 +63,7 @@ const PostJob = () => {
             {...inputProps}
           />
           <SelectSearch
-            options={JOB_SKILL}
+            options={jobUtils.skills}
             message="seleccione habilidad"
             label="Habilidades"
             setData={setJob}
@@ -87,7 +72,7 @@ const PostJob = () => {
           />
           <div className="container--grid mt-2">
             <SelectSearch
-              options={COUNTRIES}
+              options={jobUtils.countries}
               message="Seleccione..."
               label="Pais"
               setData={setJob}
@@ -95,7 +80,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={DEPARTMENTS}
+              options={jobUtils.departments}
               message="Seleccione..."
               label="Departamento"
               setData={setJob}
@@ -105,7 +90,7 @@ const PostJob = () => {
           </div>
           <div className="container--grid">
             <SelectSearch
-              options={CITIES}
+              options={jobUtils.cities}
               message="Seleccione..."
               label="Ciudad"
               setData={setJob}
@@ -113,7 +98,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={SALARY_PERIOD}
+              options={jobUtils.salaryPeriods}
               message="Seleccione..."
               label="Periodo salarial"
               setData={setJob}
@@ -142,7 +127,13 @@ const PostJob = () => {
             />
           </div>
           <div className="container--grid mt-2">
-            <SelectSearch options={CURRENCIES} label="Moneda" setData={setJob} name="salary_currency" {...inputProps} />
+            <SelectSearch
+              options={jobUtils.currencies}
+              label="Moneda"
+              setData={setJob}
+              name="salary_currency"
+              {...inputProps}
+            />
             <Check
               label="Ocultar salario"
               name="hide_salary"
@@ -152,14 +143,14 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={FUNCTIONAL_AREA}
+              options={jobUtils.functionalArea}
               label="Área funcional"
               setData={setJob}
               name="functional_area_id"
               {...inputProps}
             />
             <SelectSearch
-              options={JOBTYPE}
+              options={jobUtils.jobTypes}
               label="Tipo de contrato"
               setData={setJob}
               name="job_type_id"
@@ -187,14 +178,14 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={FUNCTIONAL_AREA}
+              options={jobUtils.gradeLevels}
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"
               {...inputProps}
             />
             <SelectSearch
-              options={JOB_EXPERIENCES}
+              options={jobUtils.jobExperiences}
               setData={setJob}
               name="job_experience_id"
               label="Experiencia laboral requerida"

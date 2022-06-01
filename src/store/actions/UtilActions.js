@@ -1,5 +1,3 @@
-import axios from 'axios'
-// import { formatDepartments } from 'utils/options'
 import { client } from 'utils/axios'
 import { urls } from 'api/ulrs'
 import { POST_JOB, SET_JOB_UTILS, SET_ERROR } from './UtilTypes'
@@ -21,7 +19,18 @@ const setError = error => ({
 
 export const getJobUtils = () => async dispatch => {
   try {
-    const { getdepartment, getSkills, getCountries, getCurrencies, getGenders, getJobType, getJobShifts, getCities, getFunctionalArea, ...restUrls } = urls.utils
+    const {
+      getdepartment,
+      getSkills,
+      getCountries,
+      getCurrencies,
+      getGenders,
+      getJobType,
+      getJobShifts,
+      getCities,
+      getFunctionalArea,
+      ...restUrls
+    } = urls.utils
     const { getJobExperiences, getDegreeLevel, getCareerLevels, getSalaryPeriods } = restUrls
     await Promise.all([
       client(getdepartment),
