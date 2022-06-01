@@ -60,10 +60,7 @@ export const postJob = job => async dispatch => {
   try {
     const data = await client(urls.job.postJob, job, 'POST')
     dispatch(setpostJob(data))
-    if (data) {
-      return true
-    }
-    return false
+    return data ? true : false
   } catch (error) {
     dispatch(setError(error))
   }

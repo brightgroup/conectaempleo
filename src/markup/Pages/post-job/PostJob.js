@@ -19,7 +19,7 @@ const PostJob = () => {
   const isColombia = useMemo(() => job.country_id && job.country_id === 47, [job.country_id])
 
   useEffect(() => {
-    if (!jobUtils) dispatch(getJobUtils())
+    dispatch(getJobUtils())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
 
@@ -34,9 +34,12 @@ const PostJob = () => {
     setValidate(true)
 
     if (hasEmptyFields()) return
-    await dispatch(postJob(job))
-    setJob(initialState)
-    setValidate(false)
+    const data = await dispatch(postJob({ ...job, skills: [job.skills] }))
+    if (data) {
+      setJob(initialState)
+      setValidate(false)
+      alert('vacante publicada')
+    }
   }
 
   const hasEmptyFields = () => {
@@ -47,7 +50,6 @@ const PostJob = () => {
   const inputProps = { required: validate, wrapperClassName: 'mt-3' }
 
   const selectProps = { activatedSelect, setActivatedSelect }
-
 
   return (
     <Wrapper className="d-flex justify-content-center h-full px-4 ">
