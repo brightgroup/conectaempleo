@@ -6,7 +6,6 @@ import {
   SIGNUP_CONFIRMED_ACTION,
   SIGNUP_FAILED_ACTION,
 } from '../actions/AuthActions'
-import { SET_USER } from 'store/actions/AuthTypes'
 
 const initialState = {
   auth: {
@@ -73,7 +72,7 @@ export function AuthReducer(state = initialState, action) {
     }
   }
 
-  if (action.type === SET_USER) {
+  if (action.type === 'SET_USER') {
     return {
       ...state,
       user: action.payload,
