@@ -58,7 +58,7 @@ export const SelectSearch = ({
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={toggleOptions}>
           <span>
-            <i className={`fa-solid fa-angle-down ${isActivated ? 'flip-arrow' : ''} icon--styles select__arrow`} />
+            <i className={`fa-solid fa-angle-down pointer ${isActivated ? 'flip-arrow' : ''}  select__arrow`} />
           </span>
         </div>
         <input

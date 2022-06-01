@@ -22,10 +22,8 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
-    cursor: pointer;
 
     &__option {
-      cursor: pointer;
       display: flex;
       border-radius: 3px;
     }
@@ -38,8 +36,6 @@ export const Wrapper = styled.div`
       border: none;
       background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
       outline: none;
-      cursor: pointer;
-
       padding: 8px 15px;
     }
 
@@ -65,8 +61,11 @@ export const Wrapper = styled.div`
     margin-top: 15px;
     border-radius: 10px;
     border: 1px solid gray;
-    overflow-y: scroll;
-    z-index: 10;
+    z-index: 2000;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .option {
