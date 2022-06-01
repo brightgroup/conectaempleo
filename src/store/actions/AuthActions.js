@@ -116,7 +116,9 @@ export const logIn =
         localStorage.setItem('token', data)
         return dispatch(decryptToken({ token: data, rol }, tokenUrl))
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log('error', error)
+    }
   }
 
 export const decryptToken =
