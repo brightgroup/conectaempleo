@@ -1,8 +1,9 @@
 import { getUtilsData } from 'utils/job'
-import { POST_JOB, SET_JOB_UTILS, SET_ERROR } from '../actions/UtilTypes'
+import { POST_JOB, SET_JOB_UTILS, SET_CITIES, SET_ERROR } from '../actions/UtilTypes'
 
 const initialState = {
-  jobUtils: [],
+  jobUtils: {},
+  cities: [],
   error: '',
 }
 
@@ -17,6 +18,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         jobUtils: getUtilsData(action.payload),
+      }
+    case SET_CITIES:
+      return {
+        ...state,
+        cities: action.payload,
       }
     case SET_ERROR:
       return {

@@ -1,52 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
-import { getJobUtils } from 'store/actions/UtilActions'
-import {
-  FUNCTIONAL_AREA,
-  SALARY_PERIOD,
-  initialState,
-  JOB_SKILL,
-  COUNTRIES,
-  DEPARTMENTS,
-  CITIES,
-  CURRENCIES,
-  JOBTYPE,
-  JOB_EXPERIENCES,
-  Wrapper,
-  Content,
-} from '.'
-
-
+import { getCities, getJobUtils, postJob } from 'store/actions/UtilActions'
+import { isEmpty } from 'utils/validation'
+import { initialState, Wrapper, Content } from '.'
 
 const PostJob = () => {
   const dispatch = useDispatch()
-  const { jobUtils } = useSelector(state => state.utils)
+  const { jobUtils, cities = [] } = useSelector(state => state.utils)
+
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
+  const [activatedSelect, setActivatedSelect] = useState('')
+  const isColombia = useMemo(() => job.country_id && job.country_id === 47, [job.country_id])
 
   useEffect(() => {
-    dispatch(getJobUtils())
+    if (!jobUtils) dispatch(getJobUtils())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
+
+  useEffect(() => {
+    if (job.state_id) dispatch(getCities(job.state_id))
+  }, [dispatch, job.state_id])
 
   const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 
   const handleSubmit = async e => {
     e.preventDefault()
     setValidate(true)
+
+    if (hasEmptyFields()) return
+    await dispatch(postJob(job))
     setJob(initialState)
-    // await dispatch(postJob(job))
+    setValidate(false)
   }
 
-  const inputProps = {
-    required: validate,
-    wrapperClassName: 'mt-3',
+  const hasEmptyFields = () => {
+    const fields = Object.keys(initialState)
+    return fields?.some(field => isEmpty(job[field]))
   }
-  console.log(jobUtils)
+
+  const inputProps = { required: validate, wrapperClassName: 'mt-3' }
+
+  const selectProps = { activatedSelect, setActivatedSelect }
+
+
   return (
     <Wrapper className="d-flex justify-content-center h-full px-4 ">
       <SidebarMenu />
@@ -78,46 +80,52 @@ const PostJob = () => {
             {...inputProps}
           />
           <SelectSearch
-            options={JOB_SKILL}
-            message="seleccione habilidad"
+            options={jobUtils?.skills}
             label="Habilidades"
             setData={setJob}
             name="skills"
+            {...selectProps}
             {...inputProps}
           />
           <div className="container--grid mt-2">
             <SelectSearch
-              options={COUNTRIES}
+              options={jobUtils?.countries}
               message="Seleccione..."
               label="Pais"
               setData={setJob}
               name="country_id"
+              {...selectProps}
               {...inputProps}
             />
             <SelectSearch
-              options={DEPARTMENTS}
+              options={jobUtils?.departments}
               message="Seleccione..."
               label="Departamento"
               setData={setJob}
               name="state_id"
+              disabled={!isColombia}
+              {...selectProps}
               {...inputProps}
             />
           </div>
           <div className="container--grid">
             <SelectSearch
-              options={CITIES}
+              options={cities}
               message="Seleccione..."
               label="Ciudad"
               setData={setJob}
               name="city_id"
+              disabled={!job.state_id}
+              {...selectProps}
               {...inputProps}
             />
             <SelectSearch
-              options={SALARY_PERIOD}
+              options={jobUtils?.salaryPeriods?.slice(3, 7)}
               message="Seleccione..."
               label="Periodo salarial"
               setData={setJob}
               name="salary_period_id"
+              {...selectProps}
               {...inputProps}
             />
           </div>
@@ -142,7 +150,14 @@ const PostJob = () => {
             />
           </div>
           <div className="container--grid mt-2">
-            <SelectSearch options={CURRENCIES} label="Moneda" setData={setJob} name="salary_currency" {...inputProps} />
+            <SelectSearch
+              options={jobUtils?.currencies}
+              label="Moneda"
+              setData={setJob}
+              name="salary_currency"
+              {...selectProps}
+              {...inputProps}
+            />
             <Check
               label="Ocultar salario"
               name="hide_salary"
@@ -152,17 +167,19 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={FUNCTIONAL_AREA}
+              options={jobUtils?.functionalArea}
               label="Área funcional"
               setData={setJob}
               name="functional_area_id"
+              {...selectProps}
               {...inputProps}
             />
             <SelectSearch
-              options={JOBTYPE}
+              options={jobUtils?.jobTypes}
               label="Tipo de contrato"
               setData={setJob}
               name="job_type_id"
+              {...selectProps}
               {...inputProps}
             />
           </div>
@@ -187,17 +204,19 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={FUNCTIONAL_AREA}
+              options={jobUtils?.gradeLevels?.slice(8, 22)}
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"
+              {...selectProps}
               {...inputProps}
             />
             <SelectSearch
-              options={JOB_EXPERIENCES}
+              options={jobUtils?.jobExperiences}
               setData={setJob}
               name="job_experience_id"
               label="Experiencia laboral requerida"
+              {...selectProps}
               {...inputProps}
             />
           </div>

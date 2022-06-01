@@ -1,8 +1,6 @@
-import axios from 'axios'
-// import { formatDepartments } from 'utils/options'
 import { client } from 'utils/axios'
 import { urls } from 'api/ulrs'
-import { POST_JOB, SET_JOB_UTILS, SET_ERROR } from './UtilTypes'
+import { POST_JOB, SET_JOB_UTILS, SET_ERROR, SET_CITIES } from './UtilTypes'
 
 const setpostJob = data => ({
   type: POST_JOB,
@@ -14,6 +12,11 @@ const setJobUtils = data => ({
   payload: data,
 })
 
+const setCities = data => ({
+  type: SET_CITIES,
+  payload: data,
+})
+
 const setError = error => ({
   type: SET_ERROR,
   payload: error,
@@ -21,8 +24,10 @@ const setError = error => ({
 
 export const getJobUtils = () => async dispatch => {
   try {
-    const { getdepartment, getSkills, getCountries, getCurrencies, getGenders, getJobType, getJobShifts, getCities, getFunctionalArea, ...restUrls } = urls.utils
-    const { getJobExperiences, getDegreeLevel, getCareerLevels, getSalaryPeriods } = restUrls
+    const { getdepartment, getSkills, getCountries, getCurrencies, getGenders, getJobType, getJobShifts, ...restUrls } =
+      urls.utils
+    const { getJobExperiences, getDegreeLevel, getCareerLevels, getSalaryPeriods, getFunctionalArea } = restUrls
+
     await Promise.all([
       client(getdepartment),
       client(getSkills),
@@ -35,7 +40,6 @@ export const getJobUtils = () => async dispatch => {
       client(getJobExperiences),
       client(getDegreeLevel),
       client(getSalaryPeriods),
-      client(getCities),
       client(getFunctionalArea),
     ]).then(res => dispatch(setJobUtils(res)))
   } catch (error) {
@@ -43,13 +47,18 @@ export const getJobUtils = () => async dispatch => {
   }
 }
 
+export const getCities = departmentId => async dispatch => {
+  try {
+    const { data } = await client(urls.utils.getCities(departmentId))
+    dispatch(setCities(data))
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
 export const postJob = job => async dispatch => {
   try {
-    const {
-      utils: { postStoreJob },
-    } = urls
-
-    const data = await client(postStoreJob, job, 'POST')
+    const data = await client(urls.job.postJob, job, 'POST')
     dispatch(setpostJob(data))
     if (data) {
       return true
