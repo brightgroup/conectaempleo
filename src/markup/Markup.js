@@ -31,6 +31,7 @@ import Categorydesignationsjob from './Pages/Categorydesignationsjob'
 import Categoryjobs from './Pages/Categoryjobs'
 import Categorylocationjobs from './Pages/Categorylocationjobs'
 import Categoryskilljobs from './Pages/Categoryskilljobs'
+import profile from './Pages/Companyprofile'
 
 import Portfoliogrid2 from './Pages/Portfoliogrid2'
 
@@ -109,6 +110,7 @@ const Markup = () => {
             <Route path="/error-404" exact component={Error404} />
 
             <Route path="/contact" exact component={Contact} />
+            <Route path="/company-profile" exact component={profile} />
 
             <Route path="/blog-classic" exact component={Blogclassic} />
             <Route path="/blog-classic-sidebar" exact component={Blogclassicsidebar} />
