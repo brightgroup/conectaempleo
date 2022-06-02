@@ -42,7 +42,6 @@ export function loginAction(email, password, history) {
       .then(response => {
         saveTokenInLocalStorage(response.data)
         runLogoutTimer(dispatch, response.data.expiresIn * 1000, history)
-        dispatch(loginConfirmedAction(response.data))
         history.push('/home')
       })
       .catch(error => {
@@ -55,13 +54,6 @@ export function loginAction(email, password, history) {
 export function loginFailedAction(data) {
   return {
     type: LOGIN_FAILED_ACTION,
-    payload: data,
-  }
-}
-
-export function loginConfirmedAction(data) {
-  return {
-    type: LOGIN_CONFIRMED_ACTION,
     payload: data,
   }
 }
