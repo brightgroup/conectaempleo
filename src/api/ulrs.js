@@ -20,6 +20,8 @@ export const urls = {
     getSalaryPeriods: 'get-salaryPeriods',
     getCities: departmentId => `get-cities/${departmentId}`,
     getFunctionalArea: 'get-functional-areas',
+    registerCandidate: 'register',
+    registerEmployer: 'register-companys',
   },
   job: {
     postJob: 'store-job',

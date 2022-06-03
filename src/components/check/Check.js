@@ -1,9 +1,9 @@
 import React from 'react'
-import { WrapperCheckbox } from '.'
+import { WrapperCheckbox, WrapperCheck } from '.'
 
 export const Check = ({ label = '', name = '', handleChangeData = '', value = 0, wrapperClass = '', ...props }) => {
   return (
-    <WrapperCheckbox className={wrapperClass}>
+    <WrapperCheck className={wrapperClass}>
       <label className="text-dark">{label}</label>
       <div>
         <label className="mr-4">
@@ -30,6 +30,17 @@ export const Check = ({ label = '', name = '', handleChangeData = '', value = 0,
           No
         </label>
       </div>
+    </WrapperCheck>
+  )
+}
+
+export const Checkbox = ({ name = '', label = '', wrapperClassName = '', onChange = () => {} }) => {
+  return (
+    <WrapperCheckbox className={wrapperClassName}>
+      <label className="m-0 checkbox__label">
+        <input type="checkbox" name={name} id={name} onChange={onChange} className="mr-2" />
+        {label}
+      </label>
     </WrapperCheckbox>
   )
 }

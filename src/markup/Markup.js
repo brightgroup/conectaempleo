@@ -34,7 +34,6 @@ import Categoryskilljobs from './Pages/Categoryskilljobs'
 
 import Portfoliogrid2 from './Pages/Portfoliogrid2'
 
-import Register1 from './Pages/Register1'
 import Register2 from './Pages/Register2'
 import Error404 from './Pages/Error404'
 
@@ -56,6 +55,7 @@ import Transactions from './Pages/transactions'
 import CompanyProfile from './Pages/company-profile'
 import PostJob from './Pages/post-job'
 import Resume from './Pages/resume'
+import Register from './Pages/register'
 
 const Markup = () => {
   const [login, setLogin] = useState(false)
@@ -104,7 +104,6 @@ const Markup = () => {
 
             <Route path="/portfolio-grid-2" exact component={Portfoliogrid2} />
 
-            <Route path="/register" exact component={Register1} />
             <Route path="/register-2" exact component={Register2} />
             <Route path="/error-404" exact component={Error404} />
 
@@ -123,6 +122,7 @@ const Markup = () => {
             <Route path="/perfil" exact component={CompanyProfile} />
             <Route path="/resumen" exact component={Resume} />
             <Route path="/transacciones" exact component={Transactions} />
+            <Route path="/register" exact component={Register} />
           </Switch>
         </div>
       </div>

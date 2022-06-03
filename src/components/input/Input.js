@@ -10,6 +10,7 @@ export const Input = ({
   placeholder = '',
   messageError = 'Este campo es obligatorio',
   wrapperClassName = '',
+  customError = '',
   ...props
 }) => {
   return (
@@ -17,7 +18,7 @@ export const Input = ({
       <div className="d-flex flex-column">
         <label className="text-dark">{label}</label>
         <input className="input--style" type={type} placeholder={placeholder} {...props} />
-        {required && isEmpty(props.value) && <MessageError error={messageError} />}
+        {required && (customError || isEmpty(props.value)) && <MessageError error={customError || messageError} />}
       </div>
     </WrapperInputLabel>
   )
@@ -32,7 +33,7 @@ export const TextArea = ({
 }) => {
   return (
     <WrapperInputTextarea className={wrapperClassName}>
-      <label className="text-dark ">{label}</label>
+      <label className="text-dark">{label}</label>
       <textarea {...props} className="input--style w-100" />
       {required && isEmpty(props.value) && <MessageError error={messageError} />}
     </WrapperInputTextarea>

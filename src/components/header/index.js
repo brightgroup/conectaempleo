@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export * from "./Header.js";
+export * from './Header.js'
 
 export const Wrapper = styled.header`
   width: 100%;
-  height: 5.2rem;
+  height: 80px;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -36,4 +36,4 @@ export const Wrapper = styled.header`
       box-shadow: 2px 2px 4px gray;
     }
   }
-`;
+`
