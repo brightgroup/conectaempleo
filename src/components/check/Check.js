@@ -1,6 +1,5 @@
 import { MessageError } from 'components/message-error'
 import React from 'react'
-import { isEmpty } from 'utils/validation'
 import { WrapperCheckbox, WrapperCheck } from '.'
 
 export const Check = ({ label = '', name = '', handleChangeData = '', value = 0, wrapperClass = '', ...props }) => {
