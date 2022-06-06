@@ -134,3 +134,13 @@ export const logOut = () => async dispatch => {
     dispatch(setUser({}))
   } catch (error) {}
 }
+
+export const registerUser = (info, rol) => async dispatch => {
+  try {
+    const url = rol === 'candidate' ? urls.utils.registerCandidate : urls.utils.registerEmployer
+    const { data } = await client(url, info, 'POST')
+    return data ? true : false
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
