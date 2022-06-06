@@ -147,7 +147,6 @@ export const registerUser = (info, rol) => async dispatch => {
   try {
     const url = rol === 'candidate' ? urls.utils.registerCandidate : urls.utils.registerEmployer
     const { data } = await client(url, info, 'POST')
-    console.log('ejecutando')
     return data ? true : false
   } catch (error) {
     dispatch(setError(error))

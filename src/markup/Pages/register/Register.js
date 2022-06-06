@@ -17,6 +17,8 @@ const Register = () => {
 
   useEffect(() => {
     setData(initialState[rol])
+    setValidate(false)
+    setError({})
   }, [rol])
 
   const hasErrors = () => {
@@ -44,15 +46,16 @@ const Register = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setError({})
     setValidate(true)
     if (hasErrors()) return
-    const RESP = await dispatch(registerUser(data, rol))
-    if (RESP) {
-      alert('Usuario creado')
-      setValidate(false)
-      setError({})
-      setData(initialState[rol])
-    }
+    // const resp = await dispatch(registerUser(data, rol))
+    // if (resp) {
+    //   alert('Usuario creado')
+    //   setValidate(false)
+    //   setError({})
+    //   setData(initialState[rol])
+    // }
   }
 
   return (
@@ -66,12 +69,12 @@ const Register = () => {
         <Button
           wrapperClass={`mr-2 ${rol === 'candidate' ? 'actived-button' : ''}`}
           onClick={() => setRol('candidate')}
-          text={'Candidato'}
+          text="Candidato"
         />
         <Button
           wrapperClass={rol === 'employer' ? 'actived-button' : ''}
           onClick={() => setRol('employer')}
-          text={'Empleador'}
+          text="Empleador"
         />
       </div>
       <div className="w-100 d-flex flex-column align-items-center mt-5" onSubmit={handleSubmit}>

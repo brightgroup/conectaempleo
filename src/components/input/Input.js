@@ -10,6 +10,7 @@ export const Input = ({
   placeholder = '',
   messageError = 'Este campo es obligatorio',
   wrapperClassName = '',
+  WrapperClassNameError = '',
   customError = '',
   ...props
 }) => {
@@ -18,7 +19,9 @@ export const Input = ({
       <div className="d-flex flex-column">
         <label className="text-dark">{label}</label>
         <input className="input--style" type={type} placeholder={placeholder} {...props} />
-        {required && (customError || isEmpty(props.value)) && <MessageError error={customError || messageError} />}
+        {required && (customError || isEmpty(props.value)) && (
+          <MessageError error={customError || messageError} WrapperClassName={WrapperClassNameError} />
+        )}
       </div>
     </WrapperInputLabel>
   )

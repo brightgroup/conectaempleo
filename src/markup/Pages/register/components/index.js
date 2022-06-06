@@ -13,27 +13,40 @@ export const getForm = (rol, props = {}) => {
 
 export const WrapperForm = styled.form`
   width: 500px;
+  height: 32.5em;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 7px;
+    background: white;
+  }
 
-  .register__button {
-    padding: 6px 20px;
+  &::-webkit-scrollbar-thumb {
+    background-color: #0097fe;
     border-radius: 5px;
-    cursor: pointer;
-    width: 150px;
-    border: 2px solid #0097fe;
-    color: #0097fe;
-    font-weight: 600;
+  }
 
-    &:hover {
-      background-color: #0097fe;
-      color: white;
+  .register {
+    &__button {
+      padding: 6px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 150px;
+      border: 2px solid #0097fe;
+      color: #0097fe;
+      font-weight: 600;
+
+      &:hover {
+        background-color: #0097fe;
+        color: white;
+      }
+    }
+    &__link {
+      color: #0097fe;
+      font-weight: 700;
     }
   }
-
-  .register__send-login {
-    color: #0097fe;
-    font-weight: 700;
-  }
 `
+
 export const CANDIDATE_INPUTS = error => [
   {
     name: 'national_id_card_number',
@@ -69,7 +82,7 @@ export const CANDIDATE_INPUTS = error => [
   {
     name: 'email',
     placeholder: 'hello@example.com',
-    label: 'email',
+    label: 'Email',
     wrapperClassName: 'mt-3',
     customError: error?.email || '',
   },

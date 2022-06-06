@@ -4,6 +4,7 @@ export { default } from './Register'
 
 export const WrapperRegister = styled.div`
   height: 100%;
+  margin-bottom: 2em;
 
   .register {
     &__image {

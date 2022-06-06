@@ -1,4 +1,6 @@
+import { MessageError } from 'components/message-error'
 import React from 'react'
+import { isEmpty } from 'utils/validation'
 import { WrapperCheckbox, WrapperCheck } from '.'
 
 export const Check = ({ label = '', name = '', handleChangeData = '', value = 0, wrapperClass = '', ...props }) => {
@@ -34,13 +36,22 @@ export const Check = ({ label = '', name = '', handleChangeData = '', value = 0,
   )
 }
 
-export const Checkbox = ({ name = '', label = '', wrapperClassName = '', onChange = () => {} }) => {
+export const Checkbox = ({
+  name = '',
+  label = '',
+  wrapperClassName = '',
+  onChange = () => {},
+  required = '',
+  error = 'Este campo es obligatorio',
+  checked = false,
+}) => {
   return (
     <WrapperCheckbox className={wrapperClassName}>
-      <label className="m-0 checkbox__label">
-        <input type="checkbox" name={name} id={name} onChange={onChange} className="mr-2" />
+      <label className="m-0 checkbox__label mr-3">
+        <input type="checkbox" name={name} id={name} onChange={onChange} className="mr-2" checked={checked} />
         {label}
       </label>
+      {required && !checked && <MessageError error={error} />}
     </WrapperCheckbox>
   )
 }
