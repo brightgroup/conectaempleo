@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
   top: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 25px 0 30px;
+  padding: 0 30px;
 
   .ul__list {
     list-style-type: none;
