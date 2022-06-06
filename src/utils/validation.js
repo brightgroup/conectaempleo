@@ -1,11 +1,9 @@
 export const isEmpty = value => !String(value)
 
-export const errorEmail = email => {
-  // eslint-disable-next-line
+export const isValidEmail = email => {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  if (regex.test(email)) return false
-  return true
+  return regex.test(email)
 }
 
 export const isLength = password => {
@@ -13,10 +11,9 @@ export const isLength = password => {
   return false
 }
 
-export const errorPassword = password => {
+export const isValidPassword = password => {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/
-  if (regex.test(password)) return false
-  return true
+  return regex.test(password)
 }
 
 export const hasEmptyFields = (data, keys) => {

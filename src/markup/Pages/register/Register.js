@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux'
 import { Button } from 'components/button'
 import { getForm } from './components'
 import { registerUser } from 'store/actions/AuthActions'
-import { errorEmail, errorPassword, hasEmptyFields } from 'utils/validation'
+import { hasEmptyFields, isValidEmail, isValidPassword } from 'utils/validation'
 import image from 'images/banner/bnr2.jpg'
-import { initialState, WrapperRegister } from '.'
+import { errors, initialState, WrapperRegister } from '.'
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -23,39 +23,30 @@ const Register = () => {
 
   const hasErrors = () => {
     const { password, password_confirmation, email } = data
+    const { invalidEmail, invalidPassword, differentPasswords } = errors
     if (hasEmptyFields(data, Object.keys(data))) return true
-
-    if (errorEmail(email)) {
-      setError({ ...error, email: 'El correo no es valido' })
-      return true
+    const newError = {
+      ...error,
+      email: !isValidEmail(email) ? invalidEmail : '',
+      password: !isValidPassword(password) ? invalidPassword : '',
+      passwordConfirm: password !== password_confirmation ? differentPasswords : '',
     }
-
-    if (errorPassword(password)) {
-      setError({
-        ...error,
-        password: 'La contraseña debe ser mayor a 6 caracteres, incluir mayúsculas, minusculas y números',
-      })
-      return true
-    }
-
-    if (password !== password_confirmation) {
-      setError({ ...error, passwordConfirm: 'Las contraseñas no son iguales' })
-      return true
-    }
+    setError(newError)
+    return Object.values(newError).some(error => error)
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
-    setError({})
     setValidate(true)
     if (hasErrors()) return
-    // const resp = await dispatch(registerUser(data, rol))
-    // if (resp) {
-    //   alert('Usuario creado')
-    //   setValidate(false)
-    //   setError({})
-    //   setData(initialState[rol])
-    // }
+
+    const resp = await dispatch(registerUser(data, rol))
+    if (resp) {
+      alert('Usuario creado')
+      setValidate(false)
+      setError({})
+      setData(initialState[rol])
+    }
   }
 
   return (

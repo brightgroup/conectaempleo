@@ -13,9 +13,11 @@ export const WrapperCheckbox = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   line-height: 30px;
-  
-  .checkbox__label {
-    cursor: pointer;
-    align-items: self-start;
+
+  .checkbox {
+    &__label {
+      cursor: pointer;
+      align-items: self-start;
+    }
   }
 `

@@ -22,16 +22,16 @@ export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
       <Input
         placeholder="hello@example.com"
         name="email"
-        messageError="El campo es obligatorio"
+        customError={error.email}
         onChange={handleChangeInput}
         value={data.email}
-        wrapperClassName="m"
         {...inputProps}
       />
       <Input
-        type="password"
         placeholder="******"
+        type="password"
         name="password"
+        customError={error.password}
         onChange={handleChangeInput}
         value={data.password}
         {...inputProps}

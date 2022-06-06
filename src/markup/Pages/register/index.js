@@ -56,3 +56,9 @@ export const initialState = {
   candidate: initialStateCandidate,
   employer: initialStateEmployer,
 }
+
+export const errors = {
+  invalidEmail: 'El correo no es valido',
+  invalidPassword: 'La contraseña debe ser mayor a 6 caracteres, incluir mayúsculas, mínusculas y números',
+  differentPasswords: 'Las contraseñas no son iguales',
+}

@@ -13,17 +13,6 @@ export const getForm = (rol, props = {}) => {
 
 export const WrapperForm = styled.form`
   width: 500px;
-  height: 32.5em;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    width: 7px;
-    background: white;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #0097fe;
-    border-radius: 5px;
-  }
 
   .register {
     &__button {
