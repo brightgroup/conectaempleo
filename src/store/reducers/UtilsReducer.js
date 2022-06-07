@@ -19,6 +19,8 @@ const initialState = {
     countries: [],
     departments: [],
     careerLevels: [],
+    functionalArea: [],
+    industries: [],
   },
   cities: [],
   showLoader: false,

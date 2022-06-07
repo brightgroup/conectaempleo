@@ -20,6 +20,7 @@ export const urls = {
     getSalaryPeriods: 'get-salaryPeriods',
     getCities: departmentId => `get-cities/${departmentId}`,
     getFunctionalArea: 'get-functional-areas',
+    getIndustries: 'get-industries',
     registerCandidate: 'register',
     registerEmployer: 'register-companys',
   },

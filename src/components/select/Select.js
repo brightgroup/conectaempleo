@@ -9,34 +9,33 @@ export const SelectSearch = ({
   name = '',
   label = '',
   setData = '',
-  required = '',
+  required = false,
   messageError = 'Este campo es obligatorio',
   disabled = false,
   activatedSelect = '',
   setActivatedSelect = () => {},
-  initialValue = '',
   wrapperClassName = '',
+  initialValue = '',
 }) => {
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
-  const [value, setValue] = useState('')
 
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
-  const getInitialValue = useCallback(
+  const getvalue = useCallback(
     () => (initialValue ? optionList?.find(option => option.id === Number(initialValue))?.name || '' : ''),
     [initialValue, optionList]
   )
+
   useEffect(() => setOptions(optionList), [optionList])
 
-  useEffect(() => setSearchValue(getInitialValue()), [initialValue, getInitialValue])
+  useEffect(() => setSearchValue(getvalue()), [initialValue, getvalue])
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
     if (!disabled && value) {
       setSearchValue(value)
-      setData(data => ({ ...data, [name]: id || value }))
-      setValue('value')
+      setData(data => ({ ...data, [name]: id || value, ...(name === 'state_id' && { city_id: '' }) }))
     }
   }
 
@@ -56,7 +55,7 @@ export const SelectSearch = ({
 
   const onClickInput = () => setActivatedSelect(name)
 
-  const hasError = required && isEmpty(value) && !disabled
+  const hasError = required && isEmpty(searchValue)
 
   return (
     <Wrapper disabled={disabled} className={wrapperClassName} hasError={hasError}>
