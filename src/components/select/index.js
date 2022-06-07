@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     &__label {
       color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
     }
-    
+
     &__option {
       display: flex;
       border-radius: 3px;
@@ -47,6 +47,7 @@ export const Wrapper = styled.div`
       transition: 0.4s all;
       right: 10px;
       top: 16px;
+      z-index: 20;
     }
 
     .input-without-value {

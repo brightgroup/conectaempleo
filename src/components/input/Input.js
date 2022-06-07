@@ -12,14 +12,15 @@ export const Input = ({
   wrapperClassName = '',
   customError = '',
   value = '',
+  disabled = false,
   ...props
 }) => {
-  const hasError = required && (customError || isEmpty(value))
+  const hasError = required && (customError || isEmpty(value)) && !disabled
 
   return (
     <WrapperInputLabel className={wrapperClassName} hasError={hasError}>
       <label className="input__label">{label}</label>
-      <input className="input" type={type} placeholder={placeholder} value={value} {...props} />
+      <input className="input" type={type} placeholder={placeholder} value={value} {...props} disabled={disabled} />
       {hasError && <MessageError error={customError || messageError} />}
     </WrapperInputLabel>
   )

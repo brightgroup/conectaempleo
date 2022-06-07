@@ -55,7 +55,7 @@ export const getJobUtils = () => async dispatch => {
 
 export const getProfileUtils = () => async dispatch => {
   try {
-    const { getGenders, getCountries, getdepartments, getCareerLevels, getFunctionalArea } = urls.utils
+    const { getGenders, getCountries, getdepartments, getCareerLevels, getFunctionalArea, getIndustries } = urls.utils
 
     await Promise.all([
       simpleClient(getGenders),
@@ -63,6 +63,7 @@ export const getProfileUtils = () => async dispatch => {
       simpleClient(getdepartments),
       simpleClient(getCareerLevels),
       simpleClient(getFunctionalArea),
+      simpleClient(getIndustries),
     ]).then(res => dispatch(setProfileUtils(res)))
   } catch (error) {
     dispatch(setError(error))
