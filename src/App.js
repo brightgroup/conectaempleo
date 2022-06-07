@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Login from 'markup/Pages/login'
 import Routes from 'markup/Markup'
+import { Loader } from 'components/loader'
 import './css/plugins.css'
 import './css/style.css'
 import './css/templete.css'
@@ -10,14 +12,17 @@ import './plugins/slick/slick.min.css'
 import './plugins/slick/slick-theme.min.css'
 import './index.css'
 import './general.css'
-import { useSelector } from 'react-redux'
 
 const App = () => {
-  const { user } = useSelector(state => state.auth)
+  const {
+    auth: { user },
+    utils: { showLoader },
+  } = useSelector(state => state)
 
   if (user?.id) {
     return (
       <>
+        {showLoader && <Loader />}
         <Suspense
           fallback={
             <div id="preloader">
@@ -36,6 +41,7 @@ const App = () => {
   }
   return (
     <Switch>
+      {showLoader && <Loader />}
       <Route path="/login" component={Login} />
       <Redirect to="/login" />
     </Switch>

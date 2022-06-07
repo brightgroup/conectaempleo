@@ -1,4 +1,5 @@
 export const SET_JOB_UTILS = 'SET_JOB_UTILS'
+export const SET_PROFILE_UTILS = 'SET_PROFILE_UTILS'
 export const SET_CITIES = 'SET_CITIES'
 export const POST_JOB = 'POST_JOB'
 export const SET_ERROR = 'SET_ERROR'

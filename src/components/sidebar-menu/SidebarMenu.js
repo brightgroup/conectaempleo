@@ -26,7 +26,6 @@ export const SidebarMenu = ({ rol = '' }) => {
 
   const handleChangeImage = ({ target }) => {
     const image = target.files[0]
-    console.log('imagen', URL.createObjectURL(image))
     setImage(URL.createObjectURL(image))
   }
 

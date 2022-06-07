@@ -10,7 +10,7 @@ import { errors, initialState, WrapperRegister } from '.'
 const Register = () => {
   const dispatch = useDispatch()
 
-  const [rol, setRol] = useState('')
+  const [rol, setRol] = useState('candidate')
   const [data, setData] = useState({})
   const [validate, setValidate] = useState(false)
   const [error, setError] = useState({})

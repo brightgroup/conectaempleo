@@ -52,7 +52,7 @@ const PostJob = () => {
   const selectProps = { activatedSelect, setActivatedSelect }
 
   return (
-    <Wrapper className="d-flex justify-content-center h-full px-4 ">
+    <Wrapper className="d-flex justify-content-center h-full px-4">
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle />
@@ -82,7 +82,7 @@ const PostJob = () => {
             {...inputProps}
           />
           <SelectSearch
-            options={jobUtils?.skills || []}
+            options={jobUtils?.skills}
             label="Habilidades"
             setData={setJob}
             name="skills"
@@ -91,7 +91,7 @@ const PostJob = () => {
           />
           <div className="container--grid mt-2">
             <SelectSearch
-              options={jobUtils?.countries || []}
+              options={jobUtils?.countries}
               message="Seleccione..."
               label="Pais"
               setData={setJob}
@@ -100,7 +100,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={jobUtils?.departments || []}
+              options={jobUtils?.departments}
               message="Seleccione..."
               label="Departamento"
               setData={setJob}
@@ -122,7 +122,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={jobUtils?.salaryPeriods?.slice(3, 7) || []}
+              options={jobUtils?.salaryPeriods?.slice(3, 7)}
               message="Seleccione..."
               label="Periodo salarial"
               setData={setJob}
@@ -153,7 +153,7 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={jobUtils?.currencies || []}
+              options={jobUtils?.currencies}
               label="Moneda"
               setData={setJob}
               name="salary_currency"
@@ -169,7 +169,7 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={jobUtils?.functionalArea || []}
+              options={jobUtils?.functionalArea}
               label="Área funcional"
               setData={setJob}
               name="functional_area_id"
@@ -177,7 +177,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={jobUtils?.jobTypes || []}
+              options={jobUtils?.jobTypes}
               label="Tipo de contrato"
               setData={setJob}
               name="job_type_id"
@@ -206,7 +206,7 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={jobUtils?.gradeLevels?.slice(8, 22) || []}
+              options={jobUtils?.gradeLevels?.slice(8, 22)}
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"
@@ -214,7 +214,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={jobUtils?.jobExperiences || []}
+              options={jobUtils?.jobExperiences}
               setData={setJob}
               name="job_experience_id"
               label="Experiencia laboral requerida"

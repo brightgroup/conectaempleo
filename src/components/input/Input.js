@@ -7,22 +7,20 @@ export const Input = ({
   label = '',
   type = 'text',
   required = '',
-  placeholder = '',
+  placeholder = label,
   messageError = 'Este campo es obligatorio',
   wrapperClassName = '',
-  WrapperClassNameError = '',
   customError = '',
+  value = '',
   ...props
 }) => {
+  const hasError = required && (customError || isEmpty(value))
+
   return (
-    <WrapperInputLabel className={wrapperClassName}>
-      <div className="d-flex flex-column">
-        <label className="text-dark">{label}</label>
-        <input className="input--style" type={type} placeholder={placeholder} {...props} />
-        {required && (customError || isEmpty(props.value)) && (
-          <MessageError error={customError || messageError} WrapperClassName={WrapperClassNameError} />
-        )}
-      </div>
+    <WrapperInputLabel className={wrapperClassName} hasError={hasError}>
+      <label className="input__label">{label}</label>
+      <input className="input" type={type} placeholder={placeholder} value={value} {...props} />
+      {hasError && <MessageError error={customError || messageError} />}
     </WrapperInputLabel>
   )
 }
@@ -34,11 +32,13 @@ export const TextArea = ({
   wrapperClassName = '',
   ...props
 }) => {
+  const hasError = required && isEmpty(props.value)
+
   return (
-    <WrapperInputTextarea className={wrapperClassName}>
-      <label className="text-dark">{label}</label>
-      <textarea {...props} className="input--style w-100" />
-      {required && isEmpty(props.value) && <MessageError error={messageError} />}
+    <WrapperInputTextarea className={wrapperClassName} hasError={hasError}>
+      <label className="input__label">{label}</label>
+      <textarea {...props} className="input w-100" />
+      {required && isEmpty(props.value) && <MessageError error={messageError} WrapperClassName="mt-1" />}
     </WrapperInputTextarea>
   )
 }
@@ -53,12 +53,13 @@ export const InputDate = ({
   wrapperClassName = '',
   ...props
 }) => {
+  const hasError = required && isEmpty(props.value)
   return (
-    <WrapperInputDate className={wrapperClassName}>
+    <WrapperInputDate className={wrapperClassName} hasError={hasError}>
       <div className="d-flex flex-column">
-        <label className="text-dark">{label}</label>
-        <input className="input--style" type={type} name={name} placeholder={placeholder} {...props} />
-        {required && isEmpty(props.value) && <MessageError error={messageError} />}
+        <label className="input__label">{label}</label>
+        <input className="input" type={type} name={name} placeholder={placeholder} {...props} />
+        {hasError && <MessageError error={messageError} />}
       </div>
     </WrapperInputDate>
   )

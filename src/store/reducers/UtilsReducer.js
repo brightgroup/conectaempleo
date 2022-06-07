@@ -1,9 +1,27 @@
 import { getUtilsData } from 'utils/job'
-import { POST_JOB, SET_JOB_UTILS, SET_CITIES, SET_ERROR } from '../actions/UtilTypes'
+import { getProfileData } from 'utils/profile'
+import { POST_JOB, SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR } from '../actions/UtilTypes'
 
 const initialState = {
-  jobUtils: {},
+  jobUtils: {
+    skills: [],
+    departments: [],
+    salaryPeriods: [],
+    countries: [],
+    currencies: [],
+    functionalArea: [],
+    jobTypes: [],
+    gradeLevels: [],
+    jobExperiences: [],
+  },
+  profile: {
+    genders: [],
+    countries: [],
+    departments: [],
+    careerLevels: [],
+  },
   cities: [],
+  showLoader: false,
   error: '',
 }
 
@@ -19,10 +37,20 @@ export const reducer = (state = initialState, action) => {
         ...state,
         jobUtils: getUtilsData(action.payload),
       }
+    case SET_PROFILE_UTILS:
+      return {
+        ...state,
+        profile: getProfileData(action.payload),
+      }
     case SET_CITIES:
       return {
         ...state,
         cities: action.payload,
+      }
+    case 'TOGGLE_LOADER':
+      return {
+        ...state,
+        showLoader: action.payload,
       }
     case SET_ERROR:
       return {
