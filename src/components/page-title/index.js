@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
     &__button {
       width: 60px;
       height: 28px;
-      background: #0097fe;
+      background: var(--blue);
       font-size: 12px;
       cursor: pointer;
       position: relative;
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
         position: absolute;
         left: -28px;
         border-top: 14px solid transparent;
-        border-right: 14px solid #0097fe;
+        border-right: 14px solid var(--blue);
         border-bottom: 14px solid transparent;
         border-left: 14px solid transparent;
       }

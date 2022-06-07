@@ -23,7 +23,7 @@ export const Content = styled.div`
 
   .form__buton--style {
     padding: 6px 22px;
-    background-color: #0097fe;
+    background-color: var(--blue);
     border: none;
     border-radius: 5px;
     color: white;

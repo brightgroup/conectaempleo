@@ -20,7 +20,7 @@ export const WrapperForm = styled.form`
 
   .form__button--styles {
     padding: 6px 22px;
-    background-color: #0097fe;
+    background-color: var(--blue);
     border: none;
     border-radius: 5px;
     color: white;

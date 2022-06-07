@@ -9,6 +9,7 @@ import './css/skin/skin-1.css'
 import './plugins/slick/slick.min.css'
 import './plugins/slick/slick-theme.min.css'
 import './index.css'
+import './general.css'
 import { useSelector } from 'react-redux'
 
 const App = () => {

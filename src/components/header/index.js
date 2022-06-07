@@ -22,12 +22,12 @@ export const Wrapper = styled.header`
   }
 
   .active:hover {
-    border-bottom: 3px solid #0097fe;
-    color: #0097fe !important;
+    border-bottom: 3px solid var(--blue);
+    color: var(--blue) !important;
   }
 
   .button {
-    background-color: #0097fe;
+    background-color: var(--blue);
     padding: 10px 8px;
     margin-left: 4px;
     border-radius: 4px;
