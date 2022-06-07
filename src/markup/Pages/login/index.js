@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   }
 
   .active {
-    background: #0097fe;
+    background: var(--blue);
     color: white;
     box-shadow: 2px 2px 2px gray;
   }

@@ -5,9 +5,7 @@ export * from './Select'
 export const Wrapper = styled.div`
   width: 100%;
   height: auto;
-  border-radius: 10px;
   color: #9da5b1;
-  margin-top: 4px;
 
   .disabled-select {
     background-color: rgb(214, 205, 205) !important;
@@ -22,7 +20,12 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
+    border: ${({ hasError, disabled }) => `1px solid ${hasError && !disabled ? 'var(--error)' : 'transparent'}`};
 
+    &__label {
+      color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
+    }
+    
     &__option {
       display: flex;
       border-radius: 3px;

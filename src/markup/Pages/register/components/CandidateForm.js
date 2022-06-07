@@ -25,7 +25,6 @@ export const CandidateForm = ({ data, setData, handleSubmit = () => {}, validate
           onChange={handleChangeData}
           required={validate}
           value={data ? data[input.name] || '' : ''}
-          WrapperClassNameError="mt-2"
         />
       ))}
       <Checkbox label="Suscríbirse al boletin de noticias" wrapperClassName="mt-2" />

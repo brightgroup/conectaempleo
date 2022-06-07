@@ -11218,8 +11218,6 @@ footer.footer-white .footer-bottom a {
 }
 /*= Section Content Part =*/
 
-.section-content {
-}
 @media only screen and (max-width: 1024px) {
   .section-full {
     background-attachment: scroll !important;

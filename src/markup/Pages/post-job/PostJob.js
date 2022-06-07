@@ -52,7 +52,7 @@ const PostJob = () => {
   const selectProps = { activatedSelect, setActivatedSelect }
 
   return (
-    <Wrapper className="d-flex justify-content-center h-full px-4 ">
+    <Wrapper className="d-flex justify-content-center h-full px-4">
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle />

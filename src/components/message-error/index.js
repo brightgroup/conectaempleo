@@ -5,12 +5,14 @@ export * from './MessageError'
 export const WrapperMessageError = styled.div`
   display: flex;
 
-  .style--i {
-    color: red;
-    margin-right: 5px;
-  }
+  .error {
+    &__icon {
+      color: var(--error);
+      margin-right: 5px;
+    }
 
-  .style-small {
-    color: red;
+    &__text {
+      color: var(--error);
+    }
   }
 `

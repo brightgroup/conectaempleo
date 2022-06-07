@@ -1,9 +1,10 @@
-import { client } from 'utils/axios'
+import { simpleClient, client } from 'utils/axios'
 import { urls } from 'api/ulrs'
 import { formatError, login, runLogoutTimer, saveTokenInLocalStorage, signUp } from 'services/AuthService'
 import { EMPLOYER } from 'constants/rol'
 
 export const SET_USER = 'SET_USER'
+export const SET_PROFILE = 'SET_PROFILE'
 export const SET_ERROR = 'SET_ERROR'
 export const SIGNUP_CONFIRMED_ACTION = '[signup action] confirmed signup'
 export const SIGNUP_FAILED_ACTION = '[signup action] failed signup'
@@ -86,6 +87,11 @@ export const setUser = user => ({
   payload: user,
 })
 
+export const setProfile = profile => ({
+  type: SET_PROFILE,
+  payload: profile,
+})
+
 export const setError = error => ({
   type: SET_ERROR,
   pyaload: error,
@@ -102,14 +108,14 @@ export const logIn =
       const loginUrl = isEmployer ? employerLogin : candidateLogin
       const tokenUrl = isEmployer ? getEmployer : getCandidate
 
-      const { data } = await client(loginUrl, { ...(isEmployer ? { email } : { user: email }), password }, 'POST')
+      const token = await simpleClient(loginUrl, { ...(isEmployer ? { email } : { user: email }), password }, 'POST')
 
-      if (data) {
-        localStorage.setItem('token', data)
-        return dispatch(decryptToken({ token: data, rol }, tokenUrl))
+      if (token) {
+        localStorage.setItem('token', token)
+        return dispatch(decryptToken({ token, rol }, tokenUrl))
       }
     } catch (error) {
-      console.log('error', error)
+      dispatch(setError(error))
     }
   }
 
@@ -117,7 +123,7 @@ export const decryptToken =
   ({ token, rol }, url) =>
   async dispatch => {
     try {
-      const { data } = await client(url, { token }, 'POST')
+      const data = await simpleClient(url, { token }, 'POST')
       if (data) {
         const user = { ...data, rol }
         dispatch(setUser(user))
@@ -138,8 +144,17 @@ export const logOut = () => async dispatch => {
 export const registerUser = (info, rol) => async dispatch => {
   try {
     const url = rol === 'candidate' ? urls.utils.registerCandidate : urls.utils.registerEmployer
-    const { data } = await client(url, info, 'POST')
+    const { data } = await simpleClient(url, info, 'POST')
     return data ? true : false
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
+export const getProfile = () => async dispatch => {
+  try {
+    const { data } = await client(urls.auth.getUserProfile)
+    dispatch(setProfile(data))
   } catch (error) {
     dispatch(setError(error))
   }

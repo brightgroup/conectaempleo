@@ -1,13 +1,13 @@
 export const urls = {
-  getDepartments: 'https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json',
   auth: {
     candidateLogin: 'auth/login',
     getCandidate: 'auth/me',
     employerLogin: 'company/login',
     getEmployer: 'company/auth/me',
+    getUserProfile: 'my-profile',
   },
   utils: {
-    getdepartment: 'get-states/47',
+    getdepartments: 'get-states/47',
     getSkills: 'get-jobSkills',
     getCountries: 'get-countries',
     getCareerLevels: 'get-careerLevels',

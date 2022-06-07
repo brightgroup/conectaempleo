@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import { MessageError } from 'components/message-error'
 import { isEmpty } from 'utils/validation'
 import { Wrapper, WITHOUT_RESULTS } from '.'
@@ -14,6 +14,7 @@ export const SelectSearch = ({
   disabled = false,
   activatedSelect = '',
   setActivatedSelect = () => {},
+  initialValue = '',
   wrapperClassName = '',
 }) => {
   const [searchValue, setSearchValue] = useState(message)
@@ -22,14 +23,20 @@ export const SelectSearch = ({
 
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
+  const getInitialValue = useCallback(
+    () => (initialValue ? optionList?.find(option => option.id === Number(initialValue))?.name || '' : ''),
+    [initialValue, optionList]
+  )
   useEffect(() => setOptions(optionList), [optionList])
+
+  useEffect(() => setSearchValue(getInitialValue()), [initialValue, getInitialValue])
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
     if (!disabled && value) {
       setSearchValue(value)
       setData(data => ({ ...data, [name]: id || value }))
-      setValue(value)
+      setValue('value')
     }
   }
 
@@ -47,14 +54,13 @@ export const SelectSearch = ({
     }
   }
 
-  const onClickInput = () => {
-    setActivatedSelect(name)
-    setSearchValue('')
-  }
+  const onClickInput = () => setActivatedSelect(name)
+
+  const hasError = required && isEmpty(value) && !disabled
 
   return (
-    <Wrapper disabled={disabled} className={wrapperClassName}>
-      <label className="text-dark">{label}</label>
+    <Wrapper disabled={disabled} className={wrapperClassName} hasError={hasError}>
+      <label className="select__label">{label}</label>
       <div className="select" onClick={toggleOptions}>
         <div className="select__option" onClick={toggleOptions}>
           <span>
@@ -80,7 +86,7 @@ export const SelectSearch = ({
           </div>
         )}
       </div>
-      {required && isEmpty(value) && <MessageError error={messageError} />}
+      {hasError && <MessageError error={messageError} />}
     </Wrapper>
   )
 }

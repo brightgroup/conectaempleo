@@ -32,12 +32,11 @@ function Login() {
       return setError({ ...error, email: 'El e-mail no es valido' })
     }
     const loggedUser = await dispatch(logIn(user))
-
     if (loggedUser?.id) {
       history.push('/home')
     }
   }
-  console.log(error)
+
   return (
     <Wrapper>
       <div className="d-flex container--login flex-column align-items-center mt-4">

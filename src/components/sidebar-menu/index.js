@@ -37,7 +37,7 @@ export const sidebarItems = [
   {
     text: 'Cerrar sesion',
     icon: 'fa fa-sign-out',
-    section: 'log-out ',
+    section: 'log-out',
     path: '/login',
   },
 ]
@@ -78,10 +78,57 @@ export const WrapperSidebar = styled.div`
     }
   }
 
-  .container__image {
-    width: 12em;
-    height: 12em;
-    margin: 0 auto;
-    box-shadow: 0.1875rem 0.1875rem 0.1875rem gray;
+  .sidebar {
+    &__profile-box {
+      width: 290px;
+      height: 268px;
+      margin: 0 auto;
+    }
+
+    &__container-image {
+      width: 146px;
+      height: 146px;
+      margin-top: 26px;
+    }
+
+    &__profile-image {
+      border-radius: 100%;
+      object-fit: contain;
+    }
+
+    &__update-icon {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      border-radius: 100%;
+      font-size: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: var(--blue);
+      z-index: 1000;
+    }
+
+    &__input-file {
+      position: absolute;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      z-index: 2;
+      display: none;
+    }
+
+    &__company-name {
+      font-size: 24px;
+      font-weight: 700;
+      position: absolute;
+      margin: auto;
+      bottom: 1.875rem;
+      color: black;
+    }
   }
 `

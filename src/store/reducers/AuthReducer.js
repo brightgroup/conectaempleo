@@ -1,12 +1,3 @@
-import {
-  LOADING_TOGGLE_ACTION,
-  LOGIN_CONFIRMED_ACTION,
-  LOGIN_FAILED_ACTION,
-  LOGOUT_ACTION,
-  SIGNUP_CONFIRMED_ACTION,
-  SIGNUP_FAILED_ACTION,
-} from '../actions/AuthActions'
-
 const initialState = {
   auth: {
     email: '',
@@ -19,64 +10,48 @@ const initialState = {
   successMessage: '',
   showLoading: false,
   user: {},
+  profile: {
+    career_level_id: 32,
+    city_id: '12874',
+    civil_status_id: 22,
+    country_id: '47',
+    current_salary: '1.500.000',
+    date_of_birth: '2003-03-19',
+    email: 'angielalinde77@gmail.com',
+    expected_salary: '4.000.000',
+    first_lastname: 'Monsalve',
+    first_name: 'Anlly',
+    functional_area_id: 10024,
+    gender_id: 1,
+    id: 289,
+    image: 'anlly-carolina-monsalve-lalinde-1654294263-101.PNG',
+    marital_status_id: 4,
+    middle_name: 'Carolina',
+    mobile_num: '3227748294',
+    name: 'Anlly Carolina Monsalve Lalinde',
+    nationality_id: 47,
+    phone: '3227748294',
+    rol: 'Estudiante',
+    second_lastname: 'Lalinde',
+    state_id: '782',
+    street_address: 'Calle 5#2-03',
+  },
 }
 
 export function AuthReducer(state = initialState, action) {
-  if (action.type === SIGNUP_CONFIRMED_ACTION) {
-    return {
-      ...state,
-      auth: action.payload,
-      errorMessage: '',
-      successMessage: 'Signup Successfully Completed',
-      showLoading: false,
-    }
-  }
-  if (action.type === LOGIN_CONFIRMED_ACTION) {
-    return {
-      ...state,
-      auth: action.payload,
-      errorMessage: '',
-      successMessage: 'Login Successfully Completed',
-      showLoading: false,
-    }
-  }
+  switch (action.type) {
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.payload,
+      }
+    case 'SET_PROFILE':
+      return {
+        ...state,
+        profile: action.payload,
+      }
 
-  if (action.type === LOGOUT_ACTION) {
-    return {
-      ...state,
-      errorMessage: '',
-      successMessage: '',
-      auth: {
-        email: '',
-        idToken: '',
-        localId: '',
-        expiresIn: '',
-        refreshToken: '',
-      },
-    }
+    default:
+      return state
   }
-
-  if (action.type === SIGNUP_FAILED_ACTION || action.type === LOGIN_FAILED_ACTION) {
-    return {
-      ...state,
-      errorMessage: action.payload,
-      successMessage: '',
-      showLoading: false,
-    }
-  }
-
-  if (action.type === LOADING_TOGGLE_ACTION) {
-    return {
-      ...state,
-      showLoading: action.payload,
-    }
-  }
-
-  if (action.type === 'SET_USER') {
-    return {
-      ...state,
-      user: action.payload,
-    }
-  }
-  return state
 }
