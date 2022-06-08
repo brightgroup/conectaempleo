@@ -5,3 +5,21 @@
 .bg-blue {
     background-color: var(--blue);
 }
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

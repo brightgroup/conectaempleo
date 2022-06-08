@@ -5,8 +5,9 @@ import thunk from 'redux-thunk'
 import PostsReducer from './reducers/PostsReducer'
 import { AuthReducer } from './reducers/AuthReducer'
 import todoReducers from './reducers/Reducers'
-import { reducer as reduxFormReducer } from 'redux-form'
-import { reducer as utilsReducer } from './reducers/UtilsReducer'
+import { reducer as ReduxFormReducer } from 'redux-form'
+import { reducer as UtilsReducer } from './reducers/UtilsReducer'
+import { UserReducer } from './reducers/UserReducer'
 const middleware = applyMiddleware(thunk)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -15,8 +16,9 @@ const reducers = combineReducers({
   posts: PostsReducer,
   auth: AuthReducer,
   todoReducers,
-  form: reduxFormReducer,
-  utils: utilsReducer,
+  form: ReduxFormReducer,
+  utils: UtilsReducer,
+  user: UserReducer,
 })
 
 // this configuration has a white list and a black list to discriminate the persistence of the data

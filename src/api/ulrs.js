@@ -4,7 +4,10 @@ export const urls = {
     getCandidate: 'auth/me',
     employerLogin: 'company/login',
     getEmployer: 'company/auth/me',
-    getUserProfile: 'my-profile',
+  },
+  user: {
+    getProfile: 'my-profile',
+    updateUser: 'my-profile',
   },
   utils: {
     getdepartments: 'get-states/47',
