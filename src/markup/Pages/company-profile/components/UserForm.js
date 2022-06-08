@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Input } from 'components/input'
+import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { Checkbox } from 'components/check'
 import { Button } from 'components/button'

@@ -73,7 +73,7 @@ const Markup = () => {
     <>
       <div className="page-wraper d-flex flex-column">
         {!login && <Header />}
-        <div className={`pages-container ${login ? '' : 'mt-5'}`}>
+        <div className={`pages-container bg-white ${login ? '' : 'mt-5'}`}>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/home" exact component={Homepage} />
@@ -119,7 +119,7 @@ const Markup = () => {
             <Route path="/blog-detailed-grid-sidebar" exact component={Blogdetailgridsidebar} />
             <Route path="/blog-left-img" exact component={Blogleftimg} />
             <Route path="/blog-details" exact component={Blogdetail} />
-            
+
             <Route path="/acceso" exact component={Login} />
             <Route path="/publicar-empleo" exact component={PostJob} />
             <Route path="/cambiar-contraseña" exact component={ChangePassword} />

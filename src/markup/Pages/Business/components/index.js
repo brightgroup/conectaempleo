@@ -11,6 +11,11 @@ export const WrapperCard = styled.div`
     height: 180px;
     border: 1px solid gray;
     border-radius: 5px;
+    overflow: hidden;
+
+    &__image {
+      width: 100%;
+    }
   }
 
   .text {
