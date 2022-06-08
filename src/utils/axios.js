@@ -25,7 +25,6 @@ export const simpleClient = async (endpoint, data, method = 'GET') => {
       return res?.data || res
     } catch (error) {
       store.dispatch(toggleLoader())
-      console.log('el error', error)
       return false
     }
   }

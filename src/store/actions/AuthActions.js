@@ -128,10 +128,11 @@ export const decryptToken =
     }
   }
 
-export const logOut = () => async dispatch => {
+export const logOut = history => async dispatch => {
   try {
     localStorage.clear()
     dispatch(setUser({}))
+    history.push('/login')
   } catch (error) {}
 }
 

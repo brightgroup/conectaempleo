@@ -7,7 +7,7 @@ import Login from 'markup/Pages/login'
 import Routes from 'markup/Markup'
 import { Loader } from 'components/loader'
 import { CANDIDATE } from 'constants/rol'
-import { logout } from 'store/actions/AuthActions'
+import { logOut } from 'store/actions/AuthActions'
 import './css/plugins.css'
 import './css/style.css'
 import './css/templete.css'
@@ -32,10 +32,7 @@ const App = () => {
     const { getCandidate, getEmployer } = urls.auth
     const url = rol === CANDIDATE ? getCandidate : getEmployer
     const isValidToken = await simpleClient(url, { token }, 'POST')
-    if (!isValidToken) {
-      dispatch(logout())
-      return history.push('/login')
-    }
+    if (!isValidToken) dispatch(logOut(history))
   }, [rol, dispatch, history])
 
   useEffect(() => {
