@@ -57,6 +57,7 @@ import CompanyProfile from './Pages/company-profile'
 import PostJob from './Pages/post-job'
 import Resume from './Pages/resume'
 import Register from './Pages/register'
+import ManageJobs from './Pages/manage-jobs'
 
 const Markup = () => {
   const [login, setLogin] = useState(false)
@@ -125,6 +126,7 @@ const Markup = () => {
             <Route path="/resumen" exact component={Resume} />
             <Route path="/transacciones" exact component={Transactions} />
             <Route path="/register" exact component={Register} />
+            <Route path="/gestionar-trabajos" exact component={ManageJobs} />
           </Switch>
         </div>
       </div>

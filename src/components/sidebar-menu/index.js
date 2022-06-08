@@ -21,7 +21,7 @@ export const sidebarItems = [
   {
     text: 'Gestionar trabajos',
     icon: 'fa fa-briefcase',
-    path: '/cambiar-contraseña',
+    path: '/gestionar-trabajos',
   },
   {
     text: 'Resumen',
