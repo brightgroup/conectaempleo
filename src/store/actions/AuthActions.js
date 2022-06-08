@@ -28,14 +28,6 @@ export function signupAction(email, password, history) {
   }
 }
 
-export function logout(history) {
-  localStorage.removeItem('userDetails')
-  history.push('/login')
-  return {
-    type: LOGOUT_ACTION,
-  }
-}
-
 export function loginAction(email, password, history) {
   return dispatch => {
     login(email, password)
@@ -132,7 +124,7 @@ export const logOut = history => async dispatch => {
   try {
     localStorage.clear()
     dispatch(setUser({}))
-    history.push('/login')
+    history.push('/iniciar-sesion')
   } catch (error) {}
 }
 

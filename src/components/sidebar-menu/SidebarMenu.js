@@ -16,7 +16,6 @@ export const SidebarMenu = () => {
   const logOutAction = section => {
     if (section === 'log-out') {
       dispatch(logOut())
-      localStorage.clear()
     }
   }
 

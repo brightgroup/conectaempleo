@@ -13,34 +13,29 @@ export const Header = () => {
   return (
     <Wrapper>
       <div className="logo-header mostion">
-        <Link to={'/'}>
+        <Link to="/">
           <img src={logo2} className="logo" alt="img" />
         </Link>
       </div>
       <nav className="d-flex align-items-end">
         <ul className="ul__list d-flex ">
           <li className="">
-            <NavLink to={'/'} className="li_item text-dark">
+            <NavLink to="/" className="li_item text-dark">
               Inicio
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark">
+            <NavLink to="/" className="li_item text-dark">
               Publicaciones
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark">
+            <NavLink to="/" className="li_item text-dark">
               Trabajos
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/'} className="li_item text-dark">
-              Empresas
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'/'} className="li_item text-dark">
+            <NavLink to="/empresas" className="li_item text-dark">
               Empresas
             </NavLink>
           </li>
@@ -54,12 +49,12 @@ export const Header = () => {
       <div className="d-flex align-items-center">
         <nav className="d-flex ">
           {user?.first_name}
-          <Link to={'/login'} className="button">
+          <Link to="/iniciar-sesion" className="button">
             <i className="fa fa-user px-2"></i>
             Iniciar sesion
           </Link>
 
-          <Link to={'/register'} className="button">
+          <Link to="/registro" className="button">
             Registrarte
           </Link>
         </nav>

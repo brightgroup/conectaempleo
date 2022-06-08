@@ -94,7 +94,7 @@ function Register2(props) {
 											</div>
 										</form>
 										<div className="text-center bottom"> 
-											<Link to="/login" className="site-button button-md btn-block text-white">Sign In</Link> 
+											<Link to="/iniciar-sesion" className="site-button button-md btn-block text-white">Sign In</Link> 
 										</div> 
 									</div>
 								</div>

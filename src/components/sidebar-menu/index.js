@@ -21,7 +21,7 @@ export const sidebarItems = [
   {
     text: 'Gestionar trabajos',
     icon: 'fa fa-briefcase',
-    path: '/cambiar-contraseña',
+    path: '/gestionar-trabajos',
   },
   {
     text: 'Resumen',
@@ -38,13 +38,13 @@ export const sidebarItems = [
     text: 'Cerrar sesion',
     icon: 'fa fa-sign-out',
     section: 'log-out',
-    path: '/login',
+    path: '/iniciar-sesion',
   },
 ]
 
 export const getItems = isEmployer => {
   if (!isEmployer) return sidebarItems.filter(item => item.path !== '/publicar-empleo')
-  return sidebarItems
+  return sidebarItems.filter(item => item.path !== '/perfil')
 }
 
 export const WrapperSidebar = styled.div`

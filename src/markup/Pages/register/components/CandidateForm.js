@@ -42,7 +42,7 @@ export const CandidateForm = ({ data, setData, handleSubmit = () => {}, validate
           <i className="fa-solid fa-user mr-1" />
           <p className="mt-3">
             ya estas registrado{' '}
-            <Link to="/login" className="register__link">
+            <Link to="/iniciar-sesion" className="register__link">
               ingresa
             </Link>
           </p>

@@ -30,4 +30,7 @@ export const urls = {
   job: {
     postJob: 'store-job',
   },
+  company: {
+    getCompanies: 'companies',
+  },
 }
