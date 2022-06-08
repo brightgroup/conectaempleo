@@ -58,6 +58,7 @@ import PostJob from './Pages/post-job'
 import Resume from './Pages/resume'
 import Register from './Pages/register'
 import ManageJobs from './Pages/manage-jobs'
+import Business from './Pages/Business'
 
 const Markup = () => {
   const [login, setLogin] = useState(false)
@@ -118,8 +119,8 @@ const Markup = () => {
             <Route path="/blog-detailed-grid-sidebar" exact component={Blogdetailgridsidebar} />
             <Route path="/blog-left-img" exact component={Blogleftimg} />
             <Route path="/blog-details" exact component={Blogdetail} />
-
-            <Route path="/login" exact component={Login} />
+            
+            <Route path="/acceso" exact component={Login} />
             <Route path="/publicar-empleo" exact component={PostJob} />
             <Route path="/cambiar-contraseña" exact component={ChangePassword} />
             <Route path="/perfil" exact component={CompanyProfile} />
@@ -127,6 +128,7 @@ const Markup = () => {
             <Route path="/transacciones" exact component={Transactions} />
             <Route path="/register" exact component={Register} />
             <Route path="/gestionar-trabajos" exact component={ManageJobs} />
+            <Route path="/empresas" exact component={Business} />
           </Switch>
         </div>
       </div>

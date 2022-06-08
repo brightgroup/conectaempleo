@@ -36,9 +36,9 @@ export const Table = () => {
           <p className="mb-2 text-danger ml-2"> Pendiente </p>
         </div>
         <div>
-          <div className='d-flex ml-5'>
+          <div className="d-flex ml-5">
             <i className="fa fa-eye table__card-icon" />
-            <i class="fa-solid fa-pencil table__card-icon bg-warning"/>
+            <i class="fa-solid fa-pencil table__card-icon bg-warning" />
             <i className="ti-trash table__card-icon bg-danger" />
           </div>
         </div>
