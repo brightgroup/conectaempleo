@@ -9,7 +9,7 @@ export const sidebarItems = [
     path: '/perfil',
   },
   {
-    text: 'Publicar tabajo',
+    text: 'Publicar trabajo',
     icon: 'fa fa-file-text-o',
     path: '/publicar-empleo',
   },
@@ -43,7 +43,7 @@ export const sidebarItems = [
 ]
 
 export const getItems = isEmployer => {
-  if (isEmployer) return sidebarItems.filter(item => item.path !== '/publicar-empleo')
+  if (!isEmployer) return sidebarItems.filter(item => item.path !== '/publicar-empleo')
   return sidebarItems
 }
 

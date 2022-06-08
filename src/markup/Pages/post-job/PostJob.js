@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
@@ -11,21 +12,29 @@ import { initialState, Wrapper, Content } from '.'
 
 const PostJob = () => {
   const dispatch = useDispatch()
-  const { jobUtils, cities = [] } = useSelector(state => state.utils)
+  const history = useHistory()
+  const {
+    utils: { jobUtils, cities },
+    auth: { user },
+  } = useSelector(state => state)
 
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
   const [activatedSelect, setActivatedSelect] = useState('')
   const isColombia = useMemo(() => job.country_id && job.country_id === 47, [job.country_id])
+  const rol = user?.rol
 
   useEffect(() => {
     dispatch(getJobUtils())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
 
   useEffect(() => {
     if (job.state_id) dispatch(getCities(job.state_id))
   }, [dispatch, job.state_id])
+
+  useEffect(() => {
+    if (rol !== 'employer') history.push('/')
+  }, [rol, history])
 
   const handleChangeData = ({ target }) => setJob({ ...job, [target.name]: target.value })
 

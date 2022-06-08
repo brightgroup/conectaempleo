@@ -44,13 +44,11 @@ export const Header = () => {
               Empresas
             </NavLink>
           </li>
-          {user?.rol === EMPLOYER && (
-            <li>
-              <NavLink to="/publicar-empleo" className="li_item text-dark">
-                Publicar empleo
-              </NavLink>
-            </li>
-          )}
+          <li>
+            <NavLink to={user?.rol === EMPLOYER ? '/publicar-empleo' : '/perfil'} className="li_item text-dark">
+              {user?.rol === EMPLOYER ? 'Publicar empleo' : 'Perfil'}
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div className="d-flex align-items-center">
