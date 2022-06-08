@@ -1,6 +1,5 @@
 import axios from 'axios'
 import swal from 'sweetalert'
-import { logout } from '../store/actions/AuthActions'
 
 export function signUp(email, password) {
   //axios call
@@ -55,7 +54,5 @@ export function saveTokenInLocalStorage(tokenDetails) {
 }
 
 export function runLogoutTimer(dispatch, timer, history) {
-  setTimeout(() => {
-    dispatch(logout(history))
-  }, timer)
+  setTimeout(() => {}, timer)
 }

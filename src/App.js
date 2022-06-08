@@ -62,8 +62,8 @@ const App = () => {
   return (
     <Switch>
       {showLoader && <Loader />}
-      <Route path="/login" component={Login} />
-      <Redirect to="/login" />
+      <Route path="/iniciar-sesion" component={Login} />
+      <Redirect to="/iniciar-sesion" />
     </Switch>
   )
 }

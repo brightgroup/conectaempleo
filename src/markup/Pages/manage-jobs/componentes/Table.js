@@ -25,7 +25,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border">
+          <tr>
             <td className="table__field-check align-middle">
               <input type="checkbox" />
             </td>

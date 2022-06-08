@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export { default } from './Business'
+export { default } from './Companies'
 
-export const WrapperBussines = styled.div`
+export const Wrapper = styled.div`
   .container {
     &__card {
       width: 90%;

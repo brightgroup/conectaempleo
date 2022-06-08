@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCompanies } from 'store/actions/CompanyActions'
 import { Input } from 'components/input'
 import { Card } from './components/Card'
-import { WrapperBussines } from '.'
+import { Wrapper } from '.'
 
-const Business = () => {
+const Companies = () => {
   const dispatch = useDispatch()
   const { companies } = useSelector(state => state.company)
 
   useEffect(() => {
     dispatch(getCompanies())
-  }, [])
+  }, [dispatch])
 
   return (
-    <WrapperBussines>
+    <Wrapper>
       <div className="container__search">
         <Input placeholder="Buscar..." />
       </div>
@@ -23,8 +23,8 @@ const Business = () => {
           <Card key={index} image={company.logo} name={company.name} location={company.location} />
         ))}
       </div>
-    </WrapperBussines>
+    </Wrapper>
   )
 }
 
-export default Business
+export default Companies

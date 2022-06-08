@@ -49,12 +49,12 @@ export const Header = () => {
       <div className="d-flex align-items-center">
         <nav className="d-flex ">
           {user?.first_name}
-          <Link to='/login' className="button">
+          <Link to="/iniciar-sesion" className="button">
             <i className="fa fa-user px-2"></i>
             Iniciar sesion
           </Link>
 
-          <Link to='/register' className="button">
+          <Link to="/registro" className="button">
             Registrarte
           </Link>
         </nav>

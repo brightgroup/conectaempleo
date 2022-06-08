@@ -14,7 +14,8 @@ const setError = error => ({
 
 export const getCompanies = () => async dispatch => {
   try {
-    const { data } = await client(urls.company.getCompanies)
+    const { data } = await client({ endpoint: urls.company.getCompanies })
+    console.log(data)
     dispatch(setCompanies(data?.companies))
   } catch (error) {
     dispatch(setError(error))
