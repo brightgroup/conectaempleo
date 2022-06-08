@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import { toggleLoader } from './loader'
 import { toggleLoader } from 'store/actions/UtilActions'
 import { store } from 'store/store'
 
@@ -26,14 +25,15 @@ export const simpleClient = async (endpoint, data, method = 'GET') => {
       return res?.data || res
     } catch (error) {
       store.dispatch(toggleLoader())
+      console.log('el error', error)
+      return false
     }
   }
 }
 
-export const client = async (endpoint, data = {}, method = 'GET') => {
+export const client = async ({ endpoint, data = {}, method = 'GET', contentType = 'application/json' }) => {
   const url = `${baseUrl}/${endpoint}`
   const token = localStorage['token'] || ''
-
   store.dispatch(toggleLoader(true))
   if (token) {
     if (method === 'GET') {
@@ -53,50 +53,17 @@ export const client = async (endpoint, data = {}, method = 'GET') => {
         const res = await axios(url, {
           method,
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': contentType,
             authorization: `Bearer ${token}`,
           },
-          data: JSON.stringify(data),
+          data: contentType === 'application/json' ? JSON.stringify(data) : data,
         })
         store.dispatch(toggleLoader())
         return res?.data || res
       } catch (error) {
         store.dispatch(toggleLoader())
+        return error
       }
     }
   }
-  return { error: 'Unauthorized' }
 }
-
-// export const client = async (endpoint, data = {}, method = 'GET') => {
-//   const url = `${baseUrl}/${endpoint}`
-//   const token = localStorage['token'] || ''
-//   toggleLoader()
-//   if (token) {
-//     if (method === 'GET') {
-//       console.log('el token', token)
-//       const res = await axios(url, {
-//         headers: {
-//           authorization: `Bearer ${token}`,
-//         },
-//       })
-//       console.log('nada', res)
-//       console.log('antes de')
-//       toggleLoader('false')
-//       return res?.data || res
-//     } else {
-//       const res = await axios(url, {
-//         method,
-//         headers: {
-//           'Content-Type': 'application/json',
-//           authorization: `Bearer ${token}`,
-//         },
-//         data: JSON.stringify(data),
-//       })
-//       toggleLoader('false')
-//       return res?.data || res
-//     }
-//   }
-//   toggleLoader('false')
-//   return { error: 'Unauthorized' }
-// }

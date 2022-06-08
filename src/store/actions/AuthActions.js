@@ -1,10 +1,9 @@
-import { simpleClient, client } from 'utils/axios'
+import { simpleClient } from 'utils/axios'
 import { urls } from 'api/ulrs'
 import { formatError, login, runLogoutTimer, saveTokenInLocalStorage, signUp } from 'services/AuthService'
 import { EMPLOYER } from 'constants/rol'
 
 export const SET_USER = 'SET_USER'
-export const SET_PROFILE = 'SET_PROFILE'
 export const SET_ERROR = 'SET_ERROR'
 export const SIGNUP_CONFIRMED_ACTION = '[signup action] confirmed signup'
 export const SIGNUP_FAILED_ACTION = '[signup action] failed signup'
@@ -87,11 +86,6 @@ export const setUser = user => ({
   payload: user,
 })
 
-export const setProfile = profile => ({
-  type: SET_PROFILE,
-  payload: profile,
-})
-
 export const setError = error => ({
   type: SET_ERROR,
   pyaload: error,
@@ -146,15 +140,6 @@ export const registerUser = (info, rol) => async dispatch => {
     const url = rol === 'candidate' ? urls.utils.registerCandidate : urls.utils.registerEmployer
     const { data } = await simpleClient(url, info, 'POST')
     return data ? true : false
-  } catch (error) {
-    dispatch(setError(error))
-  }
-}
-
-export const getProfile = () => async dispatch => {
-  try {
-    const { data } = await client(urls.auth.getUserProfile)
-    dispatch(setProfile(data))
   } catch (error) {
     dispatch(setError(error))
   }

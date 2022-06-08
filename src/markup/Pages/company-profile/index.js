@@ -7,16 +7,32 @@ export const Wrapper = styled.div`
   min-height: 100%;
   padding: 40px 0;
 
-  .company-profile {
+  .profile {
     &__input-group {
       display: flex;
       gap: 20px;
       margin-top: 15px;
+      justify-content: space-between;
     }
 
     &__line {
       margin-top: 40px;
       margin-bottom: 20px;
+    }
+
+    &__user-image {
+      height: 6.25rem;
+      object-fit: contain;
+      margin-bottom: 6px;
+    }
+
+    &__image-button {
+      background-color: var(--blue);
+      color: white;
+      height: 46px;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     &__user-button {

@@ -32,9 +32,7 @@ function Login() {
       return setError({ ...error, email: 'El e-mail no es valido' })
     }
     const loggedUser = await dispatch(logIn(user))
-    if (loggedUser?.id) {
-      history.push('/home')
-    }
+    if (loggedUser?.id) history.push('/')
   }
 
   return (
