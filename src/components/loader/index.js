@@ -15,8 +15,8 @@ export const Wrapper = styled.div`
   .loading__spinner::before {
     animation: 1.5s linear infinite spinner;
     animation-play-state: inherit;
-    border: solid 5px #cfd0d1;
-    border-bottom-color: #662d91;
+    border: solid 5px var(--blue);
+    /* border-bottom-color: var(--blue); */
     border-radius: 50%;
     content: '';
     height: 40px;

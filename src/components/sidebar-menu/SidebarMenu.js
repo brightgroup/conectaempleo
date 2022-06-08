@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logOut } from 'store/actions/AuthActions'
 import { getItems, WrapperSidebar } from '.'
 
-export const SidebarMenu = ({ rol = '' }) => {
+export const SidebarMenu = () => {
   const dispatch = useDispatch()
+  const { user } = useSelector(state => state.auth)
+
   const [items, setItems] = useState([])
   const [image, setImage] = useState('http://localhost:3000/static/media/icon3.c96722be.jpg')
+  const rol = user?.rol
 
-  useEffect(() => {
-    setItems(getItems(rol === 'employer'))
-  }, [rol])
+  useEffect(() => setItems(getItems(rol === 'employer')), [rol])
 
   const logOutAction = section => {
     if (section === 'log-out') {
@@ -19,10 +20,6 @@ export const SidebarMenu = ({ rol = '' }) => {
       localStorage.clear()
     }
   }
-
-  // const createImage = (image: any) => {
-  //   return typeof image === STRING || !image ? image : URL.createObjectURL(image)
-  // }
 
   const handleChangeImage = ({ target }) => {
     const image = target.files[0]
