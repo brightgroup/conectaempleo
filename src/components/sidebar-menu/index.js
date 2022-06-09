@@ -44,7 +44,7 @@ export const sidebarItems = [
 
 export const getItems = isEmployer => {
   if (!isEmployer) return sidebarItems.filter(item => item.path !== '/publicar-empleo')
-  return sidebarItems.filter(item => item.path !== '/perfil')
+  return sidebarItems
 }
 
 export const WrapperSidebar = styled.div`

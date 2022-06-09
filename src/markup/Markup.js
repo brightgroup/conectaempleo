@@ -126,7 +126,7 @@ const Markup = () => {
             <Route path="/perfil" exact component={CompanyProfile} />
             <Route path="/resumen" exact component={Resume} />
             <Route path="/transacciones" exact component={Transactions} />
-            <Route path="/register" exact component={Register} />
+            <Route path="/registro" exact component={Register} />
             <Route path="/gestionar-trabajos" exact component={ManageJobs} />
             <Route path="/empresas" exact component={Companies} />
           </Switch>
