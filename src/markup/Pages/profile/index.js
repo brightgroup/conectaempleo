@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export { default } from './CompanyProfile'
+export { default } from './Profile'
 
 export const Wrapper = styled.div`
   gap: 30px;

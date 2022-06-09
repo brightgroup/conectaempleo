@@ -30,7 +30,6 @@ import Categorydesignationsjob from './Pages/Categorydesignationsjob'
 import Categoryjobs from './Pages/Categoryjobs'
 import Categorylocationjobs from './Pages/Categorylocationjobs'
 import Categoryskilljobs from './Pages/Categoryskilljobs'
-import profile from './Pages/Companyprofile'
 
 import Portfoliogrid2 from './Pages/Portfoliogrid2'
 
@@ -52,7 +51,7 @@ import { Header } from 'components/header'
 import Login from './Pages/login'
 import ChangePassword from './Pages/change-password'
 import Transactions from './Pages/transactions'
-import CompanyProfile from './Pages/company-profile'
+import Profile from './Pages/profile'
 import PostJob from './Pages/post-job'
 import Resume from './Pages/resume'
 import Register from './Pages/register'
@@ -111,7 +110,6 @@ const Markup = () => {
             <Route path="/error-404" exact component={Error404} />
 
             <Route path="/contact" exact component={Contact} />
-            <Route path="/company-profile" exact component={profile} />
 
             <Route path="/blog-classic" exact component={Blogclassic} />
             <Route path="/blog-classic-sidebar" exact component={Blogclassicsidebar} />
@@ -123,7 +121,7 @@ const Markup = () => {
             <Route path="/iniciar-sesion" exact component={Login} />
             <Route path="/publicar-empleo" exact component={PostJob} />
             <Route path="/cambiar-contraseña" exact component={ChangePassword} />
-            <Route path="/perfil" exact component={CompanyProfile} />
+            <Route path="/perfil" exact component={Profile} />
             <Route path="/resumen" exact component={Resume} />
             <Route path="/transacciones" exact component={Transactions} />
             <Route path="/registro" exact component={Register} />

@@ -4,7 +4,7 @@ export * from './SidebarMenu'
 
 export const sidebarItems = [
   {
-    text: 'Perfil compañia',
+    text: 'Editar perfil',
     icon: 'fa fa-user-o',
     path: '/perfil',
   },
