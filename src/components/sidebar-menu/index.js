@@ -4,7 +4,7 @@ export * from './SidebarMenu'
 
 export const sidebarItems = [
   {
-    text: 'Perfil compañia',
+    text: 'Editar perfil',
     icon: 'fa fa-user-o',
     path: '/perfil',
   },
@@ -44,7 +44,7 @@ export const sidebarItems = [
 
 export const getItems = isEmployer => {
   if (!isEmployer) return sidebarItems.filter(item => item.path !== '/publicar-empleo')
-  return sidebarItems.filter(item => item.path !== '/perfil')
+  return sidebarItems
 }
 
 export const WrapperSidebar = styled.div`

@@ -32,5 +32,6 @@ export const urls = {
   },
   company: {
     getCompanies: 'companies',
+    getCompany: 'company-profile',
   },
 }

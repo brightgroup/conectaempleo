@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export { default } from './CompanyProfile'
+export { default } from './Profile'
 
 export const Wrapper = styled.div`
   gap: 30px;
@@ -35,12 +35,19 @@ export const Wrapper = styled.div`
       cursor: pointer;
     }
 
-    &__user-button {
+    &__send-button {
       background-color: var(--blue);
       color: white;
       height: 46px;
       width: 100%;
       margin-top: 12px;
+    }
+
+    &__download-button-file {
+      height: 58px;
+      background-color: var(--blue);
+      color: white;
+      margin-top: 30px;
     }
   }
 `

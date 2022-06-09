@@ -37,9 +37,7 @@ export const UserForm = ({
       </div>
       <hr className="profile__line" />
       <h5 className="bold m-0 m-0 p-0">Información personal</h5>
-      <div className="profile__input-group">
-        <UploadImage setData={setData} data={data} />
-      </div>
+      <UploadImage setData={setData} data={data} />
       <div className="profile__input-group">
         <Input label="Primer Nombre" name="first_name" value={data?.first_name} {...inputProps} />
         <Input label="Segundo Nombre" name="middle_name" value={data?.middle_name} {...inputProps} />
@@ -166,7 +164,7 @@ export const UserForm = ({
         />
       </div>
       <Checkbox label="Suscríbirse al boletin de noticias" wrapperClassName="mt-2" />
-      <Button text="ACTUALIZAR PERFIL Y GUARDAR" wrapperClass="profile__user-button" type="submit" />
+      <Button text="ACTUALIZAR PERFIL Y GUARDAR" wrapperClass="profile__send-button" type="submit" />
     </form>
   )
 }
@@ -182,20 +180,15 @@ export const UploadImage = ({ setData = () => {}, data = {} }) => {
   }
 
   return (
-    <>
+    <div className="profile__input-group">
       <p className="bold">Imagen de perfil</p>
       <div className="w-50 relative">
-        <img
-          // src={data?.newImage ? data?.image : `${process.env.REACT_APP_USER_IMAGE}/${data?.image}`}
-          src={getImage()}
-          alt="user"
-          className="profile__user-image"
-        />
+        <img src={getImage()} alt="user" className="profile__user-image" />
         <label htmlFor="userImage" className="center profile__image-button">
           SELECCIONAR IMAGEN DE PERFIL
         </label>
         <input id="userImage" type="file" className="d-none" onChange={handleChangeImage} />
       </div>
-    </>
+    </div>
   )
 }
