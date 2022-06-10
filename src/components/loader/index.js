@@ -12,11 +12,12 @@ export const Wrapper = styled.div`
   background-color: #ffffff8c;
   transition: all 0.2s;
   z-index: 10001;
+
   .loading__spinner::before {
     animation: 1.5s linear infinite spinner;
     animation-play-state: inherit;
-    border: solid 5px var(--blue);
-    /* border-bottom-color: var(--blue); */
+    border: solid 5px #cfd0d1;
+    border-bottom-color: var(--blue);
     border-radius: 50%;
     content: '';
     height: 40px;
@@ -27,6 +28,7 @@ export const Wrapper = styled.div`
     transform: translate3d(-50%, -50%, 0);
     will-change: transform;
   }
+
   @keyframes spinner {
     0% {
       transform: translate3d(-50%, -50%, 0) rotate(0deg);
