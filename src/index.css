@@ -17,6 +17,7 @@
 :root {
     --blue:#0097fe;
     --error:#C13515;
+    --gray:#343a40;
 }
 
 input[type='number']::-webkit-inner-spin-button,

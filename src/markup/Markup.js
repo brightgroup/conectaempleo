@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
 
 import Homepage from './Pages/Homepage1'
 
@@ -60,19 +60,19 @@ import Companies from './Pages/companies'
 import Companies2 from './Pages/Companies2'
 
 const Markup = () => {
-  const [login, setLogin] = useState(false)
+  const [showHeader, setShowHeader] = useState(false)
 
-  const pathName = window.location.pathname
+  const location = useLocation().pathname
 
   useEffect(() => {
-    setLogin(window.location.pathname === '/iniciar-sesion')
-  }, [pathName])
+    setShowHeader(location !== '/iniciar-sesion')
+  }, [location])
 
   return (
     <>
       <div className="page-wraper d-flex flex-column">
-        {!login && <Header />}
-        <div className={`pages-container bg-white ${login ? '' : 'mt-5'}`}>
+        {showHeader && <Header />}
+        <div className={`pages-container bg-white ${showHeader ? 'mt-5' : ''}`}>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/home" exact component={Homepage} />

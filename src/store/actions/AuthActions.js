@@ -123,7 +123,7 @@ export const decryptToken =
 export const logOut = history => async dispatch => {
   try {
     localStorage.clear()
-    dispatch(setUser({}))
+    await dispatch(setUser({}))
     history.push('/iniciar-sesion')
   } catch (error) {}
 }

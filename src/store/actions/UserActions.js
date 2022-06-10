@@ -1,7 +1,7 @@
 import { client } from 'utils/axios'
 import { urls } from 'api/ulrs'
 import { createFormData } from 'utils/formData'
-import { initialProfile } from 'store/reducers/UserReducer'
+import { getRequestKeys } from 'utils/user'
 
 export const SET_PROFILE = 'SET_PROFILE'
 export const SET_ERROR = 'SET_ERROR'
@@ -18,15 +18,12 @@ export const setError = error => ({
 
 export const updateUser = user => async dispatch => {
   try {
-    let keys = Object.keys(initialProfile)
-    if (!user?.newImage) keys = keys.filter(key => key !== 'image')
-    const data = createFormData(user, keys)
+    const data = createFormData(user, getRequestKeys(user))
     const request = { endpoint: urls.user.updateUser, data, method: 'POST', contentType: 'multipart/form-data' }
     const { status = false } = await client(request)
     dispatch(getProfile())
     return status
   } catch (error) {
-    console.log('error', error)
     dispatch(setError(error))
   }
 }
