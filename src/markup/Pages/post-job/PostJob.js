@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import Swal from 'sweetalert2'
 import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
@@ -8,6 +9,7 @@ import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
 import { getCities, getJobUtils, postJob } from 'store/actions/UtilActions'
 import { isEmpty } from 'utils/validation'
+import { swal } from 'utils/swal'
 import { initialState, Wrapper, Content } from '.'
 
 const PostJob = () => {
@@ -46,9 +48,9 @@ const PostJob = () => {
     const data = await dispatch(postJob({ ...job, skills: [job.skills] }))
     if (data) {
       setJob(initialState)
-      setValidate(false)
-      alert('vacante publicada')
+      Swal.fire(swal('vacante publicada'))
     }
+    setValidate(false)
   }
 
   const hasEmptyFields = () => {
@@ -131,7 +133,7 @@ const PostJob = () => {
               {...inputProps}
             />
             <SelectSearch
-              options={jobUtils?.salaryPeriods?.slice(3, 7)}
+              options={jobUtils?.salaryPeriods}
               message="Seleccione..."
               label="Periodo salarial"
               setData={setJob}
@@ -215,7 +217,7 @@ const PostJob = () => {
           </div>
           <div className="container--grid mt-2">
             <SelectSearch
-              options={jobUtils?.gradeLevels?.slice(8, 22)}
+              options={jobUtils?.gradeLevels}
               setData={setJob}
               name="degree_level_id"
               label="Nivel titulación requerida"

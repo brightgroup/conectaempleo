@@ -36,7 +36,7 @@ const App = () => {
   }, [rol, dispatch, history])
 
   useEffect(() => {
-    validateToken()
+    // validateToken()
   }, [validateToken])
 
   if (user?.id) {

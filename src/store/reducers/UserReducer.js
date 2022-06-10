@@ -11,9 +11,9 @@ export const initialProfile = {
   first_name: 'Anlly',
   functional_area_id: 10024,
   gender_id: 1,
-  id: 289,
+  id: '',
   image: 'anlly-carolina-monsalve-lalinde-1654294263-101.PNG',
-  marital_status_id: 4,
+  marital_status_id: 23,
   middle_name: 'Carolina',
   mobile_num: '3227748294',
   name: 'Anlly Carolina Monsalve Lalinde',
@@ -24,6 +24,8 @@ export const initialProfile = {
   state_id: '782',
   street_address: 'Calle 5#2-03',
   industry_id: 248,
+  national_id_card_number: '',
+  password: '',
 }
 
 const initialState = {

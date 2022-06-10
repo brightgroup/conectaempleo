@@ -4,7 +4,6 @@ export { default } from './Profile'
 
 export const Wrapper = styled.div`
   gap: 30px;
-  min-height: 100%;
   padding: 40px 0;
 
   .profile {
@@ -24,6 +23,8 @@ export const Wrapper = styled.div`
       height: 6.25rem;
       object-fit: contain;
       margin-bottom: 6px;
+      transition: 0.4s all;
+      opacity: 1;
     }
 
     &__image-button {

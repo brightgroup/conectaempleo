@@ -24,8 +24,11 @@ export const urls = {
     getCities: departmentId => `get-cities/${departmentId}`,
     getFunctionalArea: 'get-functional-areas',
     getIndustries: 'get-industries',
+    getPopulationGroup: 'get-groups-status',
+    getCivilStatus: 'get-civil-status',
     registerCandidate: 'register',
     registerEmployer: 'register-companys',
+    getEntityClassification: 'get-ownership-types',
   },
   job: {
     postJob: 'store-job',
@@ -33,5 +36,6 @@ export const urls = {
   company: {
     getCompanies: 'companies',
     getCompany: 'company-profile',
+    updateProfile: 'update-company-profile',
   },
 }

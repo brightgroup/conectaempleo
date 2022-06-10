@@ -6,6 +6,9 @@ export const getProfileData = data => {
     { data: careerLevels = [] },
     { data: functionalArea = [] },
     { data: industries = [] },
+    { data: entities = [] },
+    { data: populationGroup = [] },
+    { data: civilStatus = [] },
   ] = data
   return {
     genders,
@@ -14,5 +17,8 @@ export const getProfileData = data => {
     careerLevels,
     functionalArea,
     industries,
+    entities,
+    populationGroup,
+    civilStatus,
   }
 }
