@@ -1,6 +1,6 @@
 import { getUtilsData } from 'utils/job'
 import { getProfileData } from 'utils/profile'
-import { POST_JOB, SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR } from '../actions/UtilTypes'
+import { SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR } from '../actions/UtilTypes'
 
 const initialState = {
   jobUtils: {
@@ -32,11 +32,6 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case POST_JOB:
-      return {
-        ...state,
-        postJob: action.payload,
-      }
     case SET_JOB_UTILS:
       return {
         ...state,

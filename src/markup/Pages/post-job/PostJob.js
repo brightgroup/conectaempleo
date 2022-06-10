@@ -7,10 +7,11 @@ import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
-import { getCities, getJobUtils, postJob } from 'store/actions/UtilActions'
+import { getCities, getJobUtils} from 'store/actions/UtilActions'
 import { isEmpty } from 'utils/validation'
 import { swal } from 'utils/swal'
 import { initialState, Wrapper, Content } from '.'
+import { postJob } from 'store/actions/JobOffersActions'
 
 const PostJob = () => {
   const dispatch = useDispatch()
@@ -45,7 +46,7 @@ const PostJob = () => {
     setValidate(true)
 
     if (hasEmptyFields()) return
-    const data = await dispatch(postJob({ ...job, skills: [job.skills] }))
+    const data = await dispatch(postJob({ ...job, skills: [job.skills], company_id: user.id }))
     if (data) {
       setJob(initialState)
       Swal.fire(swal('vacante publicada'))

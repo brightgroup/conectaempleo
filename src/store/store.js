@@ -9,6 +9,7 @@ import { reducer as ReduxFormReducer } from 'redux-form'
 import { reducer as UtilsReducer } from './reducers/UtilsReducer'
 import { UserReducer } from './reducers/UserReducer'
 import { reducer as companyReducer } from './reducers/CompanyReducer'
+import { reducer as JobOfferReducer } from './reducers/JobOffersReducer'
 const middleware = applyMiddleware(thunk)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -21,6 +22,7 @@ const reducers = combineReducers({
   utils: UtilsReducer,
   user: UserReducer,
   company: companyReducer,
+  jobOffer: JobOfferReducer,
 })
 
 // this configuration has a white list and a black list to discriminate the persistence of the data
