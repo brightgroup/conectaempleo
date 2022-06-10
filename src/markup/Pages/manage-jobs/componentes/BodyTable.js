@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const BodyTable = ({ data = [], setIdOffer = {} }) => {
+export const BodyTable = ({ data = [], setOfferId = {} }) => {
   return (
     <tbody>
       {data.map((item, index) => (
@@ -18,8 +18,8 @@ export const BodyTable = ({ data = [], setIdOffer = {} }) => {
           <td className="table__field-text">
             <div className="d-flex">
               <i className="fa fa-eye table__card-icon" />
-              <i class="fa-solid fa-pencil table__card-icon bg-warning" />
-              <i className="ti-trash table__card-icon bg-danger" onClick={() => setIdOffer({ id: item?.id })} />
+              <i className="fa-solid fa-pencil table__card-icon bg-warning" />
+              <i className="ti-trash table__card-icon bg-danger" onClick={() => setOfferId({ id: item?.id })} />
             </div>
           </td>
         </tr>

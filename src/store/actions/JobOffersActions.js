@@ -25,7 +25,19 @@ export const deleteJobOffer = id => async dispatch => {
   try {
     const { status = false } = await client({ endpoint: urls.job.deleteJobOffer, data: id, method: 'DELETE' })
     dispatch(getJobs())
+    return status
   } catch (error) {
     dispatch(setError(error))
   }
 }
+
+export const postJob = job => async dispatch => {
+  try {
+    const data = await client({endpoint:urls.job.postJob, data:job, method:'POST'})
+    console.log(data)
+    return data ? true : false
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+

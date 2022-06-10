@@ -2,11 +2,11 @@ import React from 'react'
 
 import { HeaderTable, BodyTable } from '.'
 
-export const Table = ({ data = [], setIdOffer = {} }) => {
+export const Table = ({ data = [], setOfferId = {} }) => {
   return (
     <table>
       <HeaderTable />
-      <BodyTable data={data} setIdOffer={setIdOffer} />
+      <BodyTable data={data} setOfferId={setOfferId} />
     </table>
   )
 }
