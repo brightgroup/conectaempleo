@@ -61,5 +61,5 @@ export const initialState = {
   is_freelance: '0',
   is_featured: true,
   is_active: true,
-  company_id: '125',
+  company_id: '231',
 }

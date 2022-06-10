@@ -20,6 +20,8 @@ const PostJob = () => {
     auth: { user },
   } = useSelector(state => state)
 
+  console.log(user)
+
   const [job, setJob] = useState(initialState)
   const [validate, setValidate] = useState(false)
   const [activatedSelect, setActivatedSelect] = useState('')
@@ -45,7 +47,7 @@ const PostJob = () => {
     setValidate(true)
 
     if (hasEmptyFields()) return
-    const data = await dispatch(postJob({ ...job, skills: [job.skills] }))
+    const data = await dispatch(postJob({ ...job, skills: [job.skills], company_id: user.id }))
     if (data) {
       setJob(initialState)
       Swal.fire(swal('vacante publicada'))

@@ -1,4 +1,3 @@
-import styled from 'styled-components'
+export * from './BodyTable'
 export * from './Table'
-
-export const WrapperTable = styled.div``
+export * from './HeaderTable'

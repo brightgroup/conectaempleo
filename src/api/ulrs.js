@@ -32,6 +32,8 @@ export const urls = {
   },
   job: {
     postJob: 'store-job',
+    getJobs: 'posted-jobs',
+    deleteJobOffer: 'delete-front-job',
   },
   company: {
     getCompanies: 'companies',
