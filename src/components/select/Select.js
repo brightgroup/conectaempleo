@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import { MessageError } from 'components/message-error'
-import { isEmpty } from 'utils/validation'
 import { Wrapper, WITHOUT_RESULTS } from '.'
 
 export const SelectSearch = ({
@@ -19,17 +18,18 @@ export const SelectSearch = ({
 }) => {
   const [searchValue, setSearchValue] = useState(message)
   const [options, setOptions] = useState([])
+  const [shadow, setShadow] = useState(false)
 
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
-  const getvalue = useCallback(
+  const getValue = useCallback(
     () => (initialValue ? optionList?.find(option => option.id === Number(initialValue))?.name || '' : ''),
     [initialValue, optionList]
   )
 
   useEffect(() => setOptions(optionList), [optionList])
 
-  useEffect(() => setSearchValue(getvalue()), [initialValue, getvalue])
+  useEffect(() => setSearchValue(getValue()), [getValue])
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
@@ -50,17 +50,28 @@ export const SelectSearch = ({
       setSearchValue(value)
       const options = optionList?.filter(option => option?.name?.toLowerCase()?.includes(value?.toLowerCase()))
       setOptions(!value ? options : options?.length ? options : WITHOUT_RESULTS)
+      console.log(options)
+      if (!value) setData(data => ({ ...data, [name]: '' }))
     }
   }
 
-  const onClickInput = () => setActivatedSelect(name)
+  const onClickInput = () => {
+    setActivatedSelect(name)
+    setShadow(true)
+  }
 
-  const hasError = required && isEmpty(searchValue)
+  const hideOptions = () => {
+    setShadow(false)
+    setActivatedSelect('')
+    console.log(searchValue, initialValue)
+  }
+
+  const hasError = required && !initialValue
 
   return (
     <Wrapper disabled={disabled} className={wrapperClassName} hasError={hasError}>
       <label className="select__label">{label}</label>
-      <div className="select" onClick={toggleOptions}>
+      <div className={`select ${shadow && 'select-shadow'}`} onClick={toggleOptions}>
         <div className="select__option" onClick={toggleOptions}>
           <span>
             <i className={`fa-solid fa-angle-down pointer ${isActivated ? 'flip-arrow' : ''}  select__arrow`} />
@@ -74,6 +85,7 @@ export const SelectSearch = ({
           disabled={disabled}
           className={`select__search-input ${searchValue === message ? 'input-without-value' : ''}`}
           placeholder={message}
+          onBlur={hideOptions}
         />
         {!!(options?.length && isActivated) && (
           <div className="options select-search" id={name}>

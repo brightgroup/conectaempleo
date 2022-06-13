@@ -12,18 +12,15 @@ export const InputWrapper = styled.div`
     outline: none;
     padding: 8px 15px;
     height: 50px;
-    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : 'transparent'}`};
-    /* border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : '#ccc'}`}; */
+    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : '#ccc'}`};
     transition: 0.2s all;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%);
 
     &__label {
       color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
     }
 
     &:focus {
-      /* box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%); */
-      /* border: 1px solid #ccc; */
+      box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%);
     }
   }
 `
@@ -33,13 +30,16 @@ export const WrapperInputTextarea = styled.div`
     border-radius: 5px;
     outline: none;
     padding: 8px 15px;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     width: 100%;
     margin: 0;
-    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : 'transparent'}`};
+    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : '#ccc'}`};
 
     &__label {
       color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
+    }
+
+    &:focus {
+      box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%);
     }
   }
 `
@@ -51,13 +51,16 @@ export const WrapperInputDate = styled.div`
     border-radius: 5px;
     outline: none;
     padding: 8px 15px;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     width: 100%;
     height: 50px;
-    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : 'transparent'}`};
+    border: ${({ hasError }) => `1px solid ${hasError ? 'var(--error)' : '#ccc'}`};
 
     &__label {
       color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
+    }
+
+    &:focus {
+      box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%);
     }
   }
 `

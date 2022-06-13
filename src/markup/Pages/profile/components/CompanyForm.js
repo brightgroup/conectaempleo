@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { Input, InputFile, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { Button } from 'components/button'
+import { Error } from 'components/error'
 import { createImage } from 'utils/image'
 import { getOptions } from 'utils/select'
 import { EMPLOYEES_NUMBER, getYears } from 'data/select'
@@ -14,6 +15,7 @@ export const CompanyForm = ({
   utils = {},
   cities = [],
   handleSubmit = () => {},
+  error = '',
 }) => {
   const yearOptions = useMemo(() => getOptions(getYears()), [])
 
@@ -142,10 +144,8 @@ export const CompanyForm = ({
         <Input label="Twitter" name="twitter" value={data?.twitter} {...input} />
         <Input label="LinkedIn" name="linkedin" value={data?.linkedin} {...input} />
       </div>
-      <div className="profile__input-group">
-        <Input label="Instagram" name="instagram" value={data?.instagram} {...input} />
-      </div>
       <Button text="ACTUALIZAR PERFIL Y GUARDAR" wrapperClass="profile__send-button" type="submit" />
+      {error && <Error error={error} />}
       <hr className="profile__line" />
     </form>
   )

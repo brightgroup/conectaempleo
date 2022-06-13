@@ -18,9 +18,8 @@ export const Wrapper = styled.div`
     position: relative;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
     background-color: ${({ disabled }) => (disabled ? '#e6e6e6' : 'transparent')};
-    border: ${({ hasError, disabled }) => `1px solid ${hasError && !disabled ? 'var(--error)' : 'transparent'}`};
+    border: ${({ hasError, disabled }) => `1px solid ${hasError && !disabled ? 'var(--error)' : '#ccc'}`};
 
     &__label {
       color: ${({ hasError }) => (hasError ? 'var(--error)' : '#343a40')};
@@ -83,6 +82,10 @@ export const Wrapper = styled.div`
 
   .flip-arrow {
     transform: rotate(180deg);
+  }
+
+  .select-shadow {
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 15%);
   }
 `
 

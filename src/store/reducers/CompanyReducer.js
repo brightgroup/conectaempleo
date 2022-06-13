@@ -23,7 +23,6 @@ export const initialCompany = {
   tipo_identificacion: '',
   identificacion: '',
   camara_comercio: '',
-  instagram: '',
 }
 
 const initialState = {
