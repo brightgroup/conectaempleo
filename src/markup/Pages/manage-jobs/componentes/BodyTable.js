@@ -18,9 +18,7 @@ export const BodyTable = ({ data = [], toggleModal = '', deleteOffer = () => {} 
             <input type="checkbox" />
           </td>
           <td className="table__field-text">
-            <p>
-              <i className="fa fa-map-marker mr-1" /> {`Colombia, Bogota ${item?.title}`}
-            </p>
+            <p>{item?.title}</p>
           </td>
           <td className="table__field-text">(5) aplicaciones</td>
           <td className="table__field-text">{item?.expiry_date.slice(0, 10)}</td>

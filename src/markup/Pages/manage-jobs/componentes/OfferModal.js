@@ -4,7 +4,7 @@ import { Check } from 'components/check'
 import { Input, InputDate, TextArea } from 'components/input'
 import { Modal } from 'components/modal/Modal'
 import { SelectSearch } from 'components/select'
-import { getOfferUtils } from 'store/actions/UtilActions'
+import { getCities, getOfferUtils } from 'store/actions/UtilActions'
 
 export const OfferModal = ({
   currentOffer = {},
@@ -19,9 +19,15 @@ export const OfferModal = ({
 
   const [activatedSelect, setActivatedSelect] = useState('')
 
+  const stateId = currentOffer?.state_id
+
   useEffect(() => {
     dispatch(getOfferUtils())
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getCities(stateId))
+  }, [dispatch, stateId])
 
   const handleChangeData = ({ target }) => setCurrentOffer({ ...currentOffer, [target.name]: target.value })
 
@@ -30,6 +36,9 @@ export const OfferModal = ({
   const inputProps = { required: validate, wrapperClassName: 'mt-3' }
 
   const date = currentOffer?.expiry_date?.slice(0, 10)
+
+  console.log("current ofert",currentOffer?.city_id)
+  console.log("data cuidades",cities )
 
   return (
     <Modal show={show} onClose={onClose}>

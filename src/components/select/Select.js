@@ -32,7 +32,7 @@ export const SelectSearch = ({
 
   useEffect(() => setOptions(optionList), [optionList])
 
-  useEffect(() => setSearchValue(getValue()), [getValue])
+  useEffect(() => setSearchValue(getvalue()), [getvalue])
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
