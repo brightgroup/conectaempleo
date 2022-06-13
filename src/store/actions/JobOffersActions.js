@@ -1,14 +1,14 @@
 import { urls } from 'api/ulrs'
 import { client } from 'utils/axios'
-import { SET_CURRENT_OFFER, GET_JOBS_OFFERS, SET_ERROR } from './JobOffersTypes'
+import { SET_OFFER, SET_JOBS_OFFERS, SET_ERROR } from './JobOffersTypes'
 
-const setGetJobs = data => ({
-  type: GET_JOBS_OFFERS,
+const setJobs = data => ({
+  type: SET_JOBS_OFFERS,
   payload: data,
 })
 
-const setCurrentOffer = data => ({
-  type: SET_CURRENT_OFFER,
+export const setOffer = data => ({
+  type: SET_OFFER,
   payload: data,
 })
 
@@ -20,7 +20,7 @@ const setError = error => ({
 export const getJobs = () => async dispatch => {
   try {
     const { data } = await client({ endpoint: urls.job.getJobs })
-    dispatch(setGetJobs(data))
+    dispatch(setJobs(data))
   } catch (error) {
     dispatch(setError(error))
   }
@@ -30,7 +30,7 @@ export const getOffer = id => async dispatch => {
   try {
     const { data } = await client({ endpoint: urls.job.getOffer(id) })
     const skills = data?.job_skills[0]?.job_skill_id
-    dispatch(setCurrentOffer({ ...data, skills }))
+    dispatch(setOffer({ ...data, skills }))
   } catch (error) {
     dispatch(setError(error))
   }

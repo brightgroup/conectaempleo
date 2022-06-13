@@ -5,6 +5,7 @@ import { Input, InputDate, TextArea } from 'components/input'
 import { Modal } from 'components/modal/Modal'
 import { SelectSearch } from 'components/select'
 import { getCities, getOfferUtils } from 'store/actions/UtilActions'
+import { setOffer } from 'store/actions/JobOffersActions'
 
 export const OfferModal = ({
   currentOffer = {},
@@ -19,15 +20,20 @@ export const OfferModal = ({
 
   const [activatedSelect, setActivatedSelect] = useState('')
 
-  const stateId = currentOffer?.state_id
+  const [stateId, hasCountries] = [currentOffer?.state_id, offerUtils?.countries?.length]
 
   useEffect(() => {
-    dispatch(getOfferUtils())
-  }, [dispatch])
+    if (!hasCountries) dispatch(getOfferUtils())
+  }, [dispatch, hasCountries])
 
   useEffect(() => {
     dispatch(getCities(stateId))
   }, [dispatch, stateId])
+
+  const closeModal = () => {
+    dispatch(setOffer({}))
+    onClose()
+  }
 
   const handleChangeData = ({ target }) => setCurrentOffer({ ...currentOffer, [target.name]: target.value })
 
@@ -37,11 +43,8 @@ export const OfferModal = ({
 
   const date = currentOffer?.expiry_date?.slice(0, 10)
 
-  console.log("current ofert",currentOffer?.city_id)
-  console.log("data cuidades",cities )
-
   return (
-    <Modal show={show} onClose={onClose}>
+    <Modal show={show} onClose={closeModal}>
       <h2 className="mb-2 offer-form__title">Actualizar oferta Laboral</h2>
       <form onSubmit={handleSubmit}>
         <Input

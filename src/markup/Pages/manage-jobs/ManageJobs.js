@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { OfferModal, Table } from './componentes'
-import { deleteJobOffer, getJobs, updateOffer } from 'store/actions/JobOffersActions'
+import { deleteJobOffer, getJobs, updateOffer, setOffer } from 'store/actions/JobOffersActions'
 import { swal } from 'utils/swal'
 import { isEmpty } from 'utils/validation'
 import { Content, Wrapper } from '.'
@@ -39,12 +39,13 @@ const ManageJobs = () => {
     e.preventDefault()
     setValidate(true)
     if (hasEmptyFields()) return
-    const isCorrectStatus = await dispatch(updateOffer({ ...currentOffer, skills: [currentOffer.skills] }, currentOffer.id))
-    if (isCorrectStatus) {
-      toggleModal()
-      Swal.fire(swal('vacante actualizada correctamente'))
-    }
+    const isCorrectStatus = await dispatch(
+      updateOffer({ ...currentOffer, skills: [currentOffer.skills] }, currentOffer.id)
+    )
+    if (isCorrectStatus) Swal.fire(swal('vacante actualizada correctamente'))
+    toggleModal()
     setValidate(false)
+    dispatch(setOffer({}))
   }
 
   const toggleModal = () => {

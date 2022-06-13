@@ -97,8 +97,10 @@ export const getProfileUtils = () => async dispatch => {
 
 export const getCities = departmentId => async dispatch => {
   try {
-    const { data } = await simpleClient(urls.utils.getCities(departmentId))
-    dispatch(setCities(data))
+    if (departmentId) {
+      const { data } = await simpleClient(urls.utils.getCities(departmentId))
+      dispatch(setCities(data))
+    }
   } catch (error) {
     dispatch(setError(error))
   }

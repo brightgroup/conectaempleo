@@ -1,19 +1,19 @@
-import { SET_CURRENT_OFFER, GET_JOBS_OFFERS, SET_ERROR } from 'store/actions/JobOffersTypes'
+import { SET_OFFER, SET_JOBS_OFFERS, SET_ERROR } from 'store/actions/JobOffersTypes'
 
 const initialState = {
   jobsOffers: [],
-  currentOffer: [],
+  currentOffer: {},
   error: '',
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_JOBS_OFFERS:
+    case SET_JOBS_OFFERS:
       return {
         ...state,
         jobsOffers: action.payload,
       }
-    case SET_CURRENT_OFFER:
+    case SET_OFFER:
       return {
         ...state,
         currentOffer: action.payload,
