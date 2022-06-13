@@ -26,3 +26,13 @@ export const hasEmptyFields = (data, keys) => {
 
   return !!errors.length
 }
+
+export const getEmptyFields = (data, keys) => {
+  const errors = []
+  if (keys) {
+    keys.forEach(key => {
+      if (!data[key]) errors.push(key)
+    })
+  }
+  return errors.length
+}

@@ -124,7 +124,7 @@ export const logOut = history => async dispatch => {
   try {
     localStorage.clear()
     await dispatch(setUser({}))
-    history.push('/iniciar-sesion')
+    if (history) history.push('/iniciar-sesion')
   } catch (error) {}
 }
 

@@ -3,7 +3,9 @@ import { Input, InputDate, TextArea } from 'components/input'
 import { SelectSearch } from 'components/select'
 import { Checkbox } from 'components/check'
 import { Button } from 'components/button'
+import { Error } from 'components/error'
 import { createImage } from 'utils/image'
+import { field_error } from 'constants/error'
 
 export const UserForm = ({
   utils = {},
@@ -13,11 +15,20 @@ export const UserForm = ({
   setData = {},
   handleSubmit = () => {},
   cities = [],
+  errors = {},
+  error = '',
 }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="profile__input-group">
-        <Input label="Email" name="email" type="email" value={data?.email} {...input} />
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          value={data?.email}
+          customError={data?.email ? (errors?.email ? field_error.invalidEmail : '') : ''}
+          {...input}
+        />
         <Input
           label="Contraseña"
           name="password"
@@ -25,6 +36,7 @@ export const UserForm = ({
           value={data?.password}
           placeholder="******"
           {...input}
+          required={false}
         />
       </div>
       <hr className="profile__line" />
@@ -169,6 +181,7 @@ export const UserForm = ({
       </div>
       <Checkbox label="Suscríbirse al boletin de noticias" wrapperClassName="mt-2" />
       <Button text="ACTUALIZAR PERFIL Y GUARDAR" wrapperClass="profile__send-button" type="submit" />
+      {error && <Error error={error} />}
     </form>
   )
 }
