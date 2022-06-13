@@ -65,7 +65,7 @@ export const OfferModal = ({
           {...selectProps}
           {...inputProps}
         />
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <SelectSearch
             label="Pais"
             name="country_id"
@@ -105,7 +105,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <Input
             label="Remuneración mínima"
             type="number"
@@ -123,7 +123,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <SelectSearch
             label="Moneda"
             name="salary_currency"
@@ -135,7 +135,7 @@ export const OfferModal = ({
           />
           <Check label="Ocultar salario" name="hide_salary" handleChangeData={handleChangeData} />
         </div>
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <SelectSearch
             label="Área funcional"
             name="functional_area_id"
@@ -155,7 +155,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <Input
             label="Vacantes"
             type="number"
@@ -172,7 +172,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid mt-2">
+        <div className="container-grid">
           <SelectSearch
             name="degree_level_id"
             label="Nivel titulación requerida"
