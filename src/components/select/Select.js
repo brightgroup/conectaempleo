@@ -33,6 +33,7 @@ export const SelectSearch = ({
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
+    console.log(value,id)
     if (!disabled && value) {
       setSearchValue(value)
       setData(data => ({ ...data, [name]: id || value, ...(name === 'state_id' && { city_id: '' }) }))

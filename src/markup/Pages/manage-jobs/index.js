@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 
     &:hover {
       color: black;
-      box-shadow: 2px 2px 5px #e5e2e1, -2px -2px 5px #e5e2e1;
+      box-shadow: 2px 2px 5px var(--ligthGray), -2px -2px 5px var(--ligthGray);
     }
   }
 `

@@ -39,8 +39,8 @@ const ManageJobs = () => {
     e.preventDefault()
     setValidate(true)
     if (hasEmptyFields()) return
-    const status = await dispatch(updateOffer({ ...currentOffer, skills: [currentOffer.skills] }, currentOffer.id))
-    if (status) {
+    const isCorrectStatus = await dispatch(updateOffer({ ...currentOffer, skills: [currentOffer.skills] }, currentOffer.id))
+    if (isCorrectStatus) {
       toggleModal()
       Swal.fire(swal('vacante actualizada correctamente'))
     }

@@ -26,8 +26,13 @@ export const OfferModal = ({
   const handleChangeData = ({ target }) => setCurrentOffer({ ...currentOffer, [target.name]: target.value })
 
   const selectProps = { activatedSelect, setActivatedSelect }
+
   const inputProps = { required: validate, wrapperClassName: 'mt-3' }
+
   const date = currentOffer?.expiry_date?.slice(0, 10)
+
+  console.log(offerUtils?.currencies)
+  console.log("esta es la data que viene",currentOffer?.salary_currency)
 
   return (
     <Modal show={show} onClose={onClose}>
@@ -35,7 +40,6 @@ export const OfferModal = ({
       <form onSubmit={handleSubmit}>
         <Input
           label="Nombre del cargo"
-          placeholder="Nombre"
           name="title"
           onChange={handleChangeData}
           value={currentOffer?.title}
@@ -44,7 +48,6 @@ export const OfferModal = ({
         <TextArea
           name="description"
           label="Descripción"
-          placeholder="Persona..."
           value={currentOffer?.description}
           onChange={handleChangeData}
           {...inputProps}
@@ -52,7 +55,6 @@ export const OfferModal = ({
         <TextArea
           name="benefits"
           label="Beneficios"
-          placeholder="Apoyo..."
           value={currentOffer?.benefits}
           onChange={handleChangeData}
           {...inputProps}
@@ -68,16 +70,14 @@ export const OfferModal = ({
         />
         <div className="container--grid mt-2">
           <SelectSearch
-            message="Seleccione..."
             label="Pais"
             name="country_id"
-            wrapperClassName="mt-3"
             options={offerUtils?.countries}
             initialValue={currentOffer?.country_id}
             {...selectProps}
+            {...inputProps}
           />
           <SelectSearch
-            message="Seleccione..."
             label="Departamento"
             name="state_id"
             options={offerUtils?.departments}
@@ -89,7 +89,6 @@ export const OfferModal = ({
         </div>
         <div className="container--grid">
           <SelectSearch
-            message="Seleccione..."
             label="Ciudad"
             name="city_id"
             options={cities}
@@ -100,7 +99,6 @@ export const OfferModal = ({
             {...inputProps}
           />
           <SelectSearch
-            message="Seleccione..."
             label="Periodo salarial"
             name="salary_period_id"
             setData={setCurrentOffer}
@@ -113,7 +111,6 @@ export const OfferModal = ({
         <div className="container--grid mt-2">
           <Input
             label="Remuneración mínima"
-            placeholder="1`000.000"
             type="number"
             name="salary_from"
             onChange={handleChangeData}
@@ -122,7 +119,6 @@ export const OfferModal = ({
           />
           <Input
             label="Remuneración maxima"
-            placeholder="5`000.000"
             type="number"
             name="salary_to"
             onChange={handleChangeData}
@@ -165,7 +161,6 @@ export const OfferModal = ({
         <div className="container--grid mt-2">
           <Input
             label="Vacantes"
-            placeholder="Numero de vacantes"
             type="number"
             name="num_of_positions"
             onChange={handleChangeData}
@@ -173,7 +168,6 @@ export const OfferModal = ({
             {...inputProps}
           />
           <InputDate
-            message="seleccione area funcional"
             label="F. vencimiento oferta laboral"
             name="expiry_date"
             value={date}
