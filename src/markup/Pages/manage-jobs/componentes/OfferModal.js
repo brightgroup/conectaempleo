@@ -33,14 +33,14 @@ export const OfferModal = ({
 
   return (
     <Modal show={show} onClose={onClose}>
-      <h1 className="mb-2">Actualizar oferta Laboral</h1>
+      <h2 className="mb-2 offer-form__title">Actualizar oferta Laboral</h2>
       <form onSubmit={handleSubmit}>
         <Input
           label="Nombre del cargo"
           name="title"
           onChange={handleChangeData}
           value={currentOffer?.title}
-          {...inputProps}
+          required={validate}
         />
         <TextArea
           name="description"
@@ -65,7 +65,7 @@ export const OfferModal = ({
           {...selectProps}
           {...inputProps}
         />
-        <div className="container-grid">
+        <div className="offer-form__group">
           <SelectSearch
             label="Pais"
             name="country_id"
@@ -84,7 +84,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <SelectSearch
             label="Ciudad"
             name="city_id"
@@ -105,7 +105,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <Input
             label="Remuneración mínima"
             type="number"
@@ -123,7 +123,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <SelectSearch
             label="Moneda"
             name="salary_currency"
@@ -135,7 +135,7 @@ export const OfferModal = ({
           />
           <Check label="Ocultar salario" name="hide_salary" handleChangeData={handleChangeData} />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <SelectSearch
             label="Área funcional"
             name="functional_area_id"
@@ -155,7 +155,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <Input
             label="Vacantes"
             type="number"
@@ -172,7 +172,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container-grid">
+        <div className="offer-form__group">
           <SelectSearch
             name="degree_level_id"
             label="Nivel titulación requerida"
@@ -194,7 +194,7 @@ export const OfferModal = ({
         </div>
         <Check label="Remoto" name="is_freelance" wrapperClass="mt-3" handleChangeData={handleChangeData} />
         <div className="d-flex justify-content-center">
-          <button className="form__buton--style">Actualizar</button>
+          <button className="offer-form__button">Actualizar</button>
         </div>
       </form>
     </Modal>

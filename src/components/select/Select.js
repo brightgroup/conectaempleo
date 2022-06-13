@@ -23,7 +23,10 @@ export const SelectSearch = ({
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
   const getvalue = useCallback(
-    () => (initialValue ? optionList?.find(option => option.id === Number(initialValue)||option.name===initialValue)?.name || '' : ''),
+    () =>
+      initialValue
+        ? optionList?.find(option => option.id === Number(initialValue) || option.name === initialValue)?.name || ''
+        : '',
     [initialValue, optionList]
   )
 
