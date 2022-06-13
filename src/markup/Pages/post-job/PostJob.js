@@ -101,7 +101,7 @@ const PostJob = () => {
             {...selectProps}
             {...inputProps}
           />
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.countries}
               message="Seleccione..."
@@ -122,7 +122,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid">
+          <div className="container-grid">
             <SelectSearch
               options={cities}
               message="Seleccione..."
@@ -143,7 +143,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <Input
               label="Remuneración mínima"
               placeholder="1`000.000"
@@ -163,7 +163,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.currencies}
               label="Moneda"
@@ -179,7 +179,7 @@ const PostJob = () => {
               value={job.hide_salary}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.functionalArea}
               label="Área funcional"
@@ -197,7 +197,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <Input
               label="Vacantes"
               placeholder="Numero de vacantes"
@@ -216,7 +216,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.gradeLevels}
               setData={setJob}

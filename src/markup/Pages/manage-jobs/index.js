@@ -4,7 +4,7 @@ export { default } from './ManageJobs'
 
 export const Wrapper = styled.div`
   gap: 30px;
-  .container--grid {
+  .container-grid {
     margin-top: 5px;
     height: auto;
     display: grid;
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 
     &:hover {
       color: black;
-      box-shadow: 2px 2px 5px var(--ligthGray), -2px -2px 5px var(--ligthGray);
+      box-shadow: 2px 2px 5px var(--ligth-gray), -2px -2px 5px var(--ligth-gray);
     }
   }
 `

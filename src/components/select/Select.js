@@ -22,8 +22,8 @@ export const SelectSearch = ({
 
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
-  const getValue = useCallback(
-    () => (initialValue ? optionList?.find(option => option.id === Number(initialValue))?.name || '' : ''),
+  const getvalue = useCallback(
+    () => (initialValue ? optionList?.find(option => option.id === Number(initialValue)||option.name===initialValue)?.name || '' : ''),
     [initialValue, optionList]
   )
 
@@ -33,7 +33,6 @@ export const SelectSearch = ({
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]
-    console.log(value,id)
     if (!disabled && value) {
       setSearchValue(value)
       setData(data => ({ ...data, [name]: id || value, ...(name === 'state_id' && { city_id: '' }) }))

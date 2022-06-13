@@ -31,9 +31,6 @@ export const OfferModal = ({
 
   const date = currentOffer?.expiry_date?.slice(0, 10)
 
-  console.log(offerUtils?.currencies)
-  console.log("esta es la data que viene",currentOffer?.salary_currency)
-
   return (
     <Modal show={show} onClose={onClose}>
       <h1 className="mb-2">Actualizar oferta Laboral</h1>
@@ -68,7 +65,7 @@ export const OfferModal = ({
           {...selectProps}
           {...inputProps}
         />
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <SelectSearch
             label="Pais"
             name="country_id"
@@ -87,7 +84,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container--grid">
+        <div className="container-grid">
           <SelectSearch
             label="Ciudad"
             name="city_id"
@@ -108,7 +105,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <Input
             label="Remuneración mínima"
             type="number"
@@ -126,7 +123,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <SelectSearch
             label="Moneda"
             name="salary_currency"
@@ -138,7 +135,7 @@ export const OfferModal = ({
           />
           <Check label="Ocultar salario" name="hide_salary" handleChangeData={handleChangeData} />
         </div>
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <SelectSearch
             label="Área funcional"
             name="functional_area_id"
@@ -158,7 +155,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <Input
             label="Vacantes"
             type="number"
@@ -175,7 +172,7 @@ export const OfferModal = ({
             {...inputProps}
           />
         </div>
-        <div className="container--grid mt-2">
+        <div className="container-grid mt-2">
           <SelectSearch
             name="degree_level_id"
             label="Nivel titulación requerida"
@@ -197,7 +194,7 @@ export const OfferModal = ({
         </div>
         <Check label="Remoto" name="is_freelance" wrapperClass="mt-3" handleChangeData={handleChangeData} />
         <div className="d-flex justify-content-center">
-          <button className="form__buton--style">Enviar</button>
+          <button className="form__buton--style">Actualizar</button>
         </div>
       </form>
     </Modal>
