@@ -34,6 +34,8 @@ export const urls = {
     postJob: 'store-job',
     getJobs: 'posted-jobs',
     deleteJobOffer: 'delete-front-job',
+    getOffer: offerId => `edit-job/${offerId}`,
+    updateOffer: 'update-front-job/',
   },
   company: {
     getCompanies: 'companies',

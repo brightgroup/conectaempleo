@@ -1,6 +1,7 @@
 import { getUtilsData } from 'utils/job'
+import { getOfferData } from 'utils/offer'
 import { getProfileData } from 'utils/profile'
-import { SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR } from '../actions/UtilTypes'
+import { SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR, SET_OFFER_UTILS } from '../actions/UtilTypes'
 
 const initialState = {
   jobUtils: {
@@ -24,6 +25,17 @@ const initialState = {
     entities: [],
     populationGroup: [],
     civilStatus: [],
+  },
+  offerUtils: {
+    skills: [],
+    countries: [],
+    departments: [],
+    functionalArea: [],
+    currencies: [],
+    jobExperiences: [],
+    gradeLevels: [],
+    salaryPeriods: [],
+    jobTypes: [],
   },
   cities: [],
   showLoader: false,
@@ -51,6 +63,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         showLoader: action.payload,
+      }
+    case SET_OFFER_UTILS:
+      return {
+        ...state,
+        offerUtils: getOfferData(action.payload),
       }
     case SET_ERROR:
       return {

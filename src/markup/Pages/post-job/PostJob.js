@@ -7,11 +7,11 @@ import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
-import { getCities, getJobUtils} from 'store/actions/UtilActions'
+import { getCities, getJobUtils } from 'store/actions/UtilActions'
+import { postJob } from 'store/actions/JobOffersActions'
 import { isEmpty } from 'utils/validation'
 import { swal } from 'utils/swal'
 import { initialState, Wrapper, Content } from '.'
-import { postJob } from 'store/actions/JobOffersActions'
 
 const PostJob = () => {
   const dispatch = useDispatch()
@@ -101,7 +101,7 @@ const PostJob = () => {
             {...selectProps}
             {...inputProps}
           />
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.countries}
               message="Seleccione..."
@@ -122,7 +122,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid">
+          <div className="container-grid">
             <SelectSearch
               options={cities}
               message="Seleccione..."
@@ -143,7 +143,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <Input
               label="Remuneración mínima"
               placeholder="1`000.000"
@@ -163,7 +163,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.currencies}
               label="Moneda"
@@ -179,7 +179,7 @@ const PostJob = () => {
               value={job.hide_salary}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.functionalArea}
               label="Área funcional"
@@ -197,7 +197,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <Input
               label="Vacantes"
               placeholder="Numero de vacantes"
@@ -216,7 +216,7 @@ const PostJob = () => {
               {...inputProps}
             />
           </div>
-          <div className="container--grid mt-2">
+          <div className="container-grid mt-2">
             <SelectSearch
               options={jobUtils?.gradeLevels}
               setData={setJob}

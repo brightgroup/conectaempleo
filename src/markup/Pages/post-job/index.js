@@ -14,7 +14,7 @@ export const Content = styled.div`
     }
   }
 
-  .container--grid {
+  .container-grid {
     margin-top: 5px;
     height: auto;
     display: grid;

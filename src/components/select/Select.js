@@ -22,14 +22,17 @@ export const SelectSearch = ({
 
   const isActivated = useMemo(() => activatedSelect === name, [activatedSelect, name])
 
-  const getValue = useCallback(
-    () => (initialValue ? optionList?.find(option => option.id === Number(initialValue))?.name || '' : ''),
+  const getvalue = useCallback(
+    () =>
+      initialValue
+        ? optionList?.find(option => option.id === Number(initialValue) || option.name === initialValue)?.name || ''
+        : '',
     [initialValue, optionList]
   )
 
   useEffect(() => setOptions(optionList), [optionList])
 
-  useEffect(() => setSearchValue(getValue()), [getValue])
+  useEffect(() => setSearchValue(getvalue()), [getvalue])
 
   const handleChangeOption = option => {
     const [value, id] = [option.name, option.id]

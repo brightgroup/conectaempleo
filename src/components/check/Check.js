@@ -1,8 +1,15 @@
-import { MessageError } from 'components/message-error'
 import React from 'react'
+import { MessageError } from 'components/message-error'
 import { WrapperCheckbox, WrapperCheck } from '.'
 
-export const Check = ({ label = '', name = '', handleChangeData = '', value = 0, wrapperClass = '', ...props }) => {
+export const Check = ({
+  label = '',
+  name = '',
+  handleChangeData = () => {},
+  value = 0,
+  wrapperClass = '',
+  ...props
+}) => {
   return (
     <WrapperCheck className={wrapperClass}>
       <label className="text-dark">{label}</label>
