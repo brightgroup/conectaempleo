@@ -11,6 +11,7 @@ import { getMessageError } from 'utils/error'
 import { getCities, getProfileUtils } from 'store/actions/UtilActions'
 import { getProfile, updateUser } from 'store/actions/UserActions'
 import { getCompany, updateCompany } from 'store/actions/CompanyActions'
+import useForm from 'hooks/useForm'
 import { initialProfile } from 'store/reducers/UserReducer'
 import { initialCompany } from 'store/reducers/CompanyReducer'
 import { CANDIDATE } from 'constants/rol'
@@ -25,13 +26,17 @@ const CompanyProfile = () => {
     company: { company },
   } = useSelector(state => state)
 
-  const [data, setData] = useState({})
-  const [validate, setValidate] = useState(false)
-  const [activatedSelect, setActivatedSelect] = useState('')
   const [errors, setErrors] = useState({})
 
-  const [hasUtils, stateId, userId] = [utils?.genders?.length, data?.state_id, data?.id]
-  const rol = user?.rol
+  const sendForm = async data => {
+    if (hasErrors()) return true
+    const isCorrectStatus = await dispatch(isCandidate ? updateUser(data) : updateCompany(data))
+    if (isCorrectStatus) Swal.fire(swal())
+  }
+
+  const { activatedSelect, setActivatedSelect, validate, handleSubmit, data, setData } = useForm(sendForm)
+
+  const [hasUtils, stateId, userId, rol] = [utils?.genders?.length, data?.state_id, data?.id, user?.rol]
 
   const isCandidate = useMemo(() => rol === CANDIDATE, [rol])
 
@@ -41,23 +46,23 @@ const CompanyProfile = () => {
   }, [dispatch, hasUtils, isCandidate])
 
   useEffect(() => {
-    if (userId && stateId) dispatch(getCities(stateId))
-  }, [dispatch, stateId, userId])
-
-  useEffect(() => {
     getData()
   }, [dispatch, hasUtils, getData])
 
-  useEffect(() => setData(profile), [profile])
+  useEffect(() => {
+    if (userId && stateId) dispatch(getCities(stateId))
+  }, [dispatch, stateId, userId])
 
-  useEffect(() => setData(company), [company])
+  useEffect(() => setData(profile), [profile, setData])
+
+  useEffect(() => setData(company), [company, setData])
 
   const handleChangeData = ({ target }) => setData({ ...data, [target.name]: target.value })
 
   const hasErrors = () => {
     const emptyFields = getEmptyFields(data, getFields(isCandidate ? initialProfile : initialCompany))
     const errors = {
-      emptyFields: emptyFields,
+      emptyFields,
       hasEmptyFields: !!emptyFields,
       email: isCandidate ? !isValidEmail(data?.email) : false,
     }
@@ -65,15 +70,6 @@ const CompanyProfile = () => {
     return Object.values(errors).some(value => typeof value === 'boolean' && value)
   }
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-    setValidate(true)
-    if (hasErrors()) return
-    const isCorrectStatus = await dispatch(isCandidate ? updateUser(data) : updateCompany(data))
-    if (isCorrectStatus) Swal.fire(swal())
-    setValidate(false)
-    setActivatedSelect('')
-  }
   const error = useMemo(() => getMessageError(errors), [errors])
 
   const input = { required: validate, onChange: handleChangeData }
@@ -81,7 +77,7 @@ const CompanyProfile = () => {
   const select = { activatedSelect, setActivatedSelect, setData, required: validate }
 
   const formProps = { utils, data, setData, handleSubmit, input, select, cities, errors, error }
-
+  console.log('validate', validate)
   return (
     <Wrapper className="d-flex justify-content-center px-4">
       <SidebarMenu />

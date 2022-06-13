@@ -50,7 +50,6 @@ export const SelectSearch = ({
       setSearchValue(value)
       const options = optionList?.filter(option => option?.name?.toLowerCase()?.includes(value?.toLowerCase()))
       setOptions(!value ? options : options?.length ? options : WITHOUT_RESULTS)
-      console.log(options)
       if (!value) setData(data => ({ ...data, [name]: '' }))
     }
   }
@@ -58,12 +57,6 @@ export const SelectSearch = ({
   const onClickInput = () => {
     setActivatedSelect(name)
     setShadow(true)
-  }
-
-  const hideOptions = () => {
-    setShadow(false)
-    setActivatedSelect('')
-    console.log(searchValue, initialValue)
   }
 
   const hasError = required && !initialValue
@@ -85,7 +78,6 @@ export const SelectSearch = ({
           disabled={disabled}
           className={`select__search-input ${searchValue === message ? 'input-without-value' : ''}`}
           placeholder={message}
-          onBlur={hideOptions}
         />
         {!!(options?.length && isActivated) && (
           <div className="options select-search" id={name}>
