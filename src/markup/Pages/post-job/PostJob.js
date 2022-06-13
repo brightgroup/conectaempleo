@@ -7,11 +7,11 @@ import { SelectSearch } from 'components/select'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
 import { Check } from 'components/check'
-import { getCities, getJobUtils} from 'store/actions/UtilActions'
+import { getCities, getJobUtils } from 'store/actions/UtilActions'
+import { postJob } from 'store/actions/JobOffersActions'
 import { isEmpty } from 'utils/validation'
 import { swal } from 'utils/swal'
 import { initialState, Wrapper, Content } from '.'
-import { postJob } from 'store/actions/JobOffersActions'
 
 const PostJob = () => {
   const dispatch = useDispatch()

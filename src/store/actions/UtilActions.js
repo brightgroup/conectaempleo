@@ -1,6 +1,6 @@
 import { simpleClient } from 'utils/axios'
 import { urls } from 'api/ulrs'
-import { SET_JOB_UTILS, SET_PROFILE_UTILS, SET_ERROR, SET_CITIES } from './UtilTypes'
+import { SET_JOB_UTILS, SET_PROFILE_UTILS, SET_ERROR, SET_CITIES, SET_OFFER_UTILS } from './UtilTypes'
 export const TOGGLE_LOADER = 'TOGGLE_LOADER'
 
 const setJobUtils = data => ({
@@ -15,6 +15,11 @@ const setProfileUtils = data => ({
 
 const setCities = data => ({
   type: SET_CITIES,
+  payload: data,
+})
+
+const setOfferUtils = data => ({
+  type: SET_OFFER_UTILS,
   payload: data,
 })
 
@@ -43,6 +48,27 @@ export const getJobUtils = () => async dispatch => {
       simpleClient(getSalaryPeriods),
       simpleClient(getFunctionalArea),
     ]).then(res => dispatch(setJobUtils(res)))
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
+export const getOfferUtils = () => async dispatch => {
+  try {
+    const { getdepartments, getSkills, getCurrencies, getGenders, getFunctionalArea, ...restUrls } = urls.utils
+    const { getJobExperiences, getDegreeLevel, getSalaryPeriods, getCountries, getJobType } = restUrls
+
+    await Promise.all([
+      simpleClient(getSkills),
+      simpleClient(getCountries),
+      simpleClient(getdepartments),
+      simpleClient(getSalaryPeriods),
+      simpleClient(getFunctionalArea),
+      simpleClient(getCurrencies),
+      simpleClient(getDegreeLevel),
+      simpleClient(getJobExperiences),
+      simpleClient(getJobType),
+    ]).then(res => dispatch(setOfferUtils(res)))
   } catch (error) {
     dispatch(setError(error))
   }
