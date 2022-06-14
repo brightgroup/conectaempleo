@@ -72,7 +72,7 @@ const Markup = () => {
     <>
       <div className="page-wraper d-flex flex-column">
         {showHeader && <Header />}
-        <div className={`pages-container bg-white ${showHeader ? 'mt-5' : ''}`}>
+        <div className={`pages-container bg-white ${showHeader ? 'mt-2' : ''}`}>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/home" exact component={Homepage} />
