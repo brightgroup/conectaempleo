@@ -12,7 +12,7 @@ import { Content, Wrapper } from '.'
 const ManageJobs = () => {
   const dispatch = useDispatch()
 
-  const { jobsOffers, currentOffer: offer } = useSelector(state => state.jobOffer)
+  const { jobOffers, currentOffer: offer } = useSelector(state => state.jobOffer)
   const [data, setData] = useState([])
   const [modalView, setModalView] = useState(false)
   const [currentOffer, setCurrentOffer] = useState({})
@@ -27,8 +27,8 @@ const ManageJobs = () => {
   }, [dispatch])
 
   useEffect(() => {
-    setData(jobsOffers.data)
-  }, [jobsOffers])
+    setData(jobOffers.data)
+  }, [jobOffers])
 
   const hasEmptyFields = () => {
     const fields = Object.keys(currentOffer)
@@ -62,7 +62,13 @@ const ManageJobs = () => {
       <SidebarMenu />
       <Content className="section-content table">
         <PageTitle title="Gestionar trabajos" />
-        <Table data={data} toggleModal={toggleModal} deleteOffer={deleteOffer} />
+        <Table
+          data={data}
+          toggleModal={toggleModal}
+          deleteOffer={deleteOffer}
+          setData={setData}
+          jobOffers={jobOffers?.data}
+        />
       </Content>
       <OfferModal
         show={modalView}
