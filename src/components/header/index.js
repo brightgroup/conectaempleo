@@ -18,12 +18,13 @@ export const Wrapper = styled.header`
     text-decoration: none;
     padding: 8px 10px;
     margin: 0 10px 0 10px;
-    font-size: 1.3rem;
-  }
-
-  .active:hover {
-    border-bottom: 3px solid var(--blue);
-    color: var(--blue) !important;
+    font-size: 18px;
+    font-weight: 600;
+    &:hover {
+      background-color: var(--blue);
+      border-radius: 5px;
+      color: white !important;
+    }
   }
 
   .button {

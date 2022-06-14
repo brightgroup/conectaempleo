@@ -4,7 +4,7 @@ import { HeaderTable, BodyTable } from '.'
 export const Table = props => {
   return (
     <table>
-      <HeaderTable />
+      <HeaderTable {...props} />
       <BodyTable {...props} />
     </table>
   )

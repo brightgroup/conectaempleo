@@ -4,7 +4,7 @@ export { default } from './ManageJobs'
 
 export const Wrapper = styled.div`
   gap: 30px;
-  
+
   .offer-form {
     &__group {
       height: auto;
@@ -37,6 +37,28 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   .table {
+    &__filter {
+      width: 160px !important;
+      max-width: 160px !important ;
+      margin: 0 !important;
+    }
+
+    &__organize {
+      border: 2px solid var(--ligth-gray);
+      border-radius: 5px;
+      padding: 5px;
+      outline: none;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 2px 2px 5px var(--ligth-gray), -2px -2px 5px var(--ligth-gray);
+      }
+    }
+
+    &__search-label {
+      border: none;
+    }
+
     &__header {
       display: flex;
       align-items: center;

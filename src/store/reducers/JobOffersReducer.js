@@ -1,7 +1,7 @@
 import { SET_OFFER, SET_JOBS_OFFERS, SET_ERROR } from 'store/actions/JobOffersTypes'
 
 const initialState = {
-  jobsOffers: [],
+  jobOffers: {},
   currentOffer: {},
   error: '',
 }
@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action) => {
     case SET_JOBS_OFFERS:
       return {
         ...state,
-        jobsOffers: action.payload,
+        jobOffers: action.payload,
       }
     case SET_OFFER:
       return {
