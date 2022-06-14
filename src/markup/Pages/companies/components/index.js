@@ -2,19 +2,20 @@ import styled from 'styled-components'
 
 export const WrapperCard = styled.div`
   width: 14em;
-  height: 24em;
+  height: 23em;
   border: 2px solid gray;
   border-radius: 5px;
   padding: 10px;
 
   .cont {
-    height: 180px;
+    height: 160px;
     border: 1px solid gray;
     border-radius: 5px;
     overflow: hidden;
 
     &__image {
       width: 100%;
+      height:100%;
     }
   }
 

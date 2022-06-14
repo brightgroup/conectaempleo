@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 
-var bnr1 = require("./../../images/main-slider/slide2.jpg");
+var bnr1 = require("images/main-slider/banner_work.jpg");
 
 class IndexBanner extends Component {
   componentDidMount() {
@@ -35,9 +35,6 @@ class IndexBanner extends Component {
         <div className="container">
           <div className="dez-bnr-inr-entry align-m">
             <div className="find-job-bx">
-              <h2 className="text-white">
-                CONECTA EMPLEO EL MEJOR ALIADO PARA TRANSFORMAR COMUNIDADES
-              </h2>
               <form className="dezPlaceAni">
                 <div className="row">
                   <div className="col-lg-9 col-md-6">
