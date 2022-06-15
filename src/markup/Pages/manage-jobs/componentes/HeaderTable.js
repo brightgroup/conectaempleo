@@ -34,7 +34,7 @@ export const HeaderTable = ({ setData = () => {}, jobOffers }) => {
           <h3 className="table__title">Aplicaciones</h3>
         </th>
         <th>
-          <h3 className="table__title">Fecha</h3>
+          <h3 className="table__title">Expiración</h3>
         </th>
         <th>
           <h3 className="table__title ml-4">Estado</h3>

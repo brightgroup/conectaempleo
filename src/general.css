@@ -4,36 +4,40 @@ h2,
 h3,
 h4,
 h5 {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.semi-bold {
+  font-weight: 600;
 }
 
 .bg-blue {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 .absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .flex-1 {
-    flex: 1;
+  flex: 1;
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-gray {
-    color: var(--gray);
+  color: var(--gray);
 }

@@ -58,6 +58,7 @@ import Register from './Pages/register'
 import ManageJobs from './Pages/manage-jobs'
 import Companies from './Pages/companies'
 import Companies2 from './Pages/Companies2'
+import Home from './Pages/home'
 
 const Markup = () => {
   const [showHeader, setShowHeader] = useState(false)
@@ -74,7 +75,7 @@ const Markup = () => {
         {showHeader && <Header />}
         <div className={`pages-container bg-white ${showHeader ? 'mt-2' : ''}`}>
           <Switch>
-            <Route path="/" exact component={Homepage} />
+            <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Homepage} />
             <Route path="/jobs-profile" exact component={Jobprofile} />
             <Route path="/jobs-my-resume" exact component={Jobmyresume} />

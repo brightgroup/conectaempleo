@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import logo2 from 'images/logo.png'
 import { EMPLOYER } from 'constants/rol'
 import { Wrapper } from '.'
+import { BurgerButton } from 'components/burger-button'
 
 export const Header = () => {
   const {
@@ -12,52 +13,55 @@ export const Header = () => {
 
   return (
     <Wrapper>
-      <div className="logo-header mostion">
+      <div className="header__logo d-flex align-items-center">
         <Link to="/">
-          <img src={logo2} className="logo" alt="img" />
+          <img src={logo2} className="" alt="img" />
         </Link>
       </div>
-      <nav className="d-flex align-items-end">
-        <ul className="ul__list d-flex ">
-          <li className="">
-            <NavLink to="/" className="li_item text-dark">
+      <nav className="header__nav d-flex align-items-center ">
+        <ul className="header__nav-list d-flex m-0">
+          <li>
+            <NavLink to="/" className="header__nav-option text-dark">
               Inicio
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" className="li_item text-dark">
+            <NavLink to="/" className="header__nav-option text-dark">
               Publicaciones
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" className="li_item text-dark">
+            <NavLink to="/" className="header__nav-option text-dark">
               Trabajos
             </NavLink>
           </li>
           <li>
-            <NavLink to="/empresas" className="li_item text-dark">
+            <NavLink to="/empresas" className="header__nav-option text-dark">
               Empresas
             </NavLink>
           </li>
           <li>
-            <NavLink to={user?.rol === EMPLOYER ? '/publicar-empleo' : '/perfil'} className="li_item text-dark">
+            <NavLink
+              to={user?.rol === EMPLOYER ? '/publicar-empleo' : '/perfil'}
+              className="header__nav-option text-dark"
+            >
               {user?.rol === EMPLOYER ? 'Publicar empleo' : 'Perfil'}
             </NavLink>
           </li>
         </ul>
       </nav>
-      <div className="d-flex align-items-center">
-        <nav className="d-flex ">
-          {user?.first_name}
-          <Link to="/iniciar-sesion" className="button">
+      <div className="d-flex align-items-center header__login">
+        <nav className="d-flex mr-4 header__login-nav">
+          <Link to="/iniciar-sesion" className="header__login-option">
             <i className="fa fa-user px-2"></i>
             Iniciar sesion
           </Link>
 
-          <Link to="/registro" className="button">
+          <Link to="/registro" className="header__login-option">
             Registrarte
           </Link>
         </nav>
+        <BurgerButton />
       </div>
     </Wrapper>
   )

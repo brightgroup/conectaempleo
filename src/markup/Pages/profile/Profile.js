@@ -77,7 +77,7 @@ const CompanyProfile = () => {
   const select = { activatedSelect, setActivatedSelect, setData, required: validate }
 
   const formProps = { utils, data, setData, handleSubmit, input, select, cities, errors, error }
-  console.log('validate', validate)
+
   return (
     <Wrapper className="d-flex justify-content-center px-4">
       <SidebarMenu />

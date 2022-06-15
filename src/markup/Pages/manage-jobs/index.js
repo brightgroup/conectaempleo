@@ -33,6 +33,22 @@ export const Wrapper = styled.div`
       }
     }
   }
+
+  .reading-modal {
+    &__title {
+      color: var(--blue) !important;
+    }
+
+    &__label {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+    }
+
+    &__description {
+      font-size: 16px !important;
+      text-align: start !important;
+    }
+  }
 `
 
 export const Content = styled.div`
@@ -50,6 +66,7 @@ export const Content = styled.div`
       outline: none;
       font-size: 16px;
       cursor: pointer;
+
       &:hover {
         box-shadow: 2px 2px 5px var(--ligth-gray), -2px -2px 5px var(--ligth-gray);
       }
@@ -102,3 +119,6 @@ export const Content = styled.div`
     }
   }
 `
+export const modalInitialState = { update: false, read: false }
+
+export const modalName = { update: 'update', read: 'read' }
