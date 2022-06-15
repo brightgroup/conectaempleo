@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+export * from './Modal'
+
 export const ModalWrapper = styled.div`
   flex-direction: column;
   width: 100%;

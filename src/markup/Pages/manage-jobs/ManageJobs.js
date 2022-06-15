@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
+import useModal from 'hooks/useModal'
 import { SidebarMenu } from 'components/sidebar-menu'
 import { PageTitle } from 'components/page-title'
-import { OfferModal, Table } from './componentes'
+import { OfferModal, Table, ReadingModal } from './componentes'
 import { deleteJobOffer, getJobs, updateOffer, setOffer } from 'store/actions/JobOffersActions'
 import { swal } from 'utils/swal'
 import { isEmpty } from 'utils/validation'
-import { Content, Wrapper } from '.'
+import { Content, modalName, modalInitialState, Wrapper } from '.'
 
 const ManageJobs = () => {
   const dispatch = useDispatch()
-
   const { jobOffers, currentOffer: offer } = useSelector(state => state.jobOffer)
+  const { toggleModal, modals } = useModal(modalInitialState)
+
   const [data, setData] = useState([])
-  const [modalView, setModalView] = useState(false)
+  const [offerRead, setOfferRead] = useState({})
   const [currentOffer, setCurrentOffer] = useState({})
   const [validate, setValidate] = useState(false)
 
@@ -43,13 +45,14 @@ const ManageJobs = () => {
       updateOffer({ ...currentOffer, skills: [currentOffer.skills] }, currentOffer.id)
     )
     if (isCorrectStatus) Swal.fire(swal('vacante actualizada correctamente'))
-    toggleModal()
+    toggleModal(modalName.update)
     setValidate(false)
     dispatch(setOffer({}))
   }
 
-  const toggleModal = () => {
-    setModalView(!modalView)
+  const readOffer = offer => {
+    toggleModal(modalName.read)
+    if (offer) setOfferRead(offer)
   }
 
   const deleteOffer = async offerId => {
@@ -65,19 +68,21 @@ const ManageJobs = () => {
         <Table
           data={data}
           toggleModal={toggleModal}
+          readOffer={readOffer}
           deleteOffer={deleteOffer}
           setData={setData}
           jobOffers={jobOffers?.data}
         />
       </Content>
       <OfferModal
-        show={modalView}
+        show={modals.update}
         onClose={toggleModal}
         setCurrentOffer={setCurrentOffer}
         handleSubmit={handleSubmit}
         currentOffer={currentOffer}
         validate={validate}
       />
+      <ReadingModal show={modals.read} data={offerRead} readOffer={readOffer} />
     </Wrapper>
   )
 }
