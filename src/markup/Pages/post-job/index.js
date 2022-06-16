@@ -3,8 +3,7 @@ import styled from 'styled-components'
 export { default } from './PostJob'
 
 export const Wrapper = styled.div`
-  gap: 30px;
-  padding: 40px 0;
+  gap: 1.875rem;
 `
 
 export const Content = styled.div`
@@ -15,11 +14,12 @@ export const Content = styled.div`
   }
 
   .container-grid {
-    margin-top: 5px;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 1.5em;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   .form__buton--style {

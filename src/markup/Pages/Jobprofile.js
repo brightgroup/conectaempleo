@@ -7,7 +7,7 @@ import Profilesidebar from './../Element/Profilesidebar';
 function Jobprofile(){
 	return(
 		<>	
-			<Header2 />
+			{/* <Header2 /> */}
 			<div className="page-content bg-white">
 				<div className="content-block">
 					<div className="section-full bg-white browse-job p-t50 p-b20">

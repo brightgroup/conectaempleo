@@ -32,7 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
-    border: 1px solid red;
+    margin-bottom: 20px;
 }
 
 .section-content {
@@ -41,7 +41,7 @@ body {
     padding: 20px;
 }
 
-@media (min-width: 56.25rem) {
+@media (min-width: 900px) {
     .section-content {
         min-width: 51.25rem;
         padding: 20px 1.875rem;
@@ -49,5 +49,11 @@ body {
 
     .pages-container {
         padding: 1.25rem 1.875rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-content {
+        width: 100%;
     }
 }

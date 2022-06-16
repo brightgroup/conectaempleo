@@ -15,7 +15,7 @@ export const Header = () => {
     <Wrapper>
       <div className="header__logo d-flex align-items-center">
         <Link to="/">
-          {/* <img src={logo2} className="" alt="img" /> */}
+          <img src={logo2} className="page-logo" alt="img" />
         </Link>
       </div>
       <nav className="header__nav d-flex align-items-center ">

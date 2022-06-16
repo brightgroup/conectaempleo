@@ -4,7 +4,7 @@ import user from 'images/default-profile.jpg'
 export const Conversation = () => {
   return (
     <section className="chat__conversation d-flex flex-column">
-      <div className="chat__messages flex-1 d-flex p-2 flex-column">
+      <div className="chat__messages flex-1 d-flex p-md-2 flex-column p-xs-1">
         {[1, 2, 3, 4].map(item => (item % 2 ? <IncomingMessage key={item} /> : <OutgoingMessage key={item} />))}
       </div>
       <div className="chat__input-container">
@@ -24,7 +24,7 @@ export const IncomingMessage = () => (
       <p>Entrante</p>
     </div>
     <p className="chat__hour chat__hour-incoming">
-      <i className="fa-solid fa-clock" />
+      <i className="fa-solid fa-clock ssss" />
       Hace 17 horas
     </p>
   </div>

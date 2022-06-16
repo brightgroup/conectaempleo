@@ -3,7 +3,18 @@ import styled from 'styled-components'
 export { default } from './ManageJobs'
 
 export const Wrapper = styled.div`
-  gap: 30px;
+  gap: 1.875rem;
+
+  .manage-jobs {
+    &__table {
+      width: 100%;
+      overflow-x: scroll;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 
   .offer-form {
     &__group {

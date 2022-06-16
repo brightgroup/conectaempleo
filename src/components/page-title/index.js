@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid #e1e7ff;
 
   .page-title {
+    &__title {
+      @media (max-width: 600px) {
+        font-size: 20px;
+      }
+    }
+    
     &__button {
       width: 60px;
       height: 28px;

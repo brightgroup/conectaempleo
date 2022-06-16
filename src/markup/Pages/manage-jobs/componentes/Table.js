@@ -3,9 +3,11 @@ import { HeaderTable, BodyTable } from '.'
 
 export const Table = props => {
   return (
-    <table>
-      <HeaderTable {...props} />
-      <BodyTable {...props} />
-    </table>
+    <div className="manage-jobs__table">
+      <table>
+        <HeaderTable {...props} />
+        <BodyTable {...props} />
+      </table>
+    </div>
   )
 }

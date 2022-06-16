@@ -42,15 +42,14 @@ export const getItems = isEmployer => {
 }
 
 export const WrapperSidebar = styled.div`
-  flex-basis: 18rem;
-  flex-grow: 0;
   height: 100%;
+  flex: 1;
+  max-width: 300px;
 
   .sidebar-item {
-    padding: 1rem 1rem;
+    padding: 1rem;
     width: 100%;
     cursor: pointer;
-    /* color: var(--gray); */
     color: gray;
     border-bottom: 0.0625rem solid #e1e7ff;
     text-decoration: none;

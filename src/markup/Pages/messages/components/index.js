@@ -13,6 +13,10 @@ export const ChatWrapper = styled.div`
       width: 35%;
       box-shadow: 0 0 0.625rem 0 rgb(0 24 128 / 10%);
       border-radius: 0.25rem;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
     }
 
     &__conversation {
@@ -20,6 +24,10 @@ export const ChatWrapper = styled.div`
       height: 25rem;
       box-shadow: 0 0 0.625rem 0 rgb(0 24 128 / 10%);
       border-radius: 0.25rem;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
 
       &-image {
         width: 1.875rem;
@@ -47,6 +55,10 @@ export const ChatWrapper = styled.div`
       font-size: 0.875rem;
       font-weight: 600;
       position: relative;
+
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
 
       &::before {
         content: '';
@@ -83,6 +95,10 @@ export const ChatWrapper = styled.div`
       margin: 0;
       font-weight: 600;
 
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
+
       &-incoming {
         right: 1.875rem;
       }
@@ -93,6 +109,11 @@ export const ChatWrapper = styled.div`
       height: 3.125rem;
       border-radius: 100%;
       object-fit: contain;
+
+      @media (max-width: 600px) {
+        width: 35px;
+        height: 35px;
+      }
     }
 
     &__input {
@@ -100,12 +121,18 @@ export const ChatWrapper = styled.div`
       border-radius: 0.125rem;
       padding: 0.375rem;
       padding-right: 4.625rem;
+      font-size: 14px;
+      line-height: 14px;
 
       &-container {
         height: 5rem;
         background-color: var(--dark-gray);
         padding: 0.75rem;
         position: relative;
+
+        @media (max-width: 600px) {
+          height: 3.75rem;
+        }
       }
     }
 
@@ -119,6 +146,11 @@ export const ChatWrapper = styled.div`
       height: 2.9375rem;
       background-color: var(--blue);
       border-radius: 0.25rem;
+
+      @media (max-width: 600px) {
+        height: 30px;
+        width: 3.75rem;
+      }
     }
 
     &__active-conversation {

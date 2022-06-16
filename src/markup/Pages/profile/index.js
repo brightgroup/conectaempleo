@@ -4,7 +4,6 @@ export { default } from './Profile'
 
 export const Wrapper = styled.div`
   gap: 30px;
-  padding: 40px 0;
 
   .profile {
     &__input-group {
@@ -12,6 +11,10 @@ export const Wrapper = styled.div`
       gap: 20px;
       margin-top: 15px;
       justify-content: space-between;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
     }
 
     &__line {
@@ -34,6 +37,11 @@ export const Wrapper = styled.div`
       width: 100%;
       border-radius: 6px;
       cursor: pointer;
+
+      @media (max-width: 600px) {
+        font-size: 14px;
+        text-align: center;
+      }
     }
 
     &__send-button {
@@ -42,6 +50,11 @@ export const Wrapper = styled.div`
       height: 46px;
       width: 100%;
       margin-top: 12px;
+
+      @media (max-width: 600px) {
+        font-size: 14px;
+        text-align: center;
+      }
     }
 
     &__download-button-file {
@@ -49,6 +62,11 @@ export const Wrapper = styled.div`
       background-color: var(--blue);
       color: white;
       margin-top: 30px;
+
+      @media (max-width: 600px) {
+        font-size: 14px;
+        text-align: center;
+      }
     }
   }
 `

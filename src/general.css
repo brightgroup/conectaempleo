@@ -66,6 +66,10 @@ h5 {
     cursor: pointer;
 }
 
+.page-logo {
+    width: 180px;
+}
+
 input, textarea {
     outline: none;
 }
