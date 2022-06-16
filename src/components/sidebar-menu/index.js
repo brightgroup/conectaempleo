@@ -29,6 +29,11 @@ export const sidebarItems = [
     path: '/resumen',
   },
   {
+    text: 'Chat interno',
+    icon: 'fa-solid fa-envelope',
+    path: '/mensajes',
+  },
+  {
     text: 'Cambiar contraseña',
     icon: 'fa fa-key',
     section: 'change-pasword',
@@ -56,7 +61,7 @@ export const WrapperSidebar = styled.div`
     padding: 1rem 1rem;
     width: 100%;
     cursor: pointer;
-    color: gray;
+    color: var(--gray);
     border-bottom: 0.0625rem solid #e1e7ff;
 
     &:last-of-type {

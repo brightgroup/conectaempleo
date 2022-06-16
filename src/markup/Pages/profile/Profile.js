@@ -14,7 +14,6 @@ import { getCompany, updateCompany } from 'store/actions/CompanyActions'
 import useForm from 'hooks/useForm'
 import { initialProfile } from 'store/reducers/UserReducer'
 import { initialCompany } from 'store/reducers/CompanyReducer'
-import { CANDIDATE } from 'constants/rol'
 import { Wrapper, Content } from '.'
 
 const CompanyProfile = () => {
@@ -22,7 +21,7 @@ const CompanyProfile = () => {
   const {
     utils: { profile: utils, cities },
     user: { profile },
-    auth: { user },
+    auth: { isCandidate },
     company: { company },
   } = useSelector(state => state)
 
@@ -36,9 +35,7 @@ const CompanyProfile = () => {
 
   const { activatedSelect, setActivatedSelect, validate, handleSubmit, data, setData } = useForm(sendForm)
 
-  const [hasUtils, stateId, userId, rol] = [utils?.genders?.length, data?.state_id, data?.id, user?.rol]
-
-  const isCandidate = useMemo(() => rol === CANDIDATE, [rol])
+  const [hasUtils, stateId, userId] = [utils?.genders?.length, data?.state_id, data?.id]
 
   const getData = useCallback(async () => {
     const action = isCandidate ? getProfile : getCompany

@@ -112,7 +112,9 @@ export const decryptToken =
       const data = await simpleClient(url, { token }, 'POST')
       if (data) {
         const user = { ...data, rol }
-        dispatch(setUser(user))
+        console.log('ROL', user?.rol)
+        console.log('RESULTADO', user?.rol !== EMPLOYER)
+        dispatch(setUser({ ...user, isCandidate: user?.rol !== EMPLOYER }))
         return user
       }
     } catch (error) {

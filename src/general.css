@@ -41,3 +41,27 @@ h5 {
 .text-gray {
   color: var(--gray);
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.gap-2 {
+    gap: 6px;
+}
+
+.text-tiny {
+    font-size: 12px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+input, textarea {
+    outline: none;
+}

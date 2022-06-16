@@ -59,6 +59,7 @@ import ManageJobs from './Pages/manage-jobs'
 import Companies from './Pages/companies'
 import Companies2 from './Pages/Companies2'
 import Home from './Pages/home'
+import Messages from './Pages/messages'
 
 const Markup = () => {
   const [showHeader, setShowHeader] = useState(false)
@@ -73,7 +74,7 @@ const Markup = () => {
     <>
       <div className="page-wraper d-flex flex-column">
         {showHeader && <Header />}
-        <div className={`pages-container bg-white ${showHeader ? 'mt-2' : ''}`}>
+        <div className={`pages-container bg-white ${showHeader ? 'mt-2' : ''} flex flex-col`}>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Homepage} />
@@ -128,6 +129,7 @@ const Markup = () => {
             <Route path="/registro" exact component={Register} />
             <Route path="/gestionar-trabajos" exact component={ManageJobs} />
             <Route path="/empresas" exact component={Companies} />
+            <Route path="/mensajes" exact component={Messages} />
           </Switch>
         </div>
       </div>
