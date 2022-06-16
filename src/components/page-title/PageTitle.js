@@ -9,7 +9,7 @@ export const PageTitle = ({ title = 'Publica un trabajo' }) => {
 
   return (
     <Wrapper className="d-flex justify-content-between">
-      <h4 className="bold">{title}</h4>
+      <h4 className="page-title__title bold">{title}</h4>
       <div
         className="page-title__button text-center text-white d-flex align-items-center justify-content-center"
         onClick={() => history.push(paths[path] || 'resumen')}

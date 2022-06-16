@@ -53,7 +53,6 @@ import ChangePassword from './Pages/change-password'
 import Transactions from './Pages/transactions'
 import Profile from './Pages/profile'
 import PostJob from './Pages/post-job'
-import Resume from './Pages/resume'
 import Register from './Pages/register'
 import ManageJobs from './Pages/manage-jobs'
 import Companies from './Pages/companies'
@@ -124,7 +123,6 @@ const Markup = () => {
             <Route path="/publicar-empleo" exact component={PostJob} />
             <Route path="/cambiar-contraseña" exact component={ChangePassword} />
             <Route path="/perfil" exact component={Profile} />
-            <Route path="/resumen" exact component={Resume} />
             <Route path="/transacciones" exact component={Transactions} />
             <Route path="/registro" exact component={Register} />
             <Route path="/gestionar-trabajos" exact component={ManageJobs} />

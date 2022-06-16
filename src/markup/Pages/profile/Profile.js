@@ -76,7 +76,7 @@ const CompanyProfile = () => {
   const formProps = { utils, data, setData, handleSubmit, input, select, cities, errors, error }
 
   return (
-    <Wrapper className="d-flex justify-content-center px-4">
+    <Wrapper className="d-flex justify-content-center flex-column flex-xl-row">
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle title={isCandidate ? 'Información de la cuenta' : 'Perfil de la empresa'} />

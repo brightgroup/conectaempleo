@@ -16,6 +16,7 @@ const Messages = () => {
   } = useSelector(state => state)
 
   const [data, setData] = useState({})
+
   const ejecutar = false
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const Messages = () => {
   useEffect(() => setData(company), [company, setData])
 
   return (
-    <Wrapper className="d-flex justify-content-center border">
+    <Wrapper className="d-flex justify-content-center flex-column flex-xl-row">
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle title="Mensajes" />
