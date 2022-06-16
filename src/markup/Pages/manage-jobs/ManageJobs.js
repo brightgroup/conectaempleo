@@ -29,7 +29,7 @@ const ManageJobs = () => {
   }, [dispatch])
 
   useEffect(() => {
-    setData(jobOffers.data)
+    setData(jobOffers?.data)
   }, [jobOffers])
 
   const hasEmptyFields = () => {

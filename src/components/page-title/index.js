@@ -7,7 +7,8 @@ export const paths = {
   'publicar-empleo': '/perfil',
   transacciones: '/publicar-empleo',
   resumen: 'transacciones',
-  'cambiar-contrasea': 'resumen',
+  mensajes: 'resumen',
+  'cambiar-contrasea': 'mensajes',
 }
 
 export const Wrapper = styled.div`

@@ -9,6 +9,7 @@ const initialState = {
   errorMessage: '',
   successMessage: '',
   showLoading: false,
+  isCandidate: false,
   user: {},
 }
 
@@ -18,6 +19,7 @@ export function AuthReducer(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+        isCandidate: action.payload?.isCandidate,
       }
     default:
       return state
