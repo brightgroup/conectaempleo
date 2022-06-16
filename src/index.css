@@ -1,11 +1,3 @@
-*,
-*::after,
-*::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --blue:#0097fe;
     --error:#C13515;
@@ -15,29 +7,19 @@
     --active-gray: #f8f8f8;
 }
 
-.section-content {
-    max-width: 51.25rem;
-    min-width: 51.25rem;
-    background-color: white;
-    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
-    padding: 1.25rem 1.875rem;
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+*,
+*::after,
+*::before {
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-input[type='number'] {
-    -moz-appearance: textfield;
+body {
+    font-family: 'Lato', sans-serif;
 }
 
-.pointer {
-    cursor: pointer;
-}
-
-.page-wraper {
+.routes-container {
     min-height: calc(100vh);
     display: flex;
     flex-direction: column;
@@ -49,4 +31,23 @@ input[type='number'] {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 0 20px;
+    border: 1px solid red;
+}
+
+.section-content {
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
+    padding: 20px;
+}
+
+@media (min-width: 56.25rem) {
+    .section-content {
+        min-width: 51.25rem;
+        padding: 20px 1.875rem;
+    }
+
+    .pages-container {
+        padding: 1.25rem 1.875rem;
+    }
 }

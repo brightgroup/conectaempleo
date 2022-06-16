@@ -72,7 +72,7 @@ const Markup = () => {
 
   return (
     <>
-      <div className="page-wraper d-flex flex-column">
+      <div className="routes-container d-flex flex-column">
         {showHeader && <Header />}
         <div className={`pages-container bg-white ${showHeader ? 'mt-2' : ''} flex flex-col`}>
           <Switch>
