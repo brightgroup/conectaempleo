@@ -27,7 +27,7 @@ const Messages = () => {
   useEffect(() => setData(company), [company, setData])
 
   return (
-    <Wrapper className="d-flex justify-content-center px-4">
+    <Wrapper className="d-flex justify-content-center border">
       <SidebarMenu />
       <Content className="section-content">
         <PageTitle title="Mensajes" />

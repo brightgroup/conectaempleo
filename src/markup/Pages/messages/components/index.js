@@ -7,6 +7,7 @@ export * from './Chat'
 export const ChatWrapper = styled.div`
   gap: 0.5rem;
   margin-top: 0.9375rem;
+
   .chat {
     &__conversations {
       width: 35%;

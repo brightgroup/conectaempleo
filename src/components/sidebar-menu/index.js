@@ -5,12 +5,12 @@ export * from './SidebarMenu'
 export const sidebarItems = [
   {
     text: 'Editar perfil',
-    icon: 'fa fa-user-o',
+    icon: 'fa fa-user',
     path: '/perfil',
   },
   {
     text: 'Publicar trabajo',
-    icon: 'fa fa-file-text-o',
+    icon: 'fa-solid fa-file-lines',
     path: '/publicar-empleo',
   },
   {
@@ -24,20 +24,9 @@ export const sidebarItems = [
     path: '/gestionar-trabajos',
   },
   {
-    text: 'Resumen',
-    icon: 'fa fa-id-card-o',
-    path: '/resumen',
-  },
-  {
     text: 'Chat interno',
     icon: 'fa-solid fa-envelope',
     path: '/mensajes',
-  },
-  {
-    text: 'Cambiar contraseña',
-    icon: 'fa fa-key',
-    section: 'change-pasword',
-    path: '/cambiar-contraseña',
   },
   {
     text: 'Cerrar sesion',
@@ -61,8 +50,10 @@ export const WrapperSidebar = styled.div`
     padding: 1rem 1rem;
     width: 100%;
     cursor: pointer;
-    color: var(--gray);
+    /* color: var(--gray); */
+    color: gray;
     border-bottom: 0.0625rem solid #e1e7ff;
+    text-decoration: none;
 
     &:last-of-type {
       border: none;
@@ -71,6 +62,7 @@ export const WrapperSidebar = styled.div`
     &__label {
       font-size: 0.9375rem;
       transition: 0.4s all;
+      font-weight: 300;
     }
 
     &:hover {
@@ -79,61 +71,7 @@ export const WrapperSidebar = styled.div`
 
     &:hover .sidebar-item__label {
       transform: translateX(0.3125rem);
-      font-weight: bold;
-    }
-  }
-
-  .sidebar {
-    &__profile-box {
-      width: 290px;
-      height: 268px;
-      margin: 0 auto;
-    }
-
-    &__container-image {
-      width: 146px;
-      height: 146px;
-      margin-top: 26px;
-    }
-
-    &__profile-image {
-      border-radius: 100%;
-      object-fit: contain;
-    }
-
-    &__update-icon {
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      right: 0;
-      background-color: white;
-      border-radius: 100%;
-      font-size: 13px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      color: var(--blue);
-      z-index: 1000;
-    }
-
-    &__input-file {
-      position: absolute;
-      right: 0;
-      width: 40px;
-      height: 40px;
-      background-color: red;
-      z-index: 2;
-      display: none;
-    }
-
-    &__company-name {
-      font-size: 24px;
-      font-weight: 700;
-      position: absolute;
-      margin: auto;
-      bottom: 1.875rem;
-      color: black;
+      font-weight: 600;
     }
   }
 `
