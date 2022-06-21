@@ -11,6 +11,9 @@ export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 
   .container--login {
     flex-basis: 400px;

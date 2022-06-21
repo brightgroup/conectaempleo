@@ -1,7 +1,5 @@
-import { Input } from 'components/input'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Input } from 'components/input'
 import { WrapperForm } from '.'
 
 export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
@@ -41,19 +39,19 @@ export const LoginForm = ({ handleSubmit, handleChangeInput, error, data }) => {
       </button>
       <div className="dz-social clearfix mt-3 d-flex justify-content-between w-100">
         <h5 className="form-title m-t5 pull-left">Ingresa con </h5>
-        <ul className="dez-social-icon dez-border pull-right dez-social-icon-lg text-white m-s2">
-          <li>
-            <Link to={''} className="fa fa-facebook  fb-btn mr-1" target="bank"></Link>
-          </li>
-          <li>
-            <Link to={''} className="fa fa-twitter  tw-btn mr-1" target="bank"></Link>
-          </li>
-          <li>
-            <Link to={''} className="fa fa-linkedin link-btn mr-1" target="bank"></Link>
-          </li>
-          <li>
-            <Link to={''} className="fa fa-google-plus gplus-btn" target="bank"></Link>
-          </li>
+        <ul className="dez-social-icon dez-border pull-right dez-social-icon-lg text-white m-s2 d-flex gap-2">
+          <div className="network-icon center">
+            <i className="fa-brands fa-facebook-f" />
+          </div>
+          <div className="network-icon center twitter-container">
+            <i className="fa-brands fa-twitter" />
+          </div>
+          <div className="network-icon center linkedin-container">
+            <i className="fa-brands fa-linkedin-in" />
+          </div>
+          <div className="network-icon center google-container">
+            <i className="fa-brands fa-google-plus-g" />
+          </div>
         </ul>
       </div>
     </WrapperForm>
