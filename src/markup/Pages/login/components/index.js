@@ -32,4 +32,24 @@ export const WrapperForm = styled.form`
       box-shadow: 2px 2px 2px gray;
     }
   }
+
+  .network-icon {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #4867aa;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .twitter-container {
+    background-color: #1da1f2;
+  }
+
+  .linkedin-container {
+    background-color: #0274b3;
+  }
+
+  .google-container {
+    background-color: #dc4a38;
+  }
 `

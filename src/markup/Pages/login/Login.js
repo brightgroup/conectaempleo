@@ -38,7 +38,7 @@ function Login() {
   return (
     <Wrapper>
       <div className="d-flex container--login flex-column align-items-center">
-        <div className="logo-header text-center p-tb30 ">
+        <div className="logo-header text-center mt-2">
           <Link to={'./'}>
             <img src={logo} alt="logo" className="page-logo" />
           </Link>
