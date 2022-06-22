@@ -1,6 +1,14 @@
 import { simpleClient } from 'utils/axios'
 import { urls } from 'api/ulrs'
-import { SET_JOB_UTILS, SET_PROFILE_UTILS, SET_ERROR, SET_CITIES, SET_OFFER_UTILS } from './UtilTypes'
+import {
+  SET_JOB_UTILS,
+  SET_PROFILE_UTILS,
+  SET_ERROR,
+  SET_CITIES,
+  SET_OFFER_UTILS,
+  SET_HOME_UTILS,
+  SET_FILTERED_JOB_UTILS,
+} from './UtilTypes'
 export const TOGGLE_LOADER = 'TOGGLE_LOADER'
 
 const setJobUtils = data => ({
@@ -20,6 +28,16 @@ const setCities = data => ({
 
 const setOfferUtils = data => ({
   type: SET_OFFER_UTILS,
+  payload: data,
+})
+
+const setHomeUtils = data => ({
+  type: SET_HOME_UTILS,
+  payload: data,
+})
+
+const setFilteredJobUtils = data => ({
+  type: SET_FILTERED_JOB_UTILS,
   payload: data,
 })
 
@@ -95,12 +113,55 @@ export const getProfileUtils = () => async dispatch => {
   }
 }
 
+export const getFilteredJobutils = () => async dispatch => {
+  try {
+    const { getCompanies } = urls.company
+    const {
+      getSkills,
+      getJobType,
+      getDegreeLevel,
+      getJobExperiences,
+      getdepartments,
+      getCareerLevels,
+      getFunctionalArea,
+      getCurrencies,
+      getSalaryPeriods,
+    } = urls.utils
+
+    await Promise.all([
+      simpleClient(getCompanies),
+      simpleClient(getSkills),
+      simpleClient(getJobType),
+      simpleClient(getDegreeLevel),
+      simpleClient(getJobExperiences),
+      simpleClient(getCurrencies),
+      simpleClient(getdepartments),
+      simpleClient(getCareerLevels),
+      simpleClient(getFunctionalArea),
+      simpleClient(getSalaryPeriods),
+    ]).then(res => dispatch(setFilteredJobUtils(res)))
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
 export const getCities = departmentId => async dispatch => {
   try {
     if (departmentId) {
       const { data } = await simpleClient(urls.utils.getCities(departmentId))
       dispatch(setCities(data))
     }
+  } catch (error) {
+    dispatch(setError(error))
+  }
+}
+
+export const getHomeUtils = () => async dispatch => {
+  try {
+    const { getFunctionalArea, getdepartments } = urls.utils
+    await Promise.all([simpleClient(getFunctionalArea), simpleClient(getdepartments)]).then(res =>
+      dispatch(setHomeUtils(res))
+    )
   } catch (error) {
     dispatch(setError(error))
   }

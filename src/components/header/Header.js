@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-import logo2 from 'images/logo.png'
+// import logo2 from 'images/logo.png'
 import { EMPLOYER } from 'constants/rol'
 import { Wrapper } from '.'
 // import { BurgerButton } from 'components/burger-button'
@@ -14,9 +14,7 @@ export const Header = () => {
   return (
     <Wrapper>
       <div className="header__logo d-flex align-items-center">
-        <Link to="/">
-          <img src={logo2} className="page-logo" alt="img" />
-        </Link>
+        <Link to="/">{/* <img src={logo2} className="" alt="img" /> */}</Link>
       </div>
       <nav className="header__nav d-flex align-items-center ">
         <ul className="header__nav-list d-flex m-0">
