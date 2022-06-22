@@ -28,3 +28,30 @@ export const getUtilsData = data => {
     functionalArea,
   }
 }
+
+export const setFilterJobUtils = data => {
+  const [
+    { data: companies = [] },
+    { data: skills = [] },
+    { data: jobTypes = [] },
+    { data: degreeLevel = [] },
+    { data: jobExperiences = [] },
+    { data: currencies = [] },
+    { data: departments = [] },
+    { data: careerLevels = [] },
+    { data: functionalArea = [] },
+    { data: salaryPeriods = [] },
+  ] = data
+  return {
+    companies: companies.companies.data,
+    skills,
+    jobTypes,
+    degreeLevel,
+    jobExperiences,
+    currencies,
+    departments,
+    careerLevels,
+    functionalArea,
+    salaryPeriods,
+  }
+}

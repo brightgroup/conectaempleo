@@ -59,6 +59,7 @@ import Companies from './Pages/companies'
 import Companies2 from './Pages/Companies2'
 import Home from './Pages/home'
 import Messages from './Pages/messages'
+import Jobs from './Pages/jobs/'
 
 const Markup = () => {
   const [showHeader, setShowHeader] = useState(false)
@@ -128,6 +129,7 @@ const Markup = () => {
             <Route path="/gestionar-trabajos" exact component={ManageJobs} />
             <Route path="/empresas" exact component={Companies} />
             <Route path="/mensajes" exact component={Messages} />
+            <Route path="/trabajos" exact component={Jobs} />
           </Switch>
         </div>
       </div>

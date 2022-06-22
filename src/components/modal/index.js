@@ -11,7 +11,7 @@ export const ModalWrapper = styled.div`
   align-items: center;
   top: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 100;
   background-color: #6c627480;
   display: ${({ show }) => (show ? 'flex' : 'none')};
 

@@ -47,7 +47,7 @@ export const client = async ({ endpoint, data = {}, method = 'GET', contentType 
         return res?.data || res
       } catch (error) {
         store.dispatch(toggleLoader())
-        if ([401, 404].includes(error.response.status)) store.dispatch(logOut())
+        if ([401].includes(error.response.status)) store.dispatch(logOut())
       }
     } else {
       try {

@@ -1,7 +1,16 @@
-import { getUtilsData } from 'utils/job'
+import { getHomedata } from 'utils/home'
+import { getUtilsData, setFilterJobUtils } from 'utils/job'
 import { getOfferData } from 'utils/offer'
 import { getProfileData } from 'utils/profile'
-import { SET_JOB_UTILS, SET_CITIES, SET_PROFILE_UTILS, SET_ERROR, SET_OFFER_UTILS } from '../actions/UtilTypes'
+import {
+  SET_JOB_UTILS,
+  SET_CITIES,
+  SET_PROFILE_UTILS,
+  SET_ERROR,
+  SET_OFFER_UTILS,
+  SET_HOME_UTILS,
+  SET_FILTERED_JOB_UTILS,
+} from '../actions/UtilTypes'
 
 const initialState = {
   jobUtils: {
@@ -15,6 +24,7 @@ const initialState = {
     gradeLevels: [],
     jobExperiences: [],
   },
+
   profile: {
     genders: [],
     countries: [],
@@ -26,6 +36,7 @@ const initialState = {
     populationGroup: [],
     civilStatus: [],
   },
+
   offerUtils: {
     skills: [],
     countries: [],
@@ -37,6 +48,24 @@ const initialState = {
     salaryPeriods: [],
     jobTypes: [],
   },
+
+  homeUtils: {
+    skills: [],
+    departments: [],
+  },
+
+  filteredJobUtils: {
+    companies: [],
+    skills: [],
+    jobTypes: [],
+    gradeLevels: [],
+    jobExperiences: [],
+    currencies: [],
+    departments: [],
+    careerLevels: [],
+    functionalArea: [],
+  },
+
   cities: [],
   showLoader: false,
   error: '',
@@ -68,6 +97,16 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         offerUtils: getOfferData(action.payload),
+      }
+    case SET_HOME_UTILS:
+      return {
+        ...state,
+        homeUtils: getHomedata(action.payload),
+      }
+    case SET_FILTERED_JOB_UTILS:
+      return {
+        ...state,
+        filteredJobUtils: setFilterJobUtils(action.payload),
       }
     case SET_ERROR:
       return {

@@ -20,3 +20,8 @@ export const sortArray = (data = [], { key, higher = false, subKey, isDate = fal
     )
   return [...data]?.sort((a, b) => (higher ? Number(b[key]) - Number(a[key]) : Number(a[key]) - Number(b[key])))
 }
+
+export const getValue = (initialValue, data) => {
+  if (!initialValue) return ''
+  return data?.find(option => option.id === Number(initialValue) || option.name === initialValue)?.name
+}
