@@ -14,6 +14,9 @@ export const Wrapper = styled.header`
     &__logo {
       height: auto;
       max-width: 180px;
+      &-size {
+        max-width: 180px;
+      }
     }
 
     &__nav {
