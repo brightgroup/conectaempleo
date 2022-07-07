@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export * from './Footer'
 
-export const WrapperFooter = styled.div`
+export const WrapperFooter = styled.footer`
   .footer {
     &__section {
       background-color: #222845;
@@ -22,9 +22,11 @@ export const WrapperFooter = styled.div`
 
     &__column {
       width: 38%;
+      max-width: 455px;
 
       &-last {
         width: 24%;
+        max-width: 290px;
       }
     }
 
@@ -150,3 +152,53 @@ export const WrapperFooter = styled.div`
     }
   }
 `
+
+export const jobs = [
+  'Empleos en ee.uu',
+  'Empleos en Canada',
+  'Empleos Reino Unido',
+  'Empleos en Francia',
+  'Empleos en Suiza',
+  'Empleos en China',
+]
+
+export const questions = [
+  'Privacidad y seguridad',
+  'Terminos de servicio',
+  'Comunicaciones',
+  'Terminos de referencia',
+  'Licencias de prestamo',
+  'Soporte',
+  'Como funciona',
+  'Para empleadores',
+  'Suscripcion',
+  'Contactanos',
+]
+
+export const socialNetworks = [
+  {
+    name: 'facebook',
+    icon: 'fa-brands fa-facebook-f',
+    class: 'footer__icon-facebook',
+  },
+  {
+    name: 'google',
+    icon: 'fa-brands fa-google-plus-g',
+    class: 'footer__icon-google',
+  },
+  {
+    name: 'linkedin',
+    icon: 'fa-brands fa-linkedin-in',
+    class: 'footer__icon-linkedin',
+  },
+  {
+    name: 'instagram',
+    icon: 'fa-brands fa-instagram',
+    class: 'footer__icon-instagram',
+  },
+  {
+    name: 'twiter',
+    icon: 'fa-brands fa-twitter',
+    class: 'footer__icon-twiter',
+  },
+]

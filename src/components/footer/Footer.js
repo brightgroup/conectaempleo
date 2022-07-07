@@ -1,7 +1,7 @@
 import React from 'react'
-import { WrapperFooter } from '.'
-import logo2 from 'images/logo.png'
 import { Link } from 'react-router-dom'
+import logo2 from 'images/logo.png'
+import { jobs, questions, socialNetworks, WrapperFooter } from '.'
 
 export const Footer = () => {
   return (
@@ -13,8 +13,8 @@ export const Footer = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's standard
             dummy text ever since the.
           </p>
-          <div className="">
-            <form className="" action="script/mailchamp.php" method="post">
+          <div>
+            <form action="script/mailchamp.php" method="post">
               <div className="d-flex mt-3">
                 <input
                   name="dzEmail"
@@ -23,7 +23,7 @@ export const Footer = () => {
                   placeholder="Email"
                   type="email"
                 />
-                <span className="">
+                <span>
                   <button type="submit" className="footer__button">
                     Subscribe
                   </button>
@@ -32,102 +32,29 @@ export const Footer = () => {
             </form>
           </div>
           <ul className="footer__list d-flex mt-3">
-            <li className="footer__social footer__icon-facebook">
-              <Link
-                to={''}
-                className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
-              >
-                <i className="fa-brands fa-facebook-f" />
-              </Link>
-            </li>
-            <li className="footer__social footer__icon-google">
-              <Link
-                to={''}
-                className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
-              >
-                <i className="fa-brands fa-google-plus-g" />
-              </Link>
-            </li>
-            <li className="footer__social footer__icon-linkedin">
-              <Link
-                to={''}
-                className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
-              >
-                <i className="fa-brands fa-linkedin-in" />
-              </Link>
-            </li>
-            <li className="footer__social footer__icon-instagram">
-              <Link
-                to={''}
-                className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
-              >
-                <i className="fa-brands fa-instagram" />
-              </Link>
-            </li>
-            <li className="footer__social footer__icon-twiter">
-              <Link
-                to={''}
-                className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
-              >
-                <i class="fa-brands fa-twitter" />
-              </Link>
-            </li>
+            {socialNetworks.map(item => (
+              <li className={`footer__social ${item.class}`} key={item.name}>
+                <Link
+                  to={''}
+                  className="footer__social-icon h-100 w-100 d-flex justify-content-center align-items-center"
+                >
+                  <i className={item.icon} />
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="footer__column">
           <div className="footer__questions">
-            <h5 className="footer__questions-title text-white ml-4 ">Preguntas Frecuentes</h5>
+            <h5 className="footer__questions-title text-white ml-4">Preguntas Frecuentes</h5>
             <ul className="footer__questions-list mt-4">
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Privacidad y seguridad
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Terminos de servicio
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Comunicaciones
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Terminos de referencia
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Licencias de prestamo
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Soporte
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Como funciona
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Para empleadores
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Suscripcion
-                </Link>
-              </li>
-              <li className="footer__questions-text">
-                <Link to={''} className="footer__questions-item">
-                  Contactanos
-                </Link>
-              </li>
+              {questions.map((item, index) => (
+                <li className="footer__questions-text" key={index}>
+                  <Link to={''} className="footer__questions-item">
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -135,36 +62,13 @@ export const Footer = () => {
           <div className=" footer__jobs">
             <h5 className="text-white ml-4">Encontrar Trabajo</h5>
             <ul className="mt-4 footer__questions-list">
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos en ee.uu
-                </Link>
-              </li>
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos en Canada
-                </Link>
-              </li>
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos Reino Unido
-                </Link>
-              </li>
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos en Francia
-                </Link>
-              </li>
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos en Suiza
-                </Link>
-              </li>
-              <li className="footer__jobs-text">
-                <Link to={''} className="footer__questions-item">
-                  Empleos en China
-                </Link>
-              </li>
+              {jobs.map((item, index) => (
+                <li className="footer__jobs-text" key={index}>
+                  <Link to={''} className="footer__questions-item">
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
