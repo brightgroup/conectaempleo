@@ -48,6 +48,7 @@ import ScrollToTop from './Element/ScrollToTop'
 
 //New paths
 import { Header } from 'components/header'
+import { Footer } from 'components/footer'
 import Login from './Pages/login'
 import ChangePassword from './Pages/change-password'
 import Transactions from './Pages/transactions'
@@ -132,6 +133,7 @@ const Markup = () => {
             <Route path="/trabajos" exact component={Jobs} />
           </Switch>
         </div>
+        {showHeader && <Footer />}
       </div>
       <ScrollToTop />
     </>

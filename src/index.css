@@ -31,7 +31,6 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
 }
 
 .section-content {
@@ -45,14 +44,10 @@ body {
     min-width: 51.25rem;
     padding: 20px 1.875rem;
   }
-
-  .pages-container {
-    padding: 1.25rem 1.875rem;
-  }
 }
 
 @media (max-width: 600px) {
-    .section-content {
-        width: 100%;
-    }
+  .section-content {
+    width: 100%;
+  }
 }
